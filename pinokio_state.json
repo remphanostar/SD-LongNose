@@ -1,0 +1,12 @@
+{
+  "state": "setup_complete",
+  "platform": "unknown",
+  "pinokio_version": null,
+  "server_port": null,
+  "tunnel_url": null,
+  "tunnel_service": null,
+  "installed_tools": [],
+  "last_error": null,
+  "started_at": "2025-09-01T13:48:17.133706",
+  "ready_at": null
+}
