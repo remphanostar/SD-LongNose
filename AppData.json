@@ -1,0 +1,3489 @@
+[
+  {
+    "Appname": "VibeVoice-Pinokio",
+    "entryURL": "https://github.com/SUP3RMASS1VE/VibeVoice-Pinokio",
+    "Category": "Audio",
+    "tag": "pinokio-tagged, TTS, text-to-speech, voice-generation",
+    "description": "An open-source Text-to-Speech (TTS) application designed for generating high-quality voice from text.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "RVC-realtime",
+    "entryURL": "https://github.com/Feedjer/RVC-realtime",
+    "Category": "Audio",
+    "tag": "pinokio-tagged, RVC, voice-cloning, real-time, windows, linux",
+    "description": "A Pinokio installer for a real-time Retrieval-based Voice Conversion (RVC) application. Note: For Windows and Linux only.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "moore-animateanyone",
+    "entryURL": "https://github.com/cocktailpeanutlabs/moore-animateanyone",
+    "Category": "Video",
+    "tag": "cocktailpeanutlabs, animation, image-to-video, motion-transfer, animate-anyone",
+    "description": "Implements the Animate Anyone model, which generates character-focused animations from a single source image and a sequence of poses.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "clarity-refiners-ui",
+    "entryURL": "https://github.com/pinokiofactory/clarity-refiners-ui",
+    "Category": "Image",
+    "tag": "pinokiofactory, upscaler, image-enhancement, refiners, 8GB-VRAM",
+    "description": "A creative image enhancer and upscaler powered by Refiners. Requires a minimum of 8GB VRAM for operation and a 10GB installation.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "openaudio",
+    "entryURL": "https://github.com/pinokiofactory/openaudio",
+    "Category": "Audio",
+    "tag": "pinokiofactory, audio",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "bria-rmbg",
+    "entryURL": "https://github.com/cocktailpeanutlabs/bria-rmbg",
+    "Category": "Image",
+    "tag": "cocktailpeanutlabs, background-removal, image-editing, bria-ai",
+    "description": "Implements the BRIA RMBG (Remove Background) model for high-quality background removal from images.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "facefusion-pinokio",
+    "entryURL": "https://github.com/facefusion/facefusion-pinokio",
+    "Category": "Image",
+    "tag": "pinokio-tagged, face-swapping, video-editing, image-editing, facefusion",
+    "description": "Official Pinokio installer for FaceFusion, an industry-leading platform for face swapping and manipulation in images and videos.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "applio",
+    "entryURL": "https://github.com/pinokiofactory/applio",
+    "Category": "Audio",
+    "tag": "pinokiofactory, RVC, voice-cloning, TTS, applio",
+    "description": "A Pinokio Installer for Applio, a comprehensive UI for voice cloning tasks, often utilizing RVC and other TTS technologies.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "MFLUX-WEBUI",
+    "entryURL": "https://github.com/CharafChnioune/MFLUX-WEBUI",
+    "Category": "Image",
+    "tag": "pinokio-tagged, image-generation, MLX, FLUX, Apple-Silicon",
+    "description": "A web interface for image generation using MFLUX, leveraging the MLX framework for Apple Silicon with FLUX DEV and Schnell models.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "Applio-Pinokio",
+    "entryURL": "https://github.com/6Morpheus6/Applio-Pinokio",
+    "Category": "Audio",
+    "tag": "6Morpheus6, applio, RVC, voice-cloning, TTS",
+    "description": "A third-party Pinokio installer for Applio, an all-in-one application for RVC (Retrieval-based Voice Conversion) and other voice cloning tasks.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "rvc.pinokio",
+    "entryURL": "https://github.com/6Morpheus6/rvc.pinokio",
+    "Category": "Audio",
+    "tag": "6Morpheus6, RVC, voice-cloning",
+    "description": "A Pinokio installer for a Retrieval-based Voice Conversion (RVC) web interface, used for voice cloning.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "bolt.new",
+    "entryURL": "https://github.com/gotoolkits/bolt.new",
+    "Category": "Utility",
+    "tag": "pinokio-tagged, web-development, AI-assistant, full-stack",
+    "description": "An AI-Powered full-stack web development environment that runs in the browser, packaged for Pinokio.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "dalai",
+    "entryURL": "https://github.com/cocktailpeanut/dalai",
+    "Category": "LLM",
+    "tag": "cocktailpeanut, LLaMA, text-generation, local-llm",
+    "description": "Provides a simple method to run LLaMA (Large Language Model Meta AI) and its variants on a local machine.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "deeperhermes",
+    "entryURL": "https://github.com/cocktailpeanut/deeperhermes",
+    "Category": "LLM",
+    "tag": "cocktailpeanut, LLM, autonomous-agent, text-generation",
+    "description": "An experimental LLM setup based on Hermes models, designed to make decisions on how to respond without system prompts.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "pinokio-wiki",
+    "entryURL": "https://github.com/6Morpheus6/pinokio-wiki",
+    "Category": "Utility",
+    "tag": "6Morpheus6, documentation, tutorial, wiki",
+    "description": "A repository containing tutorials and documentation for Pinokio and its various applications.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "vevo-pinokio",
+    "entryURL": "https://github.com/chameleon-ai/vevo-pinokio",
+    "Category": "Audio",
+    "tag": "pinokio-tagged, voice-cloning, TTS, zero-shot",
+    "description": "A simple GUI wrapper for Amphion Vevo, a zero-shot voice cloning model, allowing text-to-speech generation in a cloned voice.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "breadboard",
+    "entryURL": "https://github.com/cocktailpeanut/breadboard",
+    "Category": "Image",
+    "tag": "cocktailpeanut, stable-diffusion, image-generation, UI",
+    "description": "A Stable Diffusion Browser and user interface for Windows, Mac, and Linux.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "DiffuEraser",
+    "entryURL": "https://github.com/cocktailpeanutlabs/DiffuEraser",
+    "Category": "Image",
+    "tag": "cocktailpeanutlabs, image-editing, object-removal, inpainting",
+    "description": "An image editing tool that uses diffusion models to erase and realistically replace objects within an image.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "fp",
+    "entryURL": "https://github.com/cocktailpeanutlabs/fp",
+    "Category": "Utility",
+    "tag": "cocktailpeanutlabs",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "Higgs-Audio-V2-Pinokio",
+    "entryURL": "https://github.com/PierrunoYT/Higgs-Audio-V2-Pinokio",
+    "Category": "Audio",
+    "tag": "pinokio-tagged, TTS, text-to-speech, voice-cloning, music-generation",
+    "description": "A comprehensive web interface for Higgs Audio V2, featuring advanced text-to-speech, voice cloning, multi-speaker support, and background music generation.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "higgs-audio-v2-ui",
+    "entryURL": "https://github.com/Paxurux/higgs-audio-v2-ui",
+    "Category": "Audio",
+    "tag": "pinokio-tagged, TTS, text-to-speech, low-vram, quantization",
+    "description": "A Gradio UI for the Higgs Audio V2 TTS model, featuring low VRAM support, long text generation, and quantization options (4-bit, 6-bit, 8-bit).",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "roop-unleashed",
+    "entryURL": "https://github.com/SUP3RMASS1VE/roop-unleashed",
+    "Category": "Image",
+    "tag": "pinokio-tagged, face-swapping, roop, windows",
+    "description": "A Pinokio script for roop-unleashed, a face-swapping application. The script is noted to be for Windows, with uncertain compatibility for other OS.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "Unique3D-pinokio",
+    "entryURL": "https://github.com/6Morpheus6/Unique3D-pinokio",
+    "Category": "3D",
+    "tag": "6Morpheus6, 3D-generation, image-to-3D, nvidia-only, 12GB-VRAM",
+    "description": "Generates high-quality 3D meshes from a single image. Requires an NVIDIA GPU with a minimum of 12GB VRAM and 24GB RAM.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "RMBG-2-Studio",
+    "entryURL": "https://github.com/pinokiofactory/RMBG-2-Studio",
+    "Category": "Image",
+    "tag": "pinokiofactory, background-removal, image-editing, low-vram",
+    "description": "An enhanced background removal and replacement app built around the BRIA-RMBG-2.0 model. Designed for low VRAM/RAM systems.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "Realtime-Transcription",
+    "entryURL": "https://github.com/SUP3RMASS1VE/Realtime-Transcription",
+    "Category": "Audio",
+    "tag": "pinokio-tagged, STT, speech-to-text, transcription, real-time, whisper",
+    "description": "Performs real-time speech transcription using a local Whisper model and FastRTC for low latency.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "comfyui.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/comfyui.pinokio",
+    "Category": "Image",
+    "tag": "cocktailpeanut, comfyui, stable-diffusion, node-based, image-generation",
+    "description": "A one-click launcher for ComfyUI, a powerful and modular node-based GUI for Stable Diffusion models.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "langflow.pinokio",
+    "entryURL": "https://github.com/ogabrielluiz/langflow.pinokio",
+    "Category": "LLM",
+    "tag": "pinokio-tagged, langflow, langchain, agent-builder, UI",
+    "description": "A Pinokio installer for Langflow, a UI for LangChain designed for experimenting and prototyping LLM-based applications and agents.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "Flowise-Pinokio",
+    "entryURL": "https://github.com/FlowiseAI/Flowise-Pinokio",
+    "Category": "LLM",
+    "tag": "pinokio-tagged, flowise, agent-builder, low-code, UI",
+    "description": "Official Pinokio installer for Flowise, a low-code UI tool for building customized LLM-based applications and chatbots.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "llamacpp.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/llamacpp.pinokio",
+    "Category": "LLM",
+    "tag": "cocktailpeanut, llama-cpp, local-llm, inference, GGUF",
+    "description": "A Pinokio installer for llama.cpp, a high-performance inference engine for running LLaMA models (GGUF) locally on CPU or GPU.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "superagi_pinokio",
+    "entryURL": "https://github.com/Josephrp/superagi_pinokio",
+    "Category": "LLM",
+    "tag": "pinokio-tagged, superagi, autonomous-agent, agent-framework",
+    "description": "A Pinokio installer for SuperAGI, a dev-first open-source autonomous AI agent framework.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "animatediff.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/animatediff.pinokio",
+    "Category": "Video",
+    "tag": "cocktailpeanut, animatediff, image-to-video, text-to-video, animation",
+    "description": "A one-click installer for AnimateDiff, a method for generating animated videos from text prompts or still images using diffusion models.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "cogstudio",
+    "entryURL": "https://github.com/pinokiofactory/cogstudio",
+    "Category": "Image",
+    "tag": "pinokiofactory, cog, replicate, model-runner",
+    "description": "A studio interface for running various Cog models, which are containerized machine learning models often found on Replicate.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "KittenTTS",
+    "entryURL": "https://github.com/soldier444xd/KittenTTS",
+    "Category": "Audio",
+    "tag": "pinokio-tagged, TTS, text-to-speech, lightweight, CPU-friendly",
+    "description": "An ultra-lightweight (15M params) and CPU-friendly Text-to-Speech model designed for real-time, high-quality voice generation.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "diffrhythm",
+    "entryURL": "https://github.com/pinokiofactory/diffrhythm",
+    "Category": "Audio",
+    "tag": "pinokiofactory, audio-editing, rhythm-transfer",
+    "description": "Info not present or insufficient data available. Likely a diffusion-based model for rhythm transfer in audio.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "Image-Upscale",
+    "entryURL": "https://github.com/SUP3RMASS1VE/Image-Upscale",
+    "Category": "Image",
+    "tag": "pinokio-tagged, upscaler, image-enhancement, stable-diffusion, controlnet",
+    "description": "An AI-powered application to enhance and upscale images using advanced techniques like Stable Diffusion and Tile ControlNet for high-quality results.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "ComfyDock-Pinokio",
+    "entryURL": "https://github.com/ComfyDock/ComfyDock-Pinokio",
+    "Category": "Utility",
+    "tag": "pinokio-tagged, comfyui, docker, environment-management",
+    "description": "A Pinokio application to manage multiple ComfyUI environments using Docker for better isolation and reproducibility.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "stableaudio",
+    "entryURL": "https://github.com/pinokiofactory/stableaudio",
+    "Category": "Audio",
+    "tag": "pinokiofactory, music-generation, text-to-audio, stable-audio",
+    "description": "A Pinokio installer for Stable Audio, a model by Stability AI for generating music and sound effects from text prompts.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "HYPIR-pinokio",
+    "entryURL": "https://github.com/ai-anchorite/HYPIR-pinokio",
+    "Category": "Image",
+    "tag": "pinokio-tagged, image-restoration, upscaler, nvidia-only",
+    "description": "Harnesses Diffusion-Yielded Score Priors for high-quality image restoration and upscaling. Requires an NVIDIA GPU.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "VACE-Pinokio",
+    "entryURL": "https://github.com/6Morpheus6/VACE-Pinokio",
+    "Category": "Video",
+    "tag": "6Morpheus6, video-editing, video-generation, all-in-one, nvidia-only",
+    "description": "An all-in-one Video Creation and Editing tool (VACE) with features like Move-Anything, Swap-Anything, and Animate-Anything. Requires an NVIDIA GPU.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "openvoice2",
+    "entryURL": "https://github.com/cocktailpeanutlabs/openvoice2",
+    "Category": "Audio",
+    "tag": "cocktailpeanutlabs, voice-cloning, TTS, openvoice",
+    "description": "A Pinokio installer for OpenVoice V2, a versatile instant voice cloning model that requires only a short audio clip from the target speaker.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "uno",
+    "entryURL": "https://github.com/pinokiofactory/uno",
+    "Category": "Utility",
+    "tag": "pinokiofactory",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "Orpheus-TTS-FastAPI",
+    "entryURL": "https://github.com/pinokiofactory/Orpheus-TTS-FastAPI",
+    "Category": "Audio",
+    "tag": "pinokiofactory, TTS, text-to-speech, API, orpheus-tts",
+    "description": "A FastAPI server implementation for Orpheus TTS, allowing the text-to-speech model to be accessed as a web service.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "openvoice",
+    "entryURL": "https://github.com/cocktailpeanutlabs/openvoice",
+    "Category": "Audio",
+    "tag": "cocktailpeanutlabs, voice-cloning, TTS, openvoice",
+    "description": "A Pinokio installer for the original OpenVoice model, a versatile instant voice cloning approach.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "BAGEL-DFloat11",
+    "entryURL": "https://github.com/6Morpheus6/BAGEL-DFloat11",
+    "Category": "Image",
+    "tag": "pinokio-tagged, image-generation, image-editing, VLM, nvidia-only, 12GB-VRAM",
+    "description": "A Visual Language Model (VLM) for image generation, editing, and manipulation. Requires an NVIDIA GPU with a minimum of 12GB VRAM.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "Re-Size-Image-Outpaint",
+    "entryURL": "https://github.com/SUP3RMASS1VE/Re-Size-Image-Outpaint",
+    "Category": "Image",
+    "tag": "pinokio-tagged, outpainting, image-editing, stable-diffusion-xl, nvidia-only",
+    "description": "A powerful tool for extending images to different aspect ratios using Stable Diffusion XL for outpainting. Requires an NVIDIA GPU.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "spright",
+    "entryURL": "https://github.com/cocktailpeanutlabs/spright",
+    "Category": "Image",
+    "tag": "cocktailpeanutlabs, image-editing, colorization",
+    "description": "Info not present or insufficient data available. Likely a tool for image colorization or style transfer.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "flux-webui",
+    "entryURL": "https://github.com/pinokiofactory/flux-webui",
+    "Category": "Image",
+    "tag": "pinokiofactory, image-generation, FLUX, UI",
+    "description": "A web user interface for the FLUX.1 models, a new generation of powerful text-to-image models.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "open-webui",
+    "entryURL": "https://github.com/pinokiofactory/open-webui",
+    "Category": "LLM",
+    "tag": "pinokiofactory, ollama, chatbot, UI, local-llm",
+    "description": "A Pinokio installer for Open WebUI (formerly Ollama WebUI), a user-friendly and feature-rich interface for chatting with local LLMs via Ollama.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "mlx-video-transcription",
+    "entryURL": "https://github.com/pinokiofactory/mlx-video-transcription",
+    "Category": "Audio",
+    "tag": "pinokiofactory, transcription, STT, video-to-text, MLX, Apple-Silicon",
+    "description": "A video transcription tool that leverages the MLX framework, optimized for running on Apple Silicon.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "Audio-Flamingo-3-Pinokio",
+    "entryURL": "https://github.com/PierrunoYT/Audio-Flamingo-3-Pinokio",
+    "Category": "Audio",
+    "tag": "pinokio-tagged, LALM, audio-language-model, nvidia, audio-understanding",
+    "description": "A complete Pinokio package for NVIDIA's Audio Flamingo 3, a Large Audio-Language Model (LALM) for audio understanding and generation tasks.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "SmolLM3-3B-Pinokio",
+    "entryURL": "https://github.com/PierrunoYT/SmolLM3-3B-Pinokio",
+    "Category": "LLM",
+    "tag": "pinokio-tagged, local-llm, text-generation, gradio, GPU",
+    "description": "A complete Pinokio package for running the SmolLM3-3B language model locally with a Gradio interface, featuring GPU acceleration.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "KittenTTS-Pinokio",
+    "entryURL": "https://github.com/PierrunoYT/KittenTTS-Pinokio",
+    "Category": "Audio",
+    "tag": "pinokio-tagged, TTS, text-to-speech, lightweight, CPU",
+    "description": "A Pinokio integration for KittenTTS, an ultra-lightweight (15M parameters) text-to-speech model.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "OrpheusTTS-Pinokio",
+    "entryURL": "https://github.com/PierrunoYT/OrpheusTTS-Pinokio",
+    "Category": "Audio",
+    "tag": "pinokio-tagged, TTS, text-to-speech, orpheus-tts, gradio",
+    "description": "A standalone Text-to-Speech application using the Orpheus TTS model with a Gradio web interface.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "VyvoTTS-LFM2-Pinokio",
+    "entryURL": "https://github.com/PierrunoYT/VyvoTTS-LFM2-Pinokio",
+    "Category": "Audio",
+    "tag": "pinokio-tagged, TTS, text-to-speech, vyvo-tts",
+    "description": "A high-quality Text-to-Speech application powered by the VyvoTTS LFM2 model with an easy-to-use web interface.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "Parakeet-TDT",
+    "entryURL": "https://github.com/SUP3RMASS1VE/Parakeet-TDT",
+    "Category": "Audio",
+    "tag": "pinokio-tagged, STT, transcription, ASR, nvidia, parakeet",
+    "description": "A Gradio web application for automatic speech recognition (ASR) with timestamp functionality, using NVIDIA's Parakeet-TDT-0.6b model.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "devika",
+    "entryURL": "https://github.com/cocktailpeanutlabs/devika",
+    "Category": "LLM",
+    "tag": "cocktailpeanutlabs, autonomous-agent, agent-framework, devin-alternative",
+    "description": "A Pinokio installer for Devika, an open-source AI software engineer agent that can understand high-level human instructions and develop software.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "whisper-webui",
+    "entryURL": "https://github.com/pinokiofactory/whisper-webui",
+    "Category": "Audio",
+    "tag": "pinokiofactory, whisper, STT, transcription, ASR, UI",
+    "description": "A Pinokio Installer for a web user interface that provides easy access to OpenAI's Whisper model for audio transcription.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "My-YouTube-Pinokio-Edition",
+    "entryURL": "https://github.com/TheAwaken1/My-YouTube-Pinokio-Edition",
+    "Category": "Utility",
+    "tag": "pinokio-tagged, youtube, ad-free, summarization, ollama, LLM",
+    "description": "An ad-free YouTube frontend that integrates with a local Ollama LLM to provide AI-powered video summarization.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "alltalk-tts",
+    "entryURL": "https://github.com/6Morpheus6/alltalk-tts",
+    "Category": "Audio",
+    "tag": "pinokio-tagged, TTS, all-in-one, RVC, XTTS, nvidia-only",
+    "description": "A unified UI for multiple TTS models including E5-TTS, XTTS, Piper TTS, and RVC, with advanced features and low VRAM support. Requires an NVIDIA GPU.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "e2-f5-tts",
+    "entryURL": "https://github.com/pinokiofactory/e2-f5-tts",
+    "Category": "Audio",
+    "tag": "pinokiofactory, TTS, text-to-speech",
+    "description": "Info not present or insufficient data available. Likely a text-to-speech application.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "MatAnyone",
+    "entryURL": "https://github.com/pinokiofactory/MatAnyone",
+    "Category": "Video",
+    "tag": "pinokiofactory, video-matting, background-removal, nvidia-only, 9GB-VRAM",
+    "description": "Implements 'Stable Video Matting with Consistent Memory Propagation' for high-quality video background removal. Requires an NVIDIA GPU with 9GB+ VRAM.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "melotts",
+    "entryURL": "https://github.com/cocktailpeanutlabs/melotts",
+    "Category": "Audio",
+    "tag": "cocktailpeanutlabs, TTS, text-to-speech",
+    "description": "Info not present or insufficient data available. The name suggests a text-to-speech (TTS) application.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "macOS-use",
+    "entryURL": "https://github.com/pinokiofactory/macOS-use",
+    "Category": "Utility",
+    "tag": "pinokiofactory, macos, automation, agent-framework",
+    "description": "A utility designed to make Mac applications accessible for control by AI agents.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "ZipVoice-Pinokio",
+    "entryURL": "https://github.com/SUP3RMASS1VE/ZipVoice-Pinokio",
+    "Category": "Audio",
+    "tag": "pinokio-tagged, TTS, text-to-speech, zero-shot, flow-matching",
+    "description": "A Pinokio installer for ZipVoice, a fast and high-quality zero-shot Text-to-Speech model that uses Flow Matching.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "OmniSVG",
+    "entryURL": "https://github.com/6Morpheus6/OmniSVG",
+    "Category": "Image",
+    "tag": "pinokio-tagged, SVG, image-generation, multimodal, nvidia-only, 12GB-VRAM",
+    "description": "An end-to-end multimodal SVG generator capable of creating complex and detailed SVGs from prompts. Requires an NVIDIA GPU with at least 12GB VRAM.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "Joy_Caption_Alpha-Two_GUI",
+    "entryURL": "https://github.com/Arnold2006/Joy_Caption_Alpha-Two_GUI",
+    "Category": "Image",
+    "tag": "pinokio-tagged, image-captioning, tagging, UI",
+    "description": "A Pinokio script for the Joy Caption Batch GUI, a tool for automatically captioning and tagging batches of images.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "roop-unleashed",
+    "entryURL": "https://github.com/6Morpheus6/roop-unleashed",
+    "Category": "Image",
+    "tag": "6Morpheus6, face-swapping, roop, windows",
+    "description": "A Pinokio script for roop-unleashed, a face-swapping application. The script is noted to be for Windows, with uncertain compatibility for other OS.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "RuinedFooocus",
+    "entryURL": "https://github.com/pinokiofactory/RuinedFooocus",
+    "Category": "Image",
+    "tag": "pinokiofactory, image-generation, fooocus, stable-diffusion, nvidia-only",
+    "description": "An image generation UI that combines aspects of Stable Diffusion, Fooocus, and ComfyUI. Requires an NVIDIA GPU.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "Hunyuan3d-2-lowvram",
+    "entryURL": "https://github.com/pinokiofactory/Hunyuan3d-2-lowvram",
+    "Category": "3D",
+    "tag": "pinokiofactory, 3D-generation, text-to-3D, low-vram",
+    "description": "A version of the Hunyuan3D-2 text-to-3D generation model, optimized for systems with low VRAM.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "bolt",
+    "entryURL": "https://github.com/pinokiofactory/bolt",
+    "Category": "Utility",
+    "tag": "pinokiofactory",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "StemXtract",
+    "entryURL": "https://github.com/TheAwaken1/StemXtract",
+    "Category": "Audio",
+    "tag": "pinokio-tagged, audio-separation, music-production, demucs",
+    "description": "An AI audio playground that splits tracks into individual stems (vocals, drums, etc.) and allows for blending and mashups. Uses Demucs.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "p4",
+    "entryURL": "https://github.com/cocktailpeanutlabs/p4",
+    "Category": "Utility",
+    "tag": "cocktailpeanutlabs",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "dia",
+    "entryURL": "https://github.com/pinokiofactory/dia",
+    "Category": "Utility",
+    "tag": "pinokiofactory",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "MMAudio",
+    "entryURL": "https://github.com/pinokiofactory/MMAudio",
+    "Category": "Audio",
+    "tag": "pinokiofactory, audio-generation, multimodal",
+    "description": "A multimodal audio generation application. The repository has been archived by the owner.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "wan",
+    "entryURL": "https://github.com/pinokiofactory/wan",
+    "Category": "Utility",
+    "tag": "pinokiofactory",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "stable-diffusion-webui-forge",
+    "entryURL": "https://github.com/pinokiofactory/stable-diffusion-webui-forge",
+    "Category": "Image",
+    "tag": "pinokiofactory, stable-diffusion, forge, image-generation, UI",
+    "description": "A Pinokio installer for Stable Diffusion WebUI Forge, an optimized and enhanced fork of the popular AUTOMATIC1111 WebUI.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "ai-toolkit",
+    "entryURL": "https://github.com/ai-anchorite/ai-toolkit",
+    "Category": "Utility",
+    "tag": "pinokio-tagged, model-training, finetuning, diffusion-models, nvidia-only",
+    "description": "A Pinokio installer for Ostris' AI-Toolkit, a comprehensive toolkit for finetuning diffusion models. Requires an NVIDIA GPU.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "Diffusers-Image-Outpainting",
+    "entryURL": "https://github.com/SUP3RMASS1VE/Diffusers-Image-Outpainting",
+    "Category": "Image",
+    "tag": "pinokio-tagged, outpainting, image-editing, diffusers",
+    "description": "A web application that uses the Diffusers library to expand the boundaries of images with AI-generated content (outpainting).",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "hallo",
+    "entryURL": "https://github.com/pinokiofactory/hallo",
+    "Category": "Utility",
+    "tag": "pinokiofactory",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "Kokoro-TTS-Multilingual",
+    "entryURL": "https://github.com/6Morpheus6/Kokoro-TTS-Multilingual",
+    "Category": "Audio",
+    "tag": "pinokio-tagged, TTS, text-to-speech, multilingual",
+    "description": "A very fast multilingual Text-to-Speech application supporting 54 voices across 8 different languages.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "Ovis2-8B-",
+    "entryURL": "https://github.com/SUP3RMASS1VE/Ovis2-8B-",
+    "Category": "LLM",
+    "tag": "pinokio-tagged, multimodal, VLM, image-understanding, video-understanding",
+    "description": "A Gradio-based interface for interacting with the Ovis2-8B model, a multimodal model for processing image and video inputs to generate text responses.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "slides2video-pinokio-script",
+    "entryURL": "https://github.com/elloza/slides2video-pinokio-script",
+    "Category": "Video",
+    "tag": "pinokio-tagged, video-generation, presentation, slides",
+    "description": "A Pinokio script for installing the slides2video application, which converts presentation slides into a video.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "MegaTTS-3-Pinokio",
+    "entryURL": "https://github.com/SUP3RMASS1VE/MegaTTS-3-Pinokio",
+    "Category": "Audio",
+    "tag": "pinokio-tagged, TTS, text-to-speech, voice-cloning",
+    "description": "A Pinokio installer for MegaTTS 3, a text-to-speech model trained by ByteDance with exceptional voice cloning capabilities.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "N8N-Pinokio",
+    "entryURL": "https://github.com/SUP3RMASS1VE/N8N-Pinokio",
+    "Category": "Utility",
+    "tag": "pinokio-tagged, automation, workflow, n8n, low-code",
+    "description": "A Pinokio installer for n8n, a powerful workflow automation platform that connects various apps and services.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "gepeto",
+    "entryURL": "https://github.com/cocktailpeanutlabs/gepeto",
+    "Category": "Utility",
+    "tag": "cocktailpeanutlabs, script-generator, pinokio-helper",
+    "description": "An AI-powered utility designed to automatically generate Pinokio launcher files (install, start, etc.) for existing Git repositories.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "audiocraft_plus.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/audiocraft_plus.pinokio",
+    "Category": "Audio",
+    "tag": "cocktailpeanut, audiocraft, musicgen, audiogen, music-generation",
+    "description": "A Pinokio installer for an enhanced version of AudioCraft, Meta's library for audio generation, including MusicGen and AudioGen.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "fp-studio",
+    "entryURL": "https://github.com/FP-Studio/fp-studio",
+    "Category": "Video",
+    "tag": "pinokio-tagged, video-generation, animation, lora, framepack",
+    "description": "FramePack Video App for generating videos with multiple modes (Original, F1, extension). Features LoRA support, job queueing, and timestamped prompts.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "Ultimate-TTS-Studio-SUP3R-Edition-Pinokio",
+    "entryURL": "https://github.com/SUP3RMASS1VE/Ultimate-TTS-Studio-SUP3R-Edition-Pinokio",
+    "Category": "Audio",
+    "tag": "pinokio-tagged, TTS, all-in-one, voice-cloning, audiobook, nvidia-only",
+    "description": "An all-in-one Text-to-Speech application combining multiple engines (Kokoro, Chatterbox, Higgs, etc.). Supports conversation mode and ebook-to-audiobook conversion. Requires an NVIDIA GPU.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "comfy",
+    "entryURL": "https://github.com/pinokiofactory/comfy",
+    "Category": "Image",
+    "tag": "pinokiofactory, comfyui, stable-diffusion, node-based",
+    "description": "A Pinokio installer for ComfyUI, a powerful and modular node-based GUI for Stable Diffusion models.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "Higgs-Audio-Text-to-Speech-Pinokio",
+    "entryURL": "https://github.com/SUP3RMASS1VE/Higgs-Audio-Text-to-Speech-Pinokio",
+    "Category": "Audio",
+    "tag": "pinokio-tagged, TTS, text-to-speech, higgs-audio",
+    "description": "A Pinokio installer for the Higgs Audio Text-to-Speech Playground, providing a user-friendly interface for the Higgs Audio model.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "SongGeneration",
+    "entryURL": "https://github.com/6Morpheus6/SongGeneration",
+    "Category": "Audio",
+    "tag": "pinokio-tagged, music-generation, text-to-music, audio-prompt, nvidia-only, 12GB-VRAM",
+    "description": "Generates music in different genres using text and audio prompts. Recommended to have an NVIDIA GPU with 12GB+ VRAM and 48GB+ RAM.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "pdeploy",
+    "entryURL": "https://github.com/cocktailpeanutlabs/pdeploy",
+    "Category": "Utility",
+    "tag": "cocktailpeanutlabs",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "automatic1111",
+    "entryURL": "https://github.com/cocktailpeanutlabs/automatic1111",
+    "Category": "Image",
+    "tag": "cocktailpeanutlabs, stable-diffusion, automatic1111, image-generation, UI",
+    "description": "A Pinokio installer for the popular AUTOMATIC1111/stable-diffusion-webui, a feature-rich user interface for Stable Diffusion.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "fooocus",
+    "entryURL": "https://github.com/cocktailpeanutlabs/fooocus",
+    "Category": "Image",
+    "tag": "cocktailpeanutlabs, fooocus, stable-diffusion, image-generation, UI",
+    "description": "A Pinokio installer for Fooocus, a streamlined and user-friendly interface for Stable Diffusion XL, designed for simplicity and quality.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "GPUStack",
+    "entryURL": "https://github.com/SUP3RMASS1VE/GPUStack",
+    "Category": "Utility",
+    "tag": "pinokio-tagged, model-deployment, GPU-cluster, inference-server",
+    "description": "A system for simple and scalable AI model deployment on GPU clusters.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "chatterbox-tts-app",
+    "entryURL": "https://github.com/PierrunoYT/chatterbox-tts-app",
+    "Category": "Audio",
+    "tag": "pinokio-tagged, TTS, text-to-speech, voice-cloning, chatterbox",
+    "description": "An AI-powered Text-to-Speech application with voice cloning capabilities, using the Chatterbox TTS model and a Gradio interface.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "omnigen",
+    "entryURL": "https://github.com/pinokiofactory/omnigen",
+    "Category": "Image",
+    "tag": "pinokiofactory, image-generation, multimodal",
+    "description": "A unified image generation model that can generate a wide range of images from multi-modal prompts.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "Spark-TTS",
+    "entryURL": "https://github.com/SUP3RMASS1VE/Spark-TTS",
+    "Category": "Audio",
+    "tag": "pinokio-tagged, TTS, text-to-speech, voice-cloning, windows, nvidia-only",
+    "description": "A high-quality text-to-speech synthesis system for voice cloning and speech generation using deep learning models. Requires Windows and an NVIDIA GPU.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "rvc.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/rvc.pinokio",
+    "Category": "Audio",
+    "tag": "cocktailpeanut, RVC, voice-cloning, voice-conversion",
+    "description": "A Pinokio installer for a Retrieval-based Voice Conversion (RVC) web interface, used for voice cloning.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "Chattered",
+    "entryURL": "https://github.com/6Morpheus6/Chattered",
+    "Category": "Audio",
+    "tag": "pinokio-tagged, TTS, voice-cloning, real-time, chatterbox, 8GB-VRAM",
+    "description": "An all-in-one Gradio interface for the Chatterbox TTS model, featuring voice cloning from audio samples and real-time speech generation. Minimum 8GB VRAM required.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "pinokio-computer-bolt.new",
+    "entryURL": "https://github.com/larschri15/pinokio-computer-bolt.new",
+    "Category": "Utility",
+    "tag": "pinokio-tagged, web-development, AI-assistant",
+    "description": "A Pinokio installer for bolt.new, an AI-Powered full-stack web development environment.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "facepoke",
+    "entryURL": "https://github.com/pinokiofactory/facepoke",
+    "Category": "Image",
+    "tag": "pinokiofactory, face-editing",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "audiogradio.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/audiogradio.pinokio",
+    "Category": "Audio",
+    "tag": "cocktailpeanut, musicgen, audiogen, music-generation, text-to-audio, audiocraft",
+    "description": "A one-click launcher for a Gradio Web UI that integrates Audiocraft's MusicGen (for music) and AudioGen (for sound effects).",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "pyramidflow",
+    "entryURL": "https://github.com/pinokiofactory/pyramidflow",
+    "Category": "Image",
+    "tag": "pinokiofactory, image-generation",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "Fooocus-API",
+    "entryURL": "https://github.com/6Morpheus6/Fooocus-API",
+    "Category": "Image",
+    "tag": "pinokio-tagged, fooocus, API, image-generation, stable-diffusion",
+    "description": "A FastAPI server that exposes the functionality of the Fooocus image generator as an API. Supported on all OS and GPUs.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "Nari-Dia-TTS",
+    "entryURL": "https://github.com/pinokiofactory/Nari-Dia-TTS",
+    "Category": "Audio",
+    "tag": "pinokiofactory, TTS, text-to-speech, Nari-Labs, Dia-1.6B",
+    "description": "A powerful text-to-speech (TTS) application based on the Dia-1.6B model from Nari Labs, allowing for natural-sounding speech conversion.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "hunyuanvideo",
+    "entryURL": "https://github.com/pinokiofactory/hunyuanvideo",
+    "Category": "Video",
+    "tag": "pinokiofactory, text-to-video, video-generation",
+    "description": "Info not present or insufficient data available. Likely an installer for Tencent's Hunyuan-Di text-to-video model.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "StreamSnap-Pinokio",
+    "entryURL": "https://github.com/TheAwaken1/StreamSnap-Pinokio",
+    "Category": "Utility",
+    "tag": "pinokio-tagged, youtube-dl, transcription, analysis, STT, whisper",
+    "description": "An AI-powered Gradio app for downloading YouTube videos/audio, transcribing content with Whisper, and performing analysis.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "illusion-diffusion-HQ",
+    "entryURL": "https://github.com/6Morpheus6/illusion-diffusion-HQ",
+    "Category": "Image",
+    "tag": "6Morpheus6, illusion-diffusion, optical-illusion, image-generation",
+    "description": "A Pinokio installer for a high-quality version of Illusion Diffusion, a technique for creating optical illusion art with Stable Diffusion.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "DreamO",
+    "entryURL": "https://github.com/SUP3RMASS1VE/DreamO",
+    "Category": "Image",
+    "tag": "pinokio-tagged, image-editing, image-customization, 16GB-VRAM",
+    "description": "An application for DreamO Image Customization. Int8 quantization available for 24GB GPUs, with CPU offloading for 16GB GPUs.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "lavie.pinokio",
+    "entryURL": "https://github.com/6Morpheus6/lavie.pinokio",
+    "Category": "Video",
+    "tag": "6Morpheus6, text-to-video, video-generation",
+    "description": "A Pinokio installer for LaVie (Latent Video Diffusion Model), a text-to-video generation model.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "Flux-Kontext-Dfloat11",
+    "entryURL": "https://github.com/6Morpheus6/Flux-Kontext-Dfloat11",
+    "Category": "Image",
+    "tag": "pinokio-tagged, image-generation, FLUX, diffusers, nvidia-only, 12GB-VRAM",
+    "description": "A Gradio demo for Flux Kontext, a text-to-image model, based on the Diffusers library. Requires an NVIDIA GPU with at least 12GB VRAM.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "Kokoro-TTS",
+    "entryURL": "https://github.com/pinokiofactory/Kokoro-TTS",
+    "Category": "Audio",
+    "tag": "pinokiofactory, TTS, text-to-speech, voice-cloning, nvidia-only",
+    "description": "A high-quality text-to-speech synthesis program that converts text into high-fidelity speech. Requires an NVIDIA GPU.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "AudioX",
+    "entryURL": "https://github.com/pinokiofactory/AudioX",
+    "Category": "Audio",
+    "tag": "pinokiofactory, anything-to-audio, audio-generation, diffusion-transformer",
+    "description": "Implements AudioX, a Diffusion Transformer model for anything-to-audio generation tasks (e.g., text-to-audio, image-to-audio).",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "SwarmUI",
+    "entryURL": "https://github.com/SUP3RMASS1VE/SwarmUI",
+    "Category": "Image",
+    "tag": "pinokio-tagged, stable-diffusion, UI, distributed-generation",
+    "description": "A Pinokio installer for SwarmUI, a modular web interface for Stable Diffusion designed for power users and distributed/multi-GPU generation.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "open-webui",
+    "entryURL": "https://github.com/cocktailpeanutlabs/open-webui",
+    "Category": "LLM",
+    "tag": "cocktailpeanutlabs, ollama, chatbot, UI, local-llm",
+    "description": "A Pinokio installer for Open WebUI (formerly Ollama WebUI), a user-friendly and feature-rich interface for chatting with local LLMs via Ollama.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "IndicF5",
+    "entryURL": "https://github.com/6Morpheus6/IndicF5",
+    "Category": "Audio",
+    "tag": "pinokio-tagged, TTS, text-to-speech, multilingual, indian-languages",
+    "description": "A high-quality Text-to-Speech model specifically designed for various Indian languages.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "instantid",
+    "entryURL": "https://github.com/cocktailpeanutlabs/instantid",
+    "Category": "Image",
+    "tag": "cocktailpeanutlabs, ID-preservation, image-generation, character-consistency",
+    "description": "Implements InstantID, a model for generating new images of a person while preserving their identity from a single reference photo, without training.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "dust3r",
+    "entryURL": "https://github.com/cocktailpeanutlabs/dust3r",
+    "Category": "3D",
+    "tag": "cocktailpeanutlabs, 3D-reconstruction, multi-view-stereo",
+    "description": "Implements DUST3R, a model for dense and unconstrained stereo 3D reconstruction from multiple images.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "AudioSep.pinokio",
+    "entryURL": "https://github.com/6Morpheus6/AudioSep.pinokio",
+    "Category": "Audio",
+    "tag": "6Morpheus6, audio-separation, source-separation, music-production",
+    "description": "A Pinokio installer for AudioSep, a model for separating audio into its constituent sources, such as vocals and instruments.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "chatterbox",
+    "entryURL": "https://github.com/Deathdadev/chatterbox",
+    "Category": "Audio",
+    "tag": "pinokio-tagged, TTS, text-to-speech, voice-cloning, chatterbox",
+    "description": "A Pinokio installer for the Chatterbox Text-to-Speech model, known for its voice cloning capabilities.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "xtts.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/xtts.pinokio",
+    "Category": "Audio",
+    "tag": "cocktailpeanut, XTTS, TTS, voice-cloning, multilingual",
+    "description": "A Pinokio installer for Coqui's XTTS, a high-quality, multilingual text-to-speech model with voice cloning from a short audio sample.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "openui",
+    "entryURL": "https://github.com/pinokiofactory/openui",
+    "Category": "Utility",
+    "tag": "pinokiofactory, UI-generation, text-to-html, web-development",
+    "description": "A Pinokio installer for OpenUI, a tool that generates user interfaces and frontend code from text descriptions.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "facefusion.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/facefusion.pinokio",
+    "Category": "Image",
+    "tag": "cocktailpeanut, face-swapping, video-editing, image-editing, facefusion",
+    "description": "A Pinokio installer for FaceFusion, a powerful tool for face swapping and enhancement in images and videos.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "Bagel-DFloat11",
+    "entryURL": "https://github.com/SUP3RMASS1VE/Bagel-DFloat11",
+    "Category": "Image",
+    "tag": "pinokio-tagged, image-generation, image-editing, VLM, nvidia-only",
+    "description": "A Visual Language Model (VLM) for image generation, editing, and manipulation using the Bagel model. Requires an NVIDIA GPU.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "gh",
+    "entryURL": "https://github.com/cocktailpeanutlabs/gh",
+    "Category": "Utility",
+    "tag": "cocktailpeanutlabs",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "MagicQuill",
+    "entryURL": "https://github.com/pinokiofactory/MagicQuill",
+    "Category": "Image",
+    "tag": "pinokiofactory, image-editing, inpainting, object-removal, object-addition",
+    "description": "An intelligent, interactive image editing system with a user-friendly interface for easily erasing and adding objects.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "omnigen2",
+    "entryURL": "https://github.com/6Morpheus6/omnigen2",
+    "Category": "Image",
+    "tag": "pinokio-tagged, image-generation, image-editing, multimodal, VLM, 12GB-VRAM",
+    "description": "A unified model for image understanding and generation, supporting text-to-image, in-context generation, and instruction-guided editing. Minimum 12GB VRAM required.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "proto",
+    "entryURL": "https://github.com/cocktailpeanutlabs/proto",
+    "Category": "Utility",
+    "tag": "cocktailpeanutlabs",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "echomimic2",
+    "entryURL": "https://github.com/pinokiofactory/echomimic2",
+    "Category": "Audio",
+    "tag": "pinokiofactory, audio-generation",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "triposr",
+    "entryURL": "https://github.com/cocktailpeanutlabs/triposr",
+    "Category": "3D",
+    "tag": "cocktailpeanutlabs, image-to-3D, 3D-reconstruction",
+    "description": "A Pinokio installer for TripoSR, a fast feed-forward 3D reconstruction model that generates a 3D mesh from a single image in seconds.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "zonos",
+    "entryURL": "https://github.com/pinokiofactory/zonos",
+    "Category": "Audio",
+    "tag": "pinokiofactory, music-generation",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "iopaint-pinokio",
+    "entryURL": "https://github.com/6Morpheus6/iopaint-pinokio",
+    "Category": "Image",
+    "tag": "6Morpheus6, inpainting, object-removal, image-editing, iopaint",
+    "description": "A Pinokio installer for IOPaint, a powerful open-source inpainting tool for removing objects, defects, or watermarks from images.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "OneTrainerPinokio",
+    "entryURL": "https://github.com/odiseum7/OneTrainerPinokio",
+    "Category": "Utility",
+    "tag": "pinokio-tagged, model-training, finetuning, stable-diffusion, lora",
+    "description": "A Pinokio installer for OneTrainer, a versatile tool for training and finetuning Stable Diffusion models, LoRAs, and other concepts.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "AIraoke-Pinokio",
+    "entryURL": "https://github.com/TheAwaken1/AIraoke-Pinokio",
+    "Category": "Video",
+    "tag": "pinokio-tagged, karaoke, lyrics-video, transcription, whisper, demucs",
+    "description": "Transforms lyric transcriptions into karaoke-style MP4 videos, using Whisper for transcription and Demucs for vocal separation.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "browser-use",
+    "entryURL": "https://github.com/pinokiofactory/browser-use",
+    "Category": "Utility",
+    "tag": "pinokiofactory, automation, agent-framework",
+    "description": "A utility designed to make web browsers accessible for control by AI agents.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "Direct3D-S2-Pinokio",
+    "entryURL": "https://github.com/Deathdadev/Direct3D-S2-Pinokio",
+    "Category": "3D",
+    "tag": "pinokio-tagged, 3D-generation, 3D-shape, text-to-3D",
+    "description": "A Pinokio installer for Direct3D-S2, a scalable framework for generating high-resolution 3D shapes from text or images.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "GLM4Voice",
+    "entryURL": "https://github.com/appotry/GLM4Voice",
+    "Category": "LLM",
+    "tag": "pinokio-tagged, multimodal, voice-assistant, LLM",
+    "description": "A Pinokio installer for GLM4Voice, likely a voice-enabled version of the GLM-4 large language model, creating a multimodal voice assistant.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "Index-TTS-Pinokio",
+    "entryURL": "https://github.com/SUP3RMASS1VE/Index-TTS-Pinokio",
+    "Category": "Audio",
+    "tag": "pinokio-tagged, TTS, text-to-speech, zero-shot, controllable-tts, windows",
+    "description": "An industrial-level, controllable, and efficient zero-shot Text-To-Speech system. Tested on Windows.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "HiDream-I1",
+    "entryURL": "https://github.com/SUP3RMASS1VE/HiDream-I1",
+    "Category": "Image",
+    "tag": "pinokio-tagged, image-generation, quantization, low-vram",
+    "description": "A 4-bit quantized version of the HiDream I1 text-to-image model, optimized for lower VRAM usage.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "LocalAIVtuber",
+    "entryURL": "https://github.com/Feedjer/LocalAIVtuber",
+    "Category": "Utility",
+    "tag": "pinokio-tagged, vtuber, AI-character, offline, local-llm",
+    "description": "A tool for hosting AI-powered VTubers that runs fully locally and offline, integrating with various local LLMs and TTS models.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "ChatterCraft-Pinokio",
+    "entryURL": "https://github.com/TheAwaken1/ChatterCraft-Pinokio",
+    "Category": "Audio",
+    "tag": "pinokio-tagged, story-generation, audiobook, TTS, voice-cloning, LLM, chatterbox",
+    "description": "Integrates an LLM for story generation with ChatterBox TTS for voice cloning, allowing users to create and narrate unique stories.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "Nemoml",
+    "entryURL": "https://github.com/6Morpheus6/Nemoml",
+    "Category": "Audio",
+    "tag": "pinokio-tagged, ASR, transcription, STT, multilingual, nvidia-only, 6GB-VRAM",
+    "description": "A minimal Gradio interface for Automatic Speech Recognition (ASR) to transcribe audio in the Malayalam language. Requires an NVIDIA GPU with 6GB VRAM.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "InfernoSaber-App",
+    "entryURL": "https://github.com/fred-brenner/InfernoSaber-App",
+    "Category": "Utility",
+    "tag": "pinokio-tagged, beatsaber, game-modding, music-generation",
+    "description": "A Pinokio App that uses the InfernoSaber AI to generate multi-difficulty Beat Saber maps locally from music files.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "control-lora.comfyui.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/control-lora.comfyui.pinokio",
+    "Category": "Utility",
+    "tag": "cocktailpeanut, comfyui, control-lora, model-downloader",
+    "description": "A utility for ComfyUI that provides one-click downloading and setup for Control-LoRA models and their associated workflows.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "p2",
+    "entryURL": "https://github.com/cocktailpeanutlabs/p2",
+    "Category": "Utility",
+    "tag": "cocktailpeanutlabs",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "Fish-Speech",
+    "entryURL": "https://github.com/SUP3RMASS1VE/Fish-Speech",
+    "Category": "Audio",
+    "tag": "pinokio-tagged, TTS, text-to-speech, SOTA",
+    "description": "A Pinokio installer for Fish-Speech, a state-of-the-art (SOTA) open-source Text-to-Speech model.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "Allegro-txt2vid-install",
+    "entryURL": "https://github.com/pinokiofactory/Allegro-txt2vid-install",
+    "Category": "Video",
+    "tag": "pinokiofactory, text-to-video, video-generation, 12GB-VRAM, 32GB-RAM",
+    "description": "An installer for the Allegro text-to-video model. Generation is slow (e.g., 1hr on a 3090). Requires 12GB+ VRAM and 32GB+ RAM.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "ChatterBox",
+    "entryURL": "https://github.com/SUP3RMASS1VE/ChatterBox",
+    "Category": "Audio",
+    "tag": "pinokio-tagged, TTS, text-to-speech, voice-cloning, SOTA, chatterbox",
+    "description": "A Pinokio installer for ChatterBox, a state-of-the-art (SOTA) open-source Text-to-Speech model with voice cloning.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "AutoGif-Pinokio",
+    "entryURL": "https://github.com/TheAwaken1/AutoGif-Pinokio",
+    "Category": "Video",
+    "tag": "pinokio-tagged, gif-generator, video-to-gif, subtitling, youtube-dl",
+    "description": "Transforms YouTube videos into animated GIFs with perfectly-timed, stylized subtitles and effects.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "sysinfo",
+    "entryURL": "https://github.com/cocktailpeanut/sysinfo",
+    "Category": "Utility",
+    "tag": "cocktailpeanut, system-info, debugging",
+    "description": "A quick Pinokio script for getting detailed system information, primarily used for debugging purposes.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "aitown",
+    "entryURL": "https://github.com/cocktailpeanutlabs/aitown",
+    "Category": "LLM",
+    "tag": "cocktailpeanutlabs, AI-simulation, generative-agents",
+    "description": "Info not present or insufficient data available. Likely a simulation environment with generative AI agents, similar to 'Generative Agents: Interactive Simulacra of Human Behavior'.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "magictime",
+    "entryURL": "https://github.com/cocktailpeanutlabs/magictime",
+    "Category": "Image",
+    "tag": "cocktailpeanutlabs, image-editing",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "dreamtalk",
+    "entryURL": "https://github.com/cocktailpeanutlabs/dreamtalk",
+    "Category": "Video",
+    "tag": "cocktailpeanutlabs, talking-head, audio-driven-animation, image-to-video",
+    "description": "Implements DreamTalk, a model for generating expressive talking head videos from a single image and an audio clip.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "StyleAligned.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/StyleAligned.pinokio",
+    "Category": "Image",
+    "tag": "cocktailpeanut, style-transfer, image-generation, stable-diffusion",
+    "description": "A Pinokio installer for StyleAligned, a technique for Stable Diffusion that allows mimicking the style of a reference image in generated outputs.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "whisper-webui.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/whisper-webui.pinokio",
+    "Category": "Audio",
+    "tag": "cocktailpeanut, whisper, STT, transcription, ASR, UI",
+    "description": "A Pinokio Installer for a web user interface that provides easy access to OpenAI's Whisper model for audio transcription.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "text-generation-webui.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/text-generation-webui.pinokio",
+    "Category": "LLM",
+    "tag": "cocktailpeanut, oobabooga, local-llm, chatbot, UI, text-generation",
+    "description": "A one-click installer and dashboard for oobabooga's text-generation-webui, a popular Gradio interface for running and interacting with local LLMs.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "Hallo2",
+    "entryURL": "https://github.com/SUP3RMASS1VE/Hallo2",
+    "Category": "Video",
+    "tag": "pinokio-tagged, talking-head, audio-driven-animation, windows, nvidia-only",
+    "description": "Implements Hallo2 for long-duration, high-resolution, audio-driven portrait image animation (talking head). Requires Windows and an NVIDIA GPU.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "supir-pinokio",
+    "entryURL": "https://github.com/6Morpheus6/supir-pinokio",
+    "Category": "Image",
+    "tag": "6Morpheus6, upscaler, image-restoration, supir",
+    "description": "A Pinokio installer for SUPIR (Scaling-UP Image Restoration), a high-quality image upscaling and restoration model.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "bagel",
+    "entryURL": "https://github.com/6Morpheus6/bagel",
+    "Category": "Image",
+    "tag": "pinokio-tagged, image-generation, image-editing, VLM, nvidia-only, 12GB-VRAM",
+    "description": "A Visual Language Model (VLM) for image generation, editing, and free-form manipulation. Requires an NVIDIA GPU (RTX 50 support noted) with a minimum of 12GB VRAM.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "lavie.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/lavie.pinokio",
+    "Category": "Video",
+    "tag": "cocktailpeanut, text-to-video, video-generation",
+    "description": "A Pinokio installer for LaVie (Latent Video Diffusion Model), a text-to-video generation model.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "DreamO_Pinokio",
+    "entryURL": "https://github.com/petermg/DreamO_Pinokio",
+    "Category": "Image",
+    "tag": "pinokio-tagged, image-editing, image-customization, nvidia-only, windows-only",
+    "description": "A Pinokio script for DreamO Image Customization. Requires an NVIDIA GPU and is for Windows only.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "Gepeto-improved",
+    "entryURL": "https://github.com/Deathdadev/Gepeto-improved",
+    "Category": "Utility",
+    "tag": "pinokio-tagged, script-generator, pinokio-helper",
+    "description": "An improved version of Gepeto, the AI-powered utility for automatically generating Pinokio launcher files from Git repositories.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "Kokoro-TTS",
+    "entryURL": "https://github.com/SUP3RMASS1VE/Kokoro-TTS",
+    "Category": "Audio",
+    "tag": "pinokio-tagged, TTS, text-to-speech, deprecated",
+    "description": "An older, likely deprecated version of a Kokoro-TTS installer. The description advises using 'Kokoro-TTS-Local-v1.0' instead.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "kohya_ss",
+    "entryURL": "https://github.com/6Morpheus6/kohya_ss",
+    "Category": "Utility",
+    "tag": "6Morpheus6, model-training, finetuning, stable-diffusion, lora, kohya",
+    "description": "A Pinokio installer for Kohya's Stable Diffusion training scripts, a widely used tool for creating LoRAs and finetuning models.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "sdxs-pinokio",
+    "entryURL": "https://github.com/supersonic13/sdxs-pinokio",
+    "Category": "Image",
+    "tag": "pinokio-tagged, image-generation, real-time, SDXS",
+    "description": "A Pinokio installer for SDXS, a real-time text-to-image generation model known for its speed.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "Frame-Pack",
+    "entryURL": "https://github.com/pinokiofactory/Frame-Pack",
+    "Category": "Video",
+    "tag": "pinokiofactory, video-generation, next-frame-prediction, nvidia-only",
+    "description": "Implements FramePack, a next-frame prediction neural network that generates videos progressively. Requires an NVIDIA GPU.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "SD-Next",
+    "entryURL": "https://github.com/SUP3RMASS1VE/SD-Next",
+    "Category": "Image",
+    "tag": "pinokio-tagged, stable-diffusion, UI, image-generation, video-generation",
+    "description": "A Pinokio installer for SD.Next (also known as Vladmandic's fork), an all-in-one WebUI for AI generative image and video creation.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "IC-Light-Ultimate-Studio",
+    "entryURL": "https://github.com/SUP3RMASS1VE/IC-Light-Ultimate-Studio",
+    "Category": "Image",
+    "tag": "pinokio-tagged, image-editing, relighting, IC-Light",
+    "description": "An enhanced studio for IC-Light, a model for advanced image relighting and enhancement using Stable Diffusion.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "liveportrait",
+    "entryURL": "https://github.com/pinokiofactory/liveportrait",
+    "Category": "Video",
+    "tag": "pinokiofactory, talking-head, audio-driven-animation, image-to-video",
+    "description": "A Pinokio installer for LivePortrait, a model for real-time, audio-driven portrait animation from a single image.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "TabbyAPI-Pinokio",
+    "entryURL": "https://github.com/drago87/TabbyAPI-Pinokio",
+    "Category": "LLM",
+    "tag": "pinokio-tagged, API, inference-server, local-llm",
+    "description": "A Pinokio installer for TabbyAPI, a backend/API server for hosting and serving local Large Language Models (LLMs).",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "StoryCraft",
+    "entryURL": "https://github.com/TheAwaken1/StoryCraft",
+    "Category": "Audio",
+    "tag": "pinokio-tagged, story-generation, audiobook, TTS, voice-cloning, LLM, coqui-tts",
+    "description": "Generates short stories with LLMs and converts them to audio using Coqui TTS, supporting voice cloning and multilingual output.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "InfiniteYou_Flux_LoRA_Support",
+    "entryURL": "https://github.com/petermg/InfiniteYou_Flux_LoRA_Support",
+    "Category": "Image",
+    "tag": "pinokio-tagged, image-editing, ID-preservation, lora, FLUX, nvidia-only, windows-only",
+    "description": "A fork of InfiniteYou for flexible photo recrafting while preserving identity, with added LoRA and FLUX model support. Requires NVIDIA and Windows.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "whisper-webui",
+    "entryURL": "https://github.com/6Morpheus6/whisper-webui",
+    "Category": "Audio",
+    "tag": "6Morpheus6, whisper, STT, transcription, ASR, UI",
+    "description": "A Pinokio Installer for a web user interface that provides easy access to OpenAI's Whisper model for audio transcription.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "cogvideo",
+    "entryURL": "https://github.com/pinokiofactory/cogvideo",
+    "Category": "Video",
+    "tag": "pinokiofactory, text-to-video, video-generation",
+    "description": "A Pinokio installer for CogVideo, a text-to-video generation model.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "kohya.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/kohya.pinokio",
+    "Category": "Utility",
+    "tag": "cocktailpeanut, model-training, finetuning, stable-diffusion, lora, kohya",
+    "description": "A Pinokio installer for Kohya's Stable Diffusion training scripts, a widely used tool for creating LoRAs and finetuning models.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "audiocraft_plus",
+    "entryURL": "https://github.com/cocktailpeanutlabs/audiocraft_plus",
+    "Category": "Audio",
+    "tag": "cocktailpeanutlabs, audiocraft, musicgen, audiogen, music-generation",
+    "description": "An enhanced version of AudioCraft, Meta's library for audio generation, including MusicGen and AudioGen.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "companion-app.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/companion-app.pinokio",
+    "Category": "Utility",
+    "tag": "cocktailpeanut, pinokio-helper",
+    "description": "A companion application for Pinokio, likely providing additional utilities or management features.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "Leffa",
+    "entryURL": "https://github.com/ai-anchorite/Leffa",
+    "Category": "Image",
+    "tag": "pinokio-tagged, virtual-try-on, pose-transfer, nvidia-only, 12GB-VRAM",
+    "description": "A model for virtual clothing try-on and pose transfer. Requires an NVIDIA GPU with 12GB+ VRAM for try-on and 16GB+ VRAM for pose transfer.",
+    "InstallerType": "js"
+  },
+
+  {
+    "Appname": "Neural-Identity-Matrix-P",
+    "entryURL": "https://github.com/CRCODE22/Neural-Identity-Matrix-P",
+    "Category": "Image",
+    "tag": "pinokio-tagged, character-consistency, ID-preservation, image-generation",
+    "description": "A Pinokio application for Neural Identity Matrix, a technique for generating consistent characters or faces across multiple images.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "ACE-Step",
+    "entryURL": "https://github.com/pinokiofactory/ACE-Step",
+    "Category": "Audio",
+    "tag": "pinokiofactory, music-generation, foundation-model",
+    "description": "A Pinokio installer for ACE-Step, described as a step towards a music generation foundation model.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "TRELLIS",
+    "entryURL": "https://github.com/pinokiofactory/TRELLIS",
+    "Category": "LLM",
+    "tag": "pinokiofactory, multimodal, VLM, reasoning, microsoft",
+    "description": "A Pinokio script for Microsoft's TRELLIS, a multi-modal foundation model for reasoning and grounding tasks involving both text and images.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "TRELLIS",
+    "entryURL": "https://github.com/6Morpheus6/TRELLIS",
+    "Category": "LLM",
+    "tag": "6Morpheus6, multimodal, VLM, reasoning, microsoft",
+    "description": "A Pinokio script for Microsoft's TRELLIS, a multi-modal foundation model for reasoning and grounding tasks.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "RVC-WebUI-Pinokio",
+    "entryURL": "https://github.com/bloomsirenix/RVC-WebUI-Pinokio",
+    "Category": "Audio",
+    "tag": "pinokio-tagged, RVC, voice-cloning, UI",
+    "description": "A Pinokio installer for a Retrieval-based Voice Conversion (RVC) web UI, used for voice cloning and conversion.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "storydiffusion-comics",
+    "entryURL": "https://github.com/cocktailpeanutlabs/storydiffusion-comics",
+    "Category": "Image",
+    "tag": "cocktailpeanutlabs, story-diffusion, image-generation, character-consistency, comics",
+    "description": "An implementation of Story Diffusion, a method for generating consistent images for stories or comics, enabling long-range character and style consistency.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "InvSR",
+    "entryURL": "https://github.com/SUP3RMASS1VE/InvSR",
+    "Category": "Image",
+    "tag": "pinokio-tagged, upscaler, super-resolution, image-restoration",
+    "description": "A diffusion-based super-resolution model (InvSR) that enhances low-resolution images into high-quality, high-resolution images, with a Gradio interface.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "aura-sr-upscaler",
+    "entryURL": "https://github.com/pinokiofactory/aura-sr-upscaler",
+    "Category": "Image",
+    "tag": "pinokiofactory, upscaler, super-resolution",
+    "description": "Info not present or insufficient data available. The repository is empty, but the name suggests a super-resolution image upscaler.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "Sana-Sprint-1.6B",
+    "entryURL": "https://github.com/SUP3RMASS1VE/Sana-Sprint-1.6B",
+    "Category": "Image",
+    "tag": "pinokio-tagged, image-generation, high-resolution",
+    "description": "A text-to-image framework based on the Sana-Sprint-1.6B model, capable of efficiently generating high-resolution images (up to 4096x4096).",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "MFLUX-WEBUI",
+    "entryURL": "https://github.com/pinokiofactory/MFLUX-WEBUI",
+    "Category": "Image",
+    "tag": "pinokiofactory, image-generation, MLX, FLUX, Apple-Silicon",
+    "description": "A powerful and user-friendly web interface for MFLUX, powered by Gradio and the MLX framework for Apple Silicon.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "BEN2",
+    "entryURL": "https://github.com/SUP3RMASS1VE/BEN2",
+    "Category": "Image",
+    "tag": "pinokio-tagged, background-removal, image-editing",
+    "description": "An AI-powered tool for high-precision background removal from images, utilizing the BEN_Base model with a Gradio interface.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "xtts.pinokio",
+    "entryURL": "https://github.com/6Morpheus6/xtts.pinokio",
+    "Category": "Audio",
+    "tag": "6Morpheus6, XTTS, TTS, voice-cloning, multilingual",
+    "description": "A Pinokio installer for Coqui's XTTS, a high-quality, multilingual text-to-speech model with voice cloning from a short audio sample.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "mcp",
+    "entryURL": "https://github.com/pinokiofactory/mcp",
+    "Category": "Utility",
+    "tag": "pinokiofactory",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "MagicQuill-Pinokio",
+    "entryURL": "https://github.com/6Morpheus6/MagicQuill-Pinokio",
+    "Category": "Image",
+    "tag": "6Morpheus6, image-editing, inpainting, object-removal, object-addition",
+    "description": "An intelligent, interactive image editing system with a user-friendly interface for easily erasing and adding objects.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "DetailGen3D",
+    "entryURL": "https://github.com/Deathdadev/DetailGen3D",
+    "Category": "3D",
+    "tag": "pinokio-tagged, 3D-editing, mesh-enhancement",
+    "description": "A Pinokio installer for DetailGen3D, a tool designed to improve the quality and detail of existing 3D meshes.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "Pinokio",
+    "entryURL": "https://github.com/Evan-012/Pinokio",
+    "Category": "Utility",
+    "tag": "pinokio-tagged",
+    "description": "Info not present or insufficient data available. The repository appears to be a simple fork or test.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "photomaker2",
+    "entryURL": "https://github.com/pinokiofactory/photomaker2",
+    "Category": "Image",
+    "tag": "pinokiofactory, ID-preservation, image-generation, character-consistency, photomaker",
+    "description": "A Pinokio installer for PhotoMaker, a model that can generate customized, stylized images of a person from a few reference photos.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "artist",
+    "entryURL": "https://github.com/pinokiofactory/artist",
+    "Category": "Image",
+    "tag": "pinokiofactory, image-generation",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "cube",
+    "entryURL": "https://github.com/pinokiofactory/cube",
+    "Category": "Utility",
+    "tag": "pinokiofactory",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "ai-video-composer",
+    "entryURL": "https://github.com/pinokiofactory/ai-video-composer",
+    "Category": "Video",
+    "tag": "pinokiofactory, video-editing, video-composition",
+    "description": "Info not present or insufficient data available. The repository is empty, but the name suggests a tool for AI-powered video composition.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "brushnet",
+    "entryURL": "https://github.com/cocktailpeanutlabs/brushnet",
+    "Category": "Image",
+    "tag": "cocktailpeanutlabs, image-editing, inpainting, outpainting, controlnet",
+    "description": "Implements BrushNet, a model that provides fine-grained, brush-like control for image editing tasks like inpainting and outpainting, similar to ControlNet.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "sillytavern",
+    "entryURL": "https://github.com/pinokiofactory/sillytavern",
+    "Category": "LLM",
+    "tag": "pinokiofactory, chatbot, UI, role-playing, local-llm",
+    "description": "A Pinokio installer for SillyTavern, an advanced user interface for role-playing and chatting with local or remote LLMs.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "ClearerVoice-Studio",
+    "entryURL": "https://github.com/gotoolkits/ClearerVoice-Studio",
+    "Category": "Audio",
+    "tag": "pinokio-tagged, speech-enhancement, noise-reduction, source-separation",
+    "description": "An open-source, AI-powered speech processing toolkit for speech enhancement, speech separation, and target speaker extraction.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "Ilaria-Upscaler-Zero",
+    "entryURL": "https://github.com/TheStingerX/Ilaria-Upscaler-Zero",
+    "Category": "Image",
+    "tag": "pinokio-tagged, upscaler, image-enhancement",
+    "description": "A user-friendly Pinokio application designed to upscale images with ease.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "Ilaria-RVC-Zero",
+    "entryURL": "https://github.com/TheStingerX/Ilaria-RVC-Zero",
+    "Category": "Audio",
+    "tag": "pinokio-tagged, RVC, voice-cloning, S2S, TTS",
+    "description": "A Pinokio application to easily perform Speech-to-Speech voice conversion using RVC, with a built-in Text-to-Speech feature.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "StyleTTS2_Studio",
+    "entryURL": "https://github.com/pinokiofactory/StyleTTS2_Studio",
+    "Category": "Audio",
+    "tag": "pinokiofactory, StyleTTS2, TTS, voice-cloning, model-training",
+    "description": "A studio application for building your own custom voices for the StyleTTS 2 model.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "diffusers-image-fill",
+    "entryURL": "https://github.com/pinokiofactory/diffusers-image-fill",
+    "Category": "Image",
+    "tag": "pinokiofactory, outpainting, uncropping, diffusers",
+    "description": "An application that uses the Diffusers library to fill the transparent areas of an image, effectively outpainting or uncropping it.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "AdvancedLivePortraitWebUI",
+    "entryURL": "https://github.com/SUP3RMASS1VE/AdvancedLivePortraitWebUI",
+    "Category": "Video",
+    "tag": "pinokio-tagged, talking-head, audio-driven-animation, image-to-video, liveportrait",
+    "description": "An advanced web UI for LivePortrait, a model for real-time, audio-driven portrait animation from a single image.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "Deepseek-ai-Janus-Pro-7B",
+    "entryURL": "https://github.com/SUP3RMASS1VE/Deepseek-ai-Janus-Pro-7B",
+    "Category": "LLM",
+    "tag": "pinokio-tagged, multimodal, VLM, image-understanding, image-generation, deepseek",
+    "description": "A Pinokio installer for Janus-Pro-7B, a powerful multimodal AI model from DeepSeek for advanced image understanding and text-to-image generation.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "UVR5-WebUI",
+    "entryURL": "https://github.com/SUP3RMASS1VE/UVR5-WebUI",
+    "Category": "Audio",
+    "tag": "pinokio-tagged, audio-separation, source-separation, music-production, UVR5",
+    "description": "An advanced audio separation tool (Ultimate Vocal Remover 5) designed to extract individual stems (vocals, instruments) from audio files.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "Florence-2-Image-Captioning",
+    "entryURL": "https://github.com/SUP3RMASS1VE/Florence-2-Image-Captioning",
+    "Category": "Image",
+    "tag": "pinokio-tagged, image-captioning, object-detection, VLM, florence-2",
+    "description": "A demo for Microsoft's Florence-2, a large vision-language model, focused on its capabilities for image captioning, object detection, and grounding.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "KD-Talker",
+    "entryURL": "https://github.com/SUP3RMASS1VE/KD-Talker",
+    "Category": "Video",
+    "tag": "pinokio-tagged, talking-head, audio-driven-animation, nvidia-only",
+    "description": "Implements KD-Talker for accurate and efficient audio-driven talking portrait animation with diverse poses. Requires an NVIDIA GPU.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "framepack",
+    "entryURL": "https://github.com/cocktailpeanutlabs/framepack",
+    "Category": "Video",
+    "tag": "cocktailpeanutlabs, video-generation, next-frame-prediction",
+    "description": "Implements FramePack, a next-frame prediction neural network that generates videos progressively.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "instructir.pinokio",
+    "entryURL": "https://github.com/tjoen/instructir.pinokio",
+    "Category": "Image",
+    "tag": "pinokio-tagged, image-restoration, instruction-guided, image-editing",
+    "description": "A Pinokio installer for InstructIR, a model for high-quality image restoration that follows human text instructions.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "streamdiffusion",
+    "entryURL": "https://github.com/cocktailpeanutlabs/streamdiffusion",
+    "Category": "Image",
+    "tag": "cocktailpeanutlabs, real-time, image-generation, stream-diffusion",
+    "description": "Implements StreamDiffusion, a pipeline-level solution for real-time, interactive image generation with high throughput.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "LatentSync-Pinokio",
+    "entryURL": "https://github.com/Deepfake-Zatylkin/LatentSync-Pinokio",
+    "Category": "Video",
+    "tag": "pinokio-tagged, video-editing, lipsync, deepfake",
+    "description": "A Pinokio installer for LatentSync, a tool likely used for synchronizing lip movements in videos to a new audio track.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "roop.pinokio",
+    "entryURL": "https://github.com/AmusedDiffuser/roop.pinokio",
+    "Category": "Image",
+    "tag": "pinokio-tagged, face-swapping, roop",
+    "description": "A Pinokio implementation for the Roop face swapping application.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "Hunyuan3D-2",
+    "entryURL": "https://github.com/pinokiofactory/Hunyuan3D-2",
+    "Category": "3D",
+    "tag": "pinokiofactory, 3D-generation, text-to-3D",
+    "description": "A Pinokio installer for Hunyuan3D-2, a text-to-3D generation model.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "autogpt",
+    "entryURL": "https://github.com/pinokiofactory/autogpt",
+    "Category": "LLM",
+    "tag": "pinokiofactory, autonomous-agent, agent-framework, autogpt",
+    "description": "A Pinokio installer for AutoGPT, an experimental open-source attempt to make GPT-4 fully autonomous.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "idm-vton",
+    "entryURL": "https://github.com/cocktailpeanutlabs/idm-vton",
+    "Category": "Image",
+    "tag": "cocktailpeanutlabs, virtual-try-on, image-editing",
+    "description": "Implements IDM-VTON, a model for virtual clothing try-on that transfers a clothing item onto an image of a person.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "diamond",
+    "entryURL": "https://github.com/pinokiofactory/diamond",
+    "Category": "Utility",
+    "tag": "pinokiofactory",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "vid2pose",
+    "entryURL": "https://github.com/cocktailpeanutlabs/vid2pose",
+    "Category": "Utility",
+    "tag": "cocktailpeanutlabs, pose-estimation, openpose, video-analysis",
+    "description": "A utility to extract pose estimation data (like OpenPose) from a video file.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "CocktailPeanut",
+    "entryURL": "https://github.com/cocktailpeanutlabs/CocktailPeanut",
+    "Category": "Utility",
+    "tag": "cocktailpeanutlabs, test",
+    "description": "A test repository.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "UVR5-UI-pinokio",
+    "entryURL": "https://github.com/Eddycrack864/UVR5-UI-pinokio",
+    "Category": "Audio",
+    "tag": "pinokio-tagged, audio-separation, source-separation, music-production, UVR5",
+    "description": "An official port of the UVR5 (Ultimate Vocal Remover 5) UI to Pinokio, for separating audio into stems like vocals and instruments.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "MagicAnimate.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/MagicAnimate.pinokio",
+    "Category": "Video",
+    "tag": "cocktailpeanut, animation, image-to-video, motion-transfer, magicanimate",
+    "description": "A Pinokio installer for MagicAnimate, a diffusion-based model for animating a person's image based on a motion sequence.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "pinokio-reforge",
+    "entryURL": "https://github.com/supersonic13/pinokio-reforge",
+    "Category": "Image",
+    "tag": "pinokio-tagged, stable-diffusion, UI, image-generation, forge",
+    "description": "A Pinokio installer for the reForge WebUI (Panchovix fork), an alternative and optimized UI for Stable Diffusion.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "AllTalk-TTS",
+    "entryURL": "https://github.com/pinokiofactory/AllTalk-TTS",
+    "Category": "Audio",
+    "tag": "pinokiofactory, TTS, all-in-one, RVC, XTTS",
+    "description": "A unified UI for multiple TTS models including E5-TTS, XTTS, Piper TTS, and RVC, with advanced features and low VRAM support.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "Dough-pinokio",
+    "entryURL": "https://github.com/banodoco/Dough-pinokio",
+    "Category": "Video",
+    "tag": "pinokio-tagged, animation, keyframing, AI-animation",
+    "description": "A Pinokio installer for Dough, an open-source tool for steering and controlling AI animations with precision using keyframes.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "VASR-for-Pinokio",
+    "entryURL": "https://github.com/masonjames/VASR-for-Pinokio",
+    "Category": "Audio",
+    "tag": "pinokio-tagged, audio-enhancement, super-resolution",
+    "description": "A Gradio demo for Versatile Audio Super Resolution (VASR), a model for enhancing the quality and resolution of audio.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "instantir",
+    "entryURL": "https://github.com/pinokiofactory/instantir",
+    "Category": "Image",
+    "tag": "pinokiofactory, image-restoration",
+    "description": "Info not present or insufficient data available. The repository is empty, but the name suggests an image restoration tool.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "MagicAnimate.pinokio",
+    "entryURL": "https://github.com/6Morpheus6/MagicAnimate.pinokio",
+    "Category": "Video",
+    "tag": "6Morpheus6, animation, image-to-video, motion-transfer, magicanimate",
+    "description": "A Pinokio installer for MagicAnimate, a diffusion-based model for animating a person's image based on a motion sequence.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "yue",
+    "entryURL": "https://github.com/pinokiofactory/yue",
+    "Category": "Utility",
+    "tag": "pinokiofactory",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "moondream2",
+    "entryURL": "https://github.com/cocktailpeanutlabs/moondream2",
+    "Category": "LLM",
+    "tag": "cocktailpeanutlabs, VLM, multimodal, image-understanding",
+    "description": "A Pinokio installer for Moondream2, a small but powerful vision language model designed for image understanding and querying.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "lobe",
+    "entryURL": "https://github.com/cocktailpeanutlabs/lobe",
+    "Category": "Utility",
+    "tag": "cocktailpeanutlabs",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "supir",
+    "entryURL": "https://github.com/cocktailpeanutlabs/supir",
+    "Category": "Image",
+    "tag": "cocktailpeanutlabs, upscaler, image-restoration, supir",
+    "description": "A Pinokio installer for SUPIR (Scaling-UP Image Restoration), a high-quality image upscaling and restoration model.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "AudioSep.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/AudioSep.pinokio",
+    "Category": "Audio",
+    "tag": "cocktailpeanut, audio-separation, source-separation, music-production",
+    "description": "A Pinokio installer for AudioSep, a model for separating audio into its constituent sources, such as vocals and instruments.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "vid2openpose",
+    "entryURL": "https://github.com/cocktailpeanutlabs/vid2openpose",
+    "Category": "Utility",
+    "tag": "cocktailpeanutlabs, pose-estimation, openpose, video-analysis",
+    "description": "A utility to extract OpenPose pose estimation data from a video file.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "vid2openpose.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/vid2openpose.pinokio",
+    "Category": "Utility",
+    "tag": "cocktailpeanut, pose-estimation, openpose, video-analysis",
+    "description": "A Pinokio installer for a utility that extracts OpenPose pose estimation data from a video file.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "StreamDiffusion",
+    "entryURL": "https://github.com/pinokiofactory/StreamDiffusion",
+    "Category": "Image",
+    "tag": "pinokiofactory, real-time, image-generation, stream-diffusion",
+    "description": "Implements StreamDiffusion, a pipeline-level solution for real-time, interactive image generation with high throughput.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "faceid",
+    "entryURL": "https://github.com/cocktailpeanutlabs/faceid",
+    "Category": "Image",
+    "tag": "cocktailpeanutlabs, ID-preservation, image-generation, character-consistency",
+    "description": "Implements FaceID, a model for generating new images of a person while preserving their identity from reference photos.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "moore-animateanyone-mini",
+    "entryURL": "https://github.com/cocktailpeanutlabs/moore-animateanyone-mini",
+    "Category": "Video",
+    "tag": "cocktailpeanutlabs, animation, image-to-video, motion-transfer, animate-anyone",
+    "description": "A 'mini' version of the Animate Anyone model, likely optimized for lower resource usage, which generates animations from a single image and poses.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "bark",
+    "entryURL": "https://github.com/cocktailpeanutlabs/bark",
+    "Category": "Audio",
+    "tag": "cocktailpeanutlabs, TTS, text-to-speech, non-speech-sounds",
+    "description": "A Pinokio installer for Bark, a transformer-based text-to-speech model by Suno that can generate realistic speech, music, and sound effects.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "videocrafter2",
+    "entryURL": "https://github.com/cocktailpeanutlabs/videocrafter2",
+    "Category": "Video",
+    "tag": "cocktailpeanutlabs, video-generation, text-to-video, high-resolution",
+    "description": "A Pinokio installer for VideoCrafter2, a high-definition text-to-video generation model.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "magnet",
+    "entryURL": "https://github.com/cocktailpeanutlabs/magnet",
+    "Category": "Audio",
+    "tag": "cocktailpeanutlabs, text-to-music, music-generation",
+    "description": "A Pinokio installer for MAGNET (Masked Audio Generation using Non-Autoregressive Transformers), a fast text-to-music and audio generation model.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "pcm",
+    "entryURL": "https://github.com/pinokiofactory/pcm",
+    "Category": "Utility",
+    "tag": "pinokiofactory",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "chatbot-ollama",
+    "entryURL": "https://github.com/cocktailpeanutlabs/chatbot-ollama",
+    "Category": "LLM",
+    "tag": "cocktailpeanutlabs, chatbot, UI, ollama, local-llm",
+    "description": "A simple chatbot interface for interacting with local language models served by Ollama.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "lgm",
+    "entryURL": "https://github.com/cocktailpeanutlabs/lgm",
+    "Category": "3D",
+    "tag": "cocktailpeanutlabs, 3D-generation, text-to-3D, image-to-3D",
+    "description": "A Pinokio installer for LGM (Large Geometric Model), a fast text-to-3D and image-to-3D generation model.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "remove-video-bg",
+    "entryURL": "https://github.com/cocktailpeanutlabs/remove-video-bg",
+    "Category": "Video",
+    "tag": "cocktailpeanutlabs, background-removal, video-editing",
+    "description": "A utility for removing the background from video files.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "differential-diffusion-ui",
+    "entryURL": "https://github.com/cocktailpeanutlabs/differential-diffusion-ui",
+    "Category": "Image",
+    "tag": "cocktailpeanutlabs, image-editing, instruction-guided",
+    "description": "A UI for Differential Diffusion, a technique for fine-grained, instruction-guided image editing.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "zeta",
+    "entryURL": "https://github.com/cocktailpeanutlabs/zeta",
+    "Category": "Utility",
+    "tag": "cocktailpeanutlabs",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "arc2face",
+    "entryURL": "https://github.com/cocktailpeanutlabs/arc2face",
+    "Category": "Image",
+    "tag": "cocktailpeanutlabs, face-generation, ID-preservation",
+    "description": "Implements Arc2Face, a model for generating realistic and identity-preserving face images from a given ID embedding.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "customnet",
+    "entryURL": "https://github.com/cocktailpeanutlabs/customnet",
+    "Category": "Image",
+    "tag": "cocktailpeanutlabs, model-merging, model-editing",
+    "description": "Info not present or insufficient data available. Likely a tool for customizing or merging diffusion models.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "stablecascade",
+    "entryURL": "https://github.com/cocktailpeanutlabs/stablecascade",
+    "Category": "Image",
+    "tag": "cocktailpeanutlabs, image-generation, stable-cascade, wurstchen",
+    "description": "A Pinokio installer for Stable Cascade, a highly efficient text-to-image model by Stability AI based on the Würstchen architecture.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "gligen",
+    "entryURL": "https://github.com/cocktailpeanutlabs/gligen",
+    "Category": "Image",
+    "tag": "cocktailpeanutlabs, image-generation, grounded-generation, bounding-box",
+    "description": "Implements GLIGEN (Grounded Language-to-Image Generation), a model that allows for generating images with objects in specified locations using bounding boxes.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "cosxl",
+    "entryURL": "https://github.com/cocktailpeanutlabs/cosxl",
+    "Category": "Image",
+    "tag": "cocktailpeanutlabs, image-generation, stable-diffusion-xl, coherence",
+    "description": "An implementation of CosXL, a technique for Stable Diffusion XL that enhances image quality and coherence by modifying the noise schedule.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "face-to-all",
+    "entryURL": "https://github.com/cocktailpeanutlabs/face-to-all",
+    "Category": "Image",
+    "tag": "cocktailpeanutlabs, face-generation, style-transfer, ID-preservation",
+    "description": "A model that takes a source face image and generates multiple variations in different styles or contexts while preserving the core identity.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "instantstyle",
+    "entryURL": "https://github.com/cocktailpeanutlabs/instantstyle",
+    "Category": "Image",
+    "tag": "cocktailpeanutlabs, style-transfer, image-generation, fast",
+    "description": "Implements InstantStyle, a fast style transfer method that applies the style of a reference image to a generated image using a text prompt.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "parler-tts",
+    "entryURL": "https://github.com/cocktailpeanutlabs/parler-tts",
+    "Category": "Audio",
+    "tag": "cocktailpeanutlabs, TTS, text-to-speech, controllable-tts",
+    "description": "A Pinokio installer for Parler-TTS, a model that generates high-quality speech and allows for control over attributes like pitch, rhythm, and tone via text prompts.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "zest",
+    "entryURL": "https://github.com/cocktailpeanutlabs/zest",
+    "Category": "Utility",
+    "tag": "cocktailpeanutlabs",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "llamafactory",
+    "entryURL": "https://github.com/pinokiofactory/llamafactory",
+    "Category": "LLM",
+    "tag": "pinokiofactory, model-training, finetuning, LLM, lora, llama-factory",
+    "description": "A Pinokio installer for LlamaFactory, a unified and user-friendly framework for finetuning a wide range of Large Language Models.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "flashdiffusion",
+    "entryURL": "https://github.com/pinokiofactory/flashdiffusion",
+    "Category": "Image",
+    "tag": "pinokiofactory, image-generation, fast, real-time",
+    "description": "Info not present or insufficient data available. Likely an implementation of Flash-Diffusion for ultra-fast, high-fidelity image generation.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "florence2",
+    "entryURL": "https://github.com/pinokiofactory/florence2",
+    "Category": "Image",
+    "tag": "pinokiofactory, image-captioning, object-detection, VLM, florence-2",
+    "description": "A Pinokio installer for Microsoft's Florence-2, a versatile vision-language model for tasks like captioning, object detection, and image segmentation.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "rc-stableaudio",
+    "entryURL": "https://github.com/pinokiofactory/rc-stableaudio",
+    "Category": "Audio",
+    "tag": "pinokiofactory, music-generation, text-to-audio, stable-audio",
+    "description": "Info not present or insufficient data available. Likely an installer for Stable Audio by Stability AI.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "audiocraft_plus",
+    "entryURL": "https://github.com/pinokiofactory/audiocraft_plus",
+    "Category": "Audio",
+    "tag": "pinokiofactory, audiocraft, musicgen, audiogen, music-generation",
+    "description": "An enhanced version of AudioCraft, Meta's library for audio generation, including MusicGen for music and AudioGen for sound effects.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "moshi",
+    "entryURL": "https://github.com/pinokiofactory/moshi",
+    "Category": "Utility",
+    "tag": "pinokiofactory",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "tutorial.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/tutorial.pinokio",
+    "Category": "Utility",
+    "tag": "cocktailpeanut, tutorial, documentation",
+    "description": "A tutorial project demonstrating how to create Pinokio scripts and applications.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "sesame",
+    "entryURL": "https://github.com/cocktailpeanutlabs/sesame",
+    "Category": "Utility",
+    "tag": "cocktailpeanutlabs",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "tokenflow.pinokio",
+    "entryURL": "https://github.com/6Morpheus6/tokenflow.pinokio",
+    "Category": "Video",
+    "tag": "6Morpheus6, video-editing, text-driven-editing, tokenflow",
+    "description": "A Pinokio installer for TokenFlow, a text-driven video editing method that allows for realistic editing of videos based on text prompts.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "illusion.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/illusion.pinokio",
+    "Category": "Image",
+    "tag": "cocktailpeanut, illusion-diffusion, optical-illusion, image-generation",
+    "description": "A Pinokio installer for Illusion Diffusion, a technique for creating optical illusion art with Stable Diffusion.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "devika-pinokio",
+    "entryURL": "https://github.com/6Morpheus6/devika-pinokio",
+    "Category": "LLM",
+    "tag": "6Morpheus6, autonomous-agent, agent-framework, devin-alternative, devika",
+    "description": "A Pinokio installer for Devika, an open-source AI software engineer agent that can understand high-level human instructions and develop software.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "oobabooga.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/oobabooga.pinokio",
+    "Category": "LLM",
+    "tag": "cocktailpeanut, oobabooga, local-llm, chatbot, UI, text-generation",
+    "description": "A Pinokio installer for oobabooga's text-generation-webui, a popular Gradio interface for running and interacting with local LLMs.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "Advanced-RVC-Pinokio",
+    "entryURL": "https://github.com/TheNeodev/Advanced-RVC-Pinokio",
+    "Category": "Audio",
+    "tag": "pinokio-tagged, RVC, voice-cloning, voice-conversion",
+    "description": "An installer for an 'Advanced' version of the Retrieval-based Voice Conversion (RVC) WebUI, for voice cloning and conversion.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "iopaint-pinokio",
+    "entryURL": "https://github.com/halr9000/iopaint-pinokio",
+    "Category": "Image",
+    "tag": "pinokio-tagged, inpainting, object-removal, image-editing, iopaint",
+    "description": "A Pinokio installer for IOPaint, a powerful open-source inpainting tool for removing objects, defects, or watermarks from images.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "lp_music_caps.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/lp_music_caps.pinokio",
+    "Category": "Audio",
+    "tag": "cocktailpeanut, music-captioning, audio-understanding",
+    "description": "A Pinokio installer for LP-MusicCaps, a model for generating detailed text descriptions (captions) for pieces of music.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "animatediff.pinokio",
+    "entryURL": "https://github.com/6Morpheus6/animatediff.pinokio",
+    "Category": "Video",
+    "tag": "6Morpheus6, animatediff, image-to-video, text-to-video, animation",
+    "description": "A Pinokio installer for AnimateDiff, a method for generating animated videos from text prompts or still images using diffusion models.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "LlasaTTS-windows",
+    "entryURL": "https://github.com/ai-anchorite/LlasaTTS-windows",
+    "Category": "Audio",
+    "tag": "pinokio-tagged, TTS, text-to-speech, multimodal, windows, nvidia-only",
+    "description": "A Pinokio install script for a Windows+Nvidia version of Local LLaSA TTS, a multimodal model that combines LLaVA with an audio model for speech.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "comfyui",
+    "entryURL": "https://github.com/cocktailpeanutlabs/comfyui",
+    "Category": "Image",
+    "tag": "cocktailpeanutlabs, comfyui, stable-diffusion, node-based, image-generation",
+    "description": "A Pinokio installer for ComfyUI, a powerful and modular node-based GUI for Stable Diffusion models.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "ditto",
+    "entryURL": "https://github.com/pinokiofactory/ditto",
+    "Category": "Utility",
+    "tag": "pinokiofactory",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "YFJanus",
+    "entryURL": "https://github.com/yxzysy/YFJanus",
+    "Category": "LLM",
+    "tag": "pinokio-tagged, multimodal, VLM, image-understanding, image-generation, deepseek",
+    "description": "A Pinokio version of Janus-Pro from DeepSeek, an advanced multimodal model for both visual understanding and generation.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "yue",
+    "entryURL": "https://github.com/cocktailpeanutlabs/yue",
+    "Category": "Audio",
+    "tag": "cocktailpeanutlabs, music-generation",
+    "description": "Info not present or insufficient data available. The name suggests a music generation model.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "janus",
+    "entryURL": "https://github.com/pinokiofactory/janus",
+    "Category": "LLM",
+    "tag": "pinokiofactory, multimodal, VLM, image-understanding, image-generation, deepseek",
+    "description": "A Pinokio installer for Janus-Pro from DeepSeek, a multimodal model for visual understanding and generation.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "Ilaria-RVC",
+    "entryURL": "https://github.com/pinokiofactory/Ilaria-RVC",
+    "Category": "Audio",
+    "tag": "pinokiofactory, RVC, voice-cloning, S2S, TTS",
+    "description": "An application to easily perform Speech-to-Speech voice conversion using RVC, with a built-in Text-to-Speech feature.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "deus",
+    "entryURL": "https://github.com/cocktailpeanutlabs/deus",
+    "Category": "Utility",
+    "tag": "cocktailpeanutlabs",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "Hunyuan3D-2-mini",
+    "entryURL": "https://github.com/pinokiofactory/Hunyuan3D-2-mini",
+    "Category": "3D",
+    "tag": "pinokiofactory, 3D-generation, text-to-3D, low-vram",
+    "description": "A 'mini' version of the Hunyuan3D-2 text-to-3D generation model, optimized for lower resource usage.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "audio-webui.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/audio-webui.pinokio",
+    "Category": "Audio",
+    "tag": "cocktailpeanut, all-in-one, TTS, RVC, UVR, audiocraft",
+    "description": "A comprehensive web UI for various audio tasks, including Text-to-Speech (XTTSv2), RVC, audio separation (UVR5), and music generation (Audiocraft).",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "video-background-removal",
+    "entryURL": "https://github.com/pinokiofactory/video-background-removal",
+    "Category": "Video",
+    "tag": "pinokiofactory, background-removal, video-editing",
+    "description": "A utility for removing the background from video files.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "LTE.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/LTE.pinokio",
+    "Category": "LLM",
+    "tag": "cocktailpeanut, long-context, LLM-editing",
+    "description": "Info not present or insufficient data available. Likely an implementation of a long-context extension or editing technique for LLMs.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "peers-check",
+    "entryURL": "https://github.com/hazlema/peers-check",
+    "Category": "Utility",
+    "tag": "pinokio-tagged, debugging, pinokio-helper, virtual-drive",
+    "description": "A Pinokio tool for debugging virtual drives (peers), helping to diagnose issues with linked folders and applications.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "eliza-vs-llama",
+    "entryURL": "https://github.com/cocktailpeanut/eliza-vs-llama",
+    "Category": "LLM",
+    "tag": "cocktailpeanut, chatbot, entertainment, LLM-battle",
+    "description": "An entertaining Pinokio script that pits the classic ELIZA chatbot against a modern LLaMA model in a never-ending conversation.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "text2midi",
+    "entryURL": "https://github.com/pinokiofactory/text2midi",
+    "Category": "Audio",
+    "tag": "pinokiofactory, text-to-midi, music-generation",
+    "description": "Info not present or insufficient data available. Likely a tool for generating MIDI music files from text prompts.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "YFomni",
+    "entryURL": "https://github.com/yxzysy/YFomni",
+    "Category": "Image",
+    "tag": "pinokio-tagged, image-generation, multimodal, omnigen, windows-only",
+    "description": "A Pinokio version of OmniGen, a unified image generation model that can generate images from multi-modal prompts. For Windows only.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "YFrope",
+    "entryURL": "https://github.com/yxzysy/YFrope",
+    "Category": "Image",
+    "tag": "pinokio-tagged, face-swapping, roop, windows-only",
+    "description": "A Pinokio version of Rope, a face swapping application similar to Roop. For Windows only.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "invokeai.pinokio",
+    "entryURL": "https://github.com/eudard/invokeai.pinokio",
+    "Category": "Image",
+    "tag": "pinokio-tagged, invokeai, stable-diffusion, UI, image-generation",
+    "description": "A Pinokio installer for InvokeAI, a leading open-source creative engine for Stable Diffusion, offering a polished and professional UI.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "ominicontrol",
+    "entryURL": "https://github.com/pinokiofactory/ominicontrol",
+    "Category": "Image",
+    "tag": "pinokiofactory, image-generation, controlnet",
+    "description": "Info not present or insufficient data available. Likely a model that combines Omni-modal capabilities with ControlNet-like spatial guidance.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "controlyourself",
+    "entryURL": "https://github.com/pinokiofactory/controlyourself",
+    "Category": "Image",
+    "tag": "pinokiofactory, image-generation, character-consistency, self-guided",
+    "description": "Info not present or insufficient data available. Likely a model for generating images of a consistent character using self-attention or reference images.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "fish-speech",
+    "entryURL": "https://github.com/appotry/fish-speech",
+    "Category": "Audio",
+    "tag": "pinokio-tagged, TTS, text-to-speech",
+    "description": "A Pinokio installer for Fish-Speech, a high-quality Text-to-Speech model.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "DatasetHelpers",
+    "entryURL": "https://github.com/Feedjer/DatasetHelpers",
+    "Category": "Utility",
+    "tag": "pinokio-tagged, dataset-creation, model-training, image-tagging",
+    "description": "A helper program to automate the process of selecting, rescaling, and tagging image-text datasets for machine learning model training.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "mlx",
+    "entryURL": "https://github.com/pinokiofactory/mlx",
+    "Category": "Utility",
+    "tag": "pinokiofactory, MLX, Apple-Silicon, machine-learning-framework",
+    "description": "A Pinokio installer for setting up Apple's MLX, a machine learning framework designed for Apple Silicon.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "chat-with-mlx",
+    "entryURL": "https://github.com/cocktailpeanutlabs/chat-with-mlx",
+    "Category": "LLM",
+    "tag": "cocktailpeanutlabs, chatbot, local-llm, MLX, Apple-Silicon",
+    "description": "A simple chatbot application that runs local language models using Apple's MLX framework on Apple Silicon.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "errortest",
+    "entryURL": "https://github.com/pinokiofactory/errortest",
+    "Category": "Utility",
+    "tag": "pinokiofactory, debugging, test",
+    "description": "A test script designed to intentionally produce an error, likely for debugging Pinokio's error handling.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "streamdiffusion-pinokio",
+    "entryURL": "https://github.com/6Morpheus6/streamdiffusion-pinokio",
+    "Category": "Image",
+    "tag": "6Morpheus6, real-time, image-generation, stream-diffusion",
+    "description": "A Pinokio installer for StreamDiffusion, a pipeline-level solution for real-time, interactive image generation.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "Allegro-txt2vid",
+    "entryURL": "https://github.com/pinokiofactory/Allegro-txt2vid",
+    "Category": "Video",
+    "tag": "pinokiofactory, text-to-video, video-generation, high-resolution",
+    "description": "A powerful text-to-video model that generates high-quality videos (up to 6 seconds, 15 FPS, 720p) from text input.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "hertz",
+    "entryURL": "https://github.com/pinokiofactory/hertz",
+    "Category": "Utility",
+    "tag": "pinokiofactory",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "oasis",
+    "entryURL": "https://github.com/pinokiofactory/oasis",
+    "Category": "Utility",
+    "tag": "pinokiofactory",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "Taggui",
+    "entryURL": "https://github.com/Feedjer/Taggui",
+    "Category": "Utility",
+    "tag": "pinokio-tagged, dataset-creation, model-training, image-tagging, captioning",
+    "description": "A tag manager and captioner for image datasets, designed to help prepare data for training machine learning models.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "mochi",
+    "entryURL": "https://github.com/pinokiofactory/mochi",
+    "Category": "Utility",
+    "tag": "pinokiofactory",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "omniparser",
+    "entryURL": "https://github.com/pinokiofactory/omniparser",
+    "Category": "Utility",
+    "tag": "pinokiofactory, data-processing, parsing",
+    "description": "Info not present or insufficient data available. The repository is empty, but the name suggests a tool for parsing various data formats.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "invoke",
+    "entryURL": "https://github.com/pinokiofactory/invoke",
+    "Category": "Image",
+    "tag": "pinokiofactory, invokeai, stable-diffusion, UI, image-generation",
+    "description": "A Pinokio installer for InvokeAI, a leading open-source creative engine for Stable Diffusion, offering a polished and professional UI.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "sd35",
+    "entryURL": "https://github.com/pinokiofactory/sd35",
+    "Category": "Image",
+    "tag": "pinokiofactory, image-generation, stable-diffusion-3.5",
+    "description": "Info not present or insufficient data available. Likely an installer for a Stable Diffusion 3.5 model.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "moondream1",
+    "entryURL": "https://github.com/cocktailpeanutlabs/moondream1",
+    "Category": "LLM",
+    "tag": "cocktailpeanutlabs, VLM, multimodal, image-understanding",
+    "description": "A Pinokio installer for Moondream1, a small but effective vision language model designed for image understanding and querying.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "augmentoolkit",
+    "entryURL": "https://github.com/pinokiofactory/augmentoolkit",
+    "Category": "Utility",
+    "tag": "pinokiofactory, dataset-creation, data-augmentation",
+    "description": "A Pinokio installer for Augmentoolkit, a tool for augmenting and expanding datasets for training AI models.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "automatic1111.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/automatic1111.pinokio",
+    "Category": "Image",
+    "tag": "cocktailpeanut, stable-diffusion, automatic1111, image-generation, UI, deprecated",
+    "description": "A deprecated one-click installer for the AUTOMATIC1111/stable-diffusion-webui.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "tokenflow.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/tokenflow.pinokio",
+    "Category": "Video",
+    "tag": "cocktailpeanut, video-editing, text-driven-editing, tokenflow",
+    "description": "A Pinokio installer for TokenFlow, a text-driven video editing method that allows for realistic editing of videos based on text prompts.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "StyleTTS-WebUI.pinokio",
+    "entryURL": "https://github.com/emrahtoy/StyleTTS-WebUI.pinokio",
+    "Category": "Audio",
+    "tag": "pinokio-tagged, StyleTTS, TTS, text-to-speech, voice-cloning",
+    "description": "A Pinokio script for a WebUI for StyleTTS, a model that can synthesize speech in a style learned from a reference audio.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "photomaker",
+    "entryURL": "https://github.com/cocktailpeanutlabs/photomaker",
+    "Category": "Image",
+    "tag": "cocktailpeanutlabs, ID-preservation, image-generation, character-consistency, photomaker",
+    "description": "A Pinokio installer for PhotoMaker, a model that can generate customized, stylized images of a person from a few reference photos.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "lcm.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/lcm.pinokio",
+    "Category": "Image",
+    "tag": "cocktailpeanut, LCM, real-time, image-generation, fast",
+    "description": "A Pinokio installer for Latent Consistency Models (LCMs), which enable real-time, high-speed image generation with fewer diffusion steps.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "Applio-Pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/Applio-Pinokio",
+    "Category": "Audio",
+    "tag": "cocktailpeanut, applio, RVC, voice-cloning, TTS",
+    "description": "A Pinokio installer for Applio, an all-in-one application for RVC (Retrieval-based Voice Conversion) and other voice cloning tasks.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "applio-old",
+    "entryURL": "https://github.com/pinokiofactory/applio-old",
+    "Category": "Audio",
+    "tag": "pinokiofactory, applio, RVC, voice-cloning, deprecated",
+    "description": "An older, likely deprecated Pinokio installer for the Applio voice cloning application.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "ai-toolkit",
+    "entryURL": "https://github.com/cocktailpeanutlabs/ai-toolkit",
+    "Category": "Utility",
+    "tag": "cocktailpeanutlabs, model-training, finetuning, diffusion-models",
+    "description": "A comprehensive toolkit for finetuning diffusion models, packaged for Pinokio.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "sd-webui.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/sd-webui.pinokio",
+    "Category": "Image",
+    "tag": "cocktailpeanut, stable-diffusion, automatic1111, image-generation, UI, sdxl",
+    "description": "A one-click launcher for AUTOMATIC1111/stable-diffusion-webui with full SDXL 1.0 support.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "fluxtrainer",
+    "entryURL": "https://github.com/cocktailpeanutlabs/fluxtrainer",
+    "Category": "Utility",
+    "tag": "cocktailpeanutlabs, model-training, finetuning, FLUX",
+    "description": "A utility for training or finetuning the FLUX.1 text-to-image models.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "fluxtrain",
+    "entryURL": "https://github.com/cocktailpeanutlabs/fluxtrain",
+    "Category": "Utility",
+    "tag": "cocktailpeanutlabs, model-training, finetuning, FLUX",
+    "description": "A utility for training or finetuning the FLUX.1 text-to-image models.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "FlashFace",
+    "entryURL": "https://github.com/Feedjer/FlashFace",
+    "Category": "Image",
+    "tag": "pinokio-tagged, ID-preservation, image-generation, character-consistency",
+    "description": "An implementation of FlashFace for human image personalization with high-fidelity identity preservation.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "kohya_ss",
+    "entryURL": "https://github.com/Feedjer/kohya_ss",
+    "Category": "Utility",
+    "tag": "pinokio-tagged, model-training, finetuning, stable-diffusion, lora, kohya",
+    "description": "A Pinokio installer for Kohya's Stable Diffusion training scripts, a widely used tool for creating LoRAs and finetuning models.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "factory",
+    "entryURL": "https://github.com/pinokiofactory/factory",
+    "Category": "Utility",
+    "tag": "pinokiofactory",
+    "description": "Info not present or insufficient data available. The repository is a collection of Pinokio app installers.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "forge",
+    "entryURL": "https://github.com/pinokiofactory/forge",
+    "Category": "Image",
+    "tag": "pinokiofactory, stable-diffusion, forge, image-generation, UI",
+    "description": "A Pinokio installer for Stable Diffusion WebUI Forge, an optimized and enhanced fork of the popular AUTOMATIC1111 WebUI.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "vfusion3d-pinokio",
+    "entryURL": "https://github.com/halr9000/vfusion3d-pinokio",
+    "Category": "3D",
+    "tag": "pinokio-tagged, 3D-generation, video-to-3D",
+    "description": "A Pinokio script for VFusion3D, a research project for generating 3D models from video.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "flux-webui-beta",
+    "entryURL": "https://github.com/cocktailpeanutlabs/flux-webui-beta",
+    "Category": "Image",
+    "tag": "cocktailpeanutlabs, image-generation, FLUX, UI",
+    "description": "A beta version of a web user interface for the FLUX.1 text-to-image models.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "stable-fast-3d",
+    "entryURL": "https://github.com/pinokiofactory/stable-fast-3d",
+    "Category": "3D",
+    "tag": "pinokiofactory, 3D-generation, fast",
+    "description": "Info not present or insufficient data available. Likely an installer for a fast 3D generation model.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "flux-all",
+    "entryURL": "https://github.com/cocktailpeanutlabs/flux-all",
+    "Category": "Image",
+    "tag": "cocktailpeanutlabs, image-generation, FLUX",
+    "description": "Info not present or insufficient data available. Likely an installer that includes multiple versions or components of the FLUX.1 models.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "ldm3d.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/ldm3d.pinokio",
+    "Category": "3D",
+    "tag": "cocktailpeanut, 3D-generation, image-to-3D",
+    "description": "A Pinokio installer for LDM3D (Latent Diffusion Model for 3D), a model for generating 3D models from single images.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "densediffusion.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/densediffusion.pinokio",
+    "Category": "Image",
+    "tag": "cocktailpeanut, image-generation, dense-diffusion",
+    "description": "A one-click installer for DenseDiffusion, a method that generates images with dense, pixel-level correspondences for better control.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "VALL-E-X.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/VALL-E-X.pinokio",
+    "Category": "Audio",
+    "tag": "cocktailpeanut, VALL-E-X, TTS, text-to-speech, zero-shot",
+    "description": "A Pinokio installer for VALL-E-X, an open-source implementation of Microsoft's VALL-E, a zero-shot text-to-speech model.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "realtime-lcm.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/realtime-lcm.pinokio",
+    "Category": "Image",
+    "tag": "cocktailpeanut, LCM, real-time, image-generation, fast",
+    "description": "A Pinokio installer for a real-time application using Latent Consistency Models (LCMs) for high-speed image generation.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "densepose.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/densepose.pinokio",
+    "Category": "Utility",
+    "tag": "cocktailpeanut, pose-estimation, densepose, video-analysis",
+    "description": "A Pinokio installer for DensePose, a tool that maps all human pixels of an RGB image to a 3D surface-based model of the body.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "florence-sam",
+    "entryURL": "https://github.com/pinokiofactory/florence-sam",
+    "Category": "Image",
+    "tag": "pinokiofactory, VLM, object-detection, segmentation, florence, sam",
+    "description": "An application that combines a Florence vision model with the Segment Anything Model (SAM) for advanced object detection and segmentation.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "accdiffusion",
+    "entryURL": "https://github.com/pinokiofactory/accdiffusion",
+    "Category": "Image",
+    "tag": "pinokiofactory, image-generation, accelerated",
+    "description": "Info not present or insufficient data available. Likely an installer for an accelerated or optimized diffusion model.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "stableaudio",
+    "entryURL": "https://github.com/cocktailpeanutlabs/stableaudio",
+    "Category": "Audio",
+    "tag": "cocktailpeanutlabs, music-generation, text-to-audio, stable-audio",
+    "description": "A Pinokio installer for Stable Audio, a model by Stability AI for generating music and sound effects from text prompts.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "dough",
+    "entryURL": "https://github.com/pinokiofactory/dough",
+    "Category": "Video",
+    "tag": "pinokiofactory, animation, keyframing, AI-animation",
+    "description": "A Pinokio installer for Dough, an open-source tool for steering and controlling AI animations with precision using keyframes.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "Dough-pinokio",
+    "entryURL": "https://github.com/6Morpheus6/Dough-pinokio",
+    "Category": "Video",
+    "tag": "6Morpheus6, animation, keyframing, AI-animation",
+    "description": "A Pinokio installer for Dough, an open-source tool for steering and controlling AI animations with precision using keyframes.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "ai-git-developer",
+    "entryURL": "https://github.com/THEFIG06/ai-git-developer",
+    "Category": "LLM",
+    "tag": "pinokio-tagged, autonomous-agent, coding-agent, git",
+    "description": "A custom AI assistant that can clone GitHub repositories, work on the code, and create pull requests. Uses ChatGPT.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "a1111",
+    "entryURL": "https://github.com/cocktailpeanutlabs/a1111",
+    "Category": "Image", 
+    "tag": "cocktailpeanutlabs, stable-diffusion, automatic1111, image-generation, UI",
+    "description": "A Pinokio installer for the popular AUTOMATIC1111/stable-diffusion-webui, a feature-rich user interface for Stable Diffusion.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "svd.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/svd.pinokio",
+    "Category": "Video",
+    "tag": "cocktailpeanut, stable-video-diffusion, image-to-video, svd",
+    "description": "A Pinokio installer for Stable Video Diffusion (SVD), a model that generates short video clips from a still image.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "aura",
+    "entryURL": "https://github.com/cocktailpeanutlabs/aura",
+    "Category": "Utility",
+    "tag": "cocktailpeanutlabs",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "fooocus-API-pinokio",
+    "entryURL": "https://github.com/rimsila/fooocus-API-pinokio",
+    "Category": "Image",
+    "tag": "pinokio-tagged, fooocus, API, image-generation, stable-diffusion",
+    "description": "A Pinokio installer for running the Fooocus image generator as a local FastAPI server, exposing its features via an API.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "d",
+    "entryURL": "https://github.com/cocktailpeanutlabs/d",
+    "Category": "Utility",
+    "tag": "cocktailpeanutlabs",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "autogen-studio-pinokio",
+    "entryURL": "https://github.com/GivEN29/autogen-studio-pinokio",
+    "Category": "LLM",
+    "tag": "pinokio-tagged, autogen, microsoft, autonomous-agent, agent-framework",
+    "description": "A Pinokio installer for Microsoft's AutoGen Studio, a UI for building and managing multi-agent LLM workflows.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "m",
+    "entryURL": "https://github.com/cocktailpeanutlabs/m",
+    "Category": "Utility",
+    "tag": "cocktailpeanutlabs",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "ms-image2video.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/ms-image2video.pinokio",
+    "Category": "Video",
+    "tag": "cocktailpeanut, image-to-video, video-generation, microsoft",
+    "description": "A Pinokio installer for a Microsoft Research image-to-video generation model.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "chameleon",
+    "entryURL": "https://github.com/cocktailpeanutlabs/chameleon",
+    "Category": "LLM",
+    "tag": "cocktailpeanutlabs, multimodal, VLM, meta",
+    "description": "Info not present or insufficient data available. Likely an installer for Meta's Chameleon, a family of early-fusion token-based mixed-modal models.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "os",
+    "entryURL": "https://github.com/cocktailpeanutlabs/os",
+    "Category": "Utility",
+    "tag": "cocktailpeanutlabs",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "openai.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/openai.pinokio",
+    "Category": "Utility",
+    "tag": "cocktailpeanut, API, openai",
+    "description": "A Pinokio script that likely provides utilities or examples for interacting with the OpenAI API.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "automatic1111-dev.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/automatic1111-dev.pinokio",
+    "Category": "Image",
+    "tag": "cocktailpeanut, stable-diffusion, automatic1111, UI, dev-branch",
+    "description": "A Pinokio installer for the development branch of AUTOMATIC1111/stable-diffusion-webui, for users who want the latest features.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "bark.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/bark.pinokio",
+    "Category": "Audio",
+    "tag": "cocktailpeanut, TTS, text-to-speech, non-speech-sounds, bark",
+    "description": "A Pinokio installer for Bark, a transformer-based text-to-speech model by Suno that can generate realistic speech, music, and sound effects.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "AudioLDM2.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/AudioLDM2.pinokio",
+    "Category": "Audio",
+    "tag": "cocktailpeanut, text-to-audio, sound-generation, audioldm2",
+    "description": "A Pinokio installer for AudioLDM2, a model for generating high-quality sound effects and audio from text descriptions.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "ms-video2video.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/ms-video2video.pinokio",
+    "Category": "Video",
+    "tag": "cocktailpeanut, video-to-video, video-editing, microsoft",
+    "description": "A Pinokio installer for a Microsoft Research video-to-video translation model.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "xinference.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/xinference.pinokio",
+    "Category": "LLM",
+    "tag": "cocktailpeanut, inference-server, model-serving, local-llm, xinference",
+    "description": "A Pinokio installer for Xorbits Inference (Xinference), a powerful and versatile platform for serving and running various LLMs, vision, and multimodal models locally.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "1",
+    "entryURL": "https://github.com/qq2424/1",
+    "Category": "Utility",
+    "tag": "pinokio-tagged, test",
+    "description": "Info not present or insufficient data available. Appears to be a test repository.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "y",
+    "entryURL": "https://github.com/pinokiofactory/y",
+    "Category": "Utility",
+    "tag": "pinokiofactory",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "paligemma",
+    "entryURL": "https://github.com/cocktailpeanutlabs/paligemma",
+    "Category": "LLM",
+    "tag": "cocktailpeanutlabs, VLM, multimodal, image-understanding, google, paligemma",
+    "description": "A Pinokio installer for PaliGemma, Google's versatile and lightweight vision-language model for image captioning and visual Q&A tasks.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "invokeai",
+    "entryURL": "https://github.com/cocktailpeanutlabs/invokeai",
+    "Category": "Image",
+    "tag": "cocktailpeanutlabs, invokeai, stable-diffusion, UI, image-generation",
+    "description": "A Pinokio installer for InvokeAI, a leading open-source creative engine for Stable Diffusion, offering a polished and professional UI.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "openui",
+    "entryURL": "https://github.com/cocktailpeanutlabs/openui",
+    "Category": "Utility",
+    "tag": "cocktailpeanutlabs, UI-generation, text-to-html, web-development",
+    "description": "A Pinokio installer for OpenUI, a tool that generates user interfaces and frontend code from text descriptions.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "langflow.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/langflow.pinokio",
+    "Category": "LLM",
+    "tag": "cocktailpeanut, langflow, langchain, agent-builder, UI",
+    "description": "A Pinokio installer for Langflow, a UI for LangChain designed for experimenting and prototyping LLM-based applications and agents.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "maestro",
+    "entryURL": "https://github.com/cocktailpeanutlabs/maestro",
+    "Category": "Audio",
+    "tag": "cocktailpeanutlabs, music-generation",
+    "description": "Info not present or insufficient data available. The name suggests a music generation or composition tool.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "magicclothing",
+    "entryURL": "https://github.com/cocktailpeanutlabs/magicclothing",
+    "Category": "Image",
+    "tag": "cocktailpeanutlabs, virtual-try-on, image-editing",
+    "description": "A Pinokio installer for MagicClothing, a model for high-fidelity virtual clothing try-on that transfers a garment to a person's image.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "p_testing",
+    "entryURL": "https://github.com/AmusedDiffuser/p_testing",
+    "Category": "Utility",
+    "tag": "pinokio-tagged, test, experiments",
+    "description": "A repository for experimenting with and testing Pinokio scripting features.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "instantstyle-sdxl-lightning",
+    "entryURL": "https://github.com/cocktailpeanutlabs/instantstyle-sdxl-lightning",
+    "Category": "Image",
+    "tag": "cocktailpeanutlabs, style-transfer, image-generation, fast, sdxl-lightning",
+    "description": "Implements InstantStyle, a fast style transfer method, specifically optimized with the SDXL-Lightning model for near real-time performance.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "opensora",
+    "entryURL": "https://github.com/cocktailpeanutlabs/opensora",
+    "Category": "Video",
+    "tag": "cocktailpeanutlabs, text-to-video, video-generation, sora-replication",
+    "description": "A Pinokio installer for Open-Sora, an open-source initiative to replicate OpenAI's Sora model for high-quality text-to-video generation.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "fooocus.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/fooocus.pinokio",
+    "Category": "Image",
+    "tag": "cocktailpeanut, fooocus, stable-diffusion, image-generation, UI",
+    "description": "A Pinokio installer for Fooocus, a streamlined and user-friendly interface for Stable Diffusion XL, designed for simplicity and quality.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "intex",
+    "entryURL": "https://github.com/cocktailpeanutlabs/intex",
+    "Category": "Utility",
+    "tag": "cocktailpeanutlabs",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "torch",
+    "entryURL": "https://github.com/cocktailpeanutlabs/torch",
+    "Category": "Utility",
+    "tag": "cocktailpeanutlabs, pytorch, machine-learning-framework",
+    "description": "A Pinokio script for installing PyTorch, a foundational machine learning framework.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "bakllava.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/bakllava.pinokio",
+    "Category": "LLM",
+    "tag": "cocktailpeanut, VLM, multimodal, real-time, llava",
+    "description": "A one-click installer for Realtime-BakLLaVA, a fast vision language model for real-time image understanding tasks.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "forge",
+    "entryURL": "https://github.com/cocktailpeanutlabs/forge",
+    "Category": "Image",
+    "tag": "cocktailpeanutlabs, stable-diffusion, forge, image-generation, UI",
+    "description": "A Pinokio installer for Stable Diffusion WebUI Forge, an optimized and enhanced fork of the popular AUTOMATIC1111 WebUI.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "whisperspeech",
+    "entryURL": "https://github.com/cocktailpeanutlabs/whisperspeech",
+    "Category": "Audio",
+    "tag": "cocktailpeanutlabs, TTS, text-to-speech, open-source",
+    "description": "A Pinokio installer for WhisperSpeech, an open-source text-to-speech system built on the principles of the Whisper ASR model.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "instructir",
+    "entryURL": "https://github.com/cocktailpeanutlabs/instructir",
+    "Category": "Image",
+    "tag": "cocktailpeanutlabs, image-restoration, instruction-guided, image-editing",
+    "description": "A Pinokio installer for InstructIR, a model for high-quality image restoration that follows human text instructions.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "dragnuwa",
+    "entryURL": "https://github.com/cocktailpeanutlabs/dragnuwa",
+    "Category": "Image",
+    "tag": "cocktailpeanutlabs, image-editing, drag-editing, grounded-generation",
+    "description": "An implementation of Drag-N-NWA, an image editing technique that allows users to drag points on an image to manipulate objects.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "seamless_communication",
+    "entryURL": "https://github.com/cocktailpeanutlabs/seamless_communication",
+    "Category": "Audio",
+    "tag": "cocktailpeanutlabs, translation, speech-to-speech, text-to-speech, S2ST, meta",
+    "description": "A Pinokio installer for Meta's Seamless Communication, a suite of models for state-of-the-art speech and text translation.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "ff.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/ff.pinokio",
+    "Category": "Image",
+    "tag": "cocktailpeanut, face-swapping, video-editing, image-editing, facefusion",
+    "description": "An updated (v2) Pinokio installer for FaceFusion, a powerful tool for face swapping and enhancement in images and videos.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "generative-models",
+    "entryURL": "https://github.com/cocktailpeanutlabs/generative-models",
+    "Category": "Image",
+    "tag": "cocktailpeanutlabs, stable-diffusion, stable-video-diffusion, image-generation, video-generation, stability-ai",
+    "description": "A Pinokio installer for Stability AI's official generative-models repository, containing code for models like Stable Diffusion and Stable Video Diffusion.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "densepose.pinokio",
+    "entryURL": "https://github.com/cocktailpeanutlabs/densepose.pinokio",
+    "Category": "Utility",
+    "tag": "cocktailpeanutlabs, pose-estimation, densepose, video-analysis",
+    "description": "A Pinokio installer for DensePose, a tool that maps all human pixels of an RGB image to a 3D surface-based model of the body.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "TTS",
+    "entryURL": "https://github.com/cocktailpeanutlabs/TTS",
+    "Category": "Audio",
+    "tag": "cocktailpeanutlabs, coqui-tts, TTS, text-to-speech, voice-cloning",
+    "description": "A Pinokio installer for Coqui-TTS, a deep learning toolkit for text-to-speech, battle-tested in research and production.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "sam_metaclip.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/sam_metaclip.pinokio",
+    "Category": "Image",
+    "tag": "cocktailpeanut, segmentation, object-detection, sam, clip",
+    "description": "A Pinokio script that likely combines the Segment Anything Model (SAM) with Meta's CLIP for advanced image segmentation and understanding.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "stable-diffusion-webui-directml",
+    "entryURL": "https://github.com/cocktailpeanutlabs/stable-diffusion-webui-directml",
+    "Category": "Image",
+    "tag": "cocktailpeanutlabs, stable-diffusion, UI, amd, directml, windows",
+    "description": "A fork of the Stable Diffusion web UI specifically for running on Windows with AMD GPUs using the DirectML backend.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "facefusion2.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/facefusion2.pinokio",
+    "Category": "Image",
+    "tag": "cocktailpeanut, face-swapping, video-editing, image-editing, facefusion",
+    "description": "An updated (v2) Pinokio installer for FaceFusion, a powerful tool for face swapping and enhancement in images and videos.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "stablevideo.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/stablevideo.pinokio",
+    "Category": "Video",
+    "tag": "cocktailpeanut, stable-video-diffusion, image-to-video, svd",
+    "description": "A Pinokio installer for Stable Video Diffusion (SVD), a model that generates short video clips from a still image.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "sysinfo.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/sysinfo.pinokio",
+    "Category": "Utility",
+    "tag": "cocktailpeanut, system-info, debugging",
+    "description": "A Pinokio script for getting detailed system information, intended for debugging purposes only.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "sdxl.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/sdxl.pinokio",
+    "Category": "Image",
+    "tag": "cocktailpeanut, image-generation, stable-diffusion-xl, sdxl",
+    "description": "A Pinokio installer for a basic Stable Diffusion XL (SDXL) 1.0 image generation pipeline.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "audiocraft.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/audiocraft.pinokio",
+    "Category": "Audio",
+    "tag": "cocktailpeanut, audiocraft, musicgen, audiogen, music-generation",
+    "description": "A Pinokio installer to try Meta's AudioCraft, a library for audio processing and generation featuring MusicGen and AudioGen.",
+    "InstallerType": "json"
+  }
+  Of course. Let's complete the task.
+
+I will now process the final batch of 41 entries, from 501 to 541, applying the same deep analysis for `description`, `Category`, `tag`, and the `InstallerType` field.
+
+---
+### **Final Batch of 41: Enriched Pinokio App Data**
+
+Here is the fully enriched JSON for the final 41 applications.
+
+```json
+[
+  {
+    "Appname": "a1111",
+    "entryURL": "https://github.com/cocktailpeanutlabs/a1111",
+    "Category": "Image",
+    "tag": "cocktailpeanutlabs, stable-diffusion, automatic1111, image-generation, UI",
+    "description": "A Pinokio installer for the popular AUTOMATIC1111/stable-diffusion-webui, a feature-rich user interface for Stable Diffusion.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "svd.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/svd.pinokio",
+    "Category": "Video",
+    "tag": "cocktailpeanut, stable-video-diffusion, image-to-video, svd",
+    "description": "A Pinokio installer for Stable Video Diffusion (SVD), a model that generates short video clips from a still image.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "aura",
+    "entryURL": "https://github.com/cocktailpeanutlabs/aura",
+    "Category": "Utility",
+    "tag": "cocktailpeanutlabs",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "fooocus-API-pinokio",
+    "entryURL": "https://github.com/rimsila/fooocus-API-pinokio",
+    "Category": "Image",
+    "tag": "pinokio-tagged, fooocus, API, image-generation, stable-diffusion",
+    "description": "A Pinokio installer for running the Fooocus image generator as a local FastAPI server, exposing its features via an API.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "d",
+    "entryURL": "https://github.com/cocktailpeanutlabs/d",
+    "Category": "Utility",
+    "tag": "cocktailpeanutlabs",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "autogen-studio-pinokio",
+    "entryURL": "https://github.com/GivEN29/autogen-studio-pinokio",
+    "Category": "LLM",
+    "tag": "pinokio-tagged, autogen, microsoft, autonomous-agent, agent-framework",
+    "description": "A Pinokio installer for Microsoft's AutoGen Studio, a UI for building and managing multi-agent LLM workflows.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "m",
+    "entryURL": "https://github.com/cocktailpeanutlabs/m",
+    "Category": "Utility",
+    "tag": "cocktailpeanutlabs",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "ms-image2video.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/ms-image2video.pinokio",
+    "Category": "Video",
+    "tag": "cocktailpeanut, image-to-video, video-generation, microsoft",
+    "description": "A Pinokio installer for a Microsoft Research image-to-video generation model.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "chameleon",
+    "entryURL": "https://github.com/cocktailpeanutlabs/chameleon",
+    "Category": "LLM",
+    "tag": "cocktailpeanutlabs, multimodal, VLM, meta",
+    "description": "Info not present or insufficient data available. The repository is empty but likely intended for Meta's Chameleon mixed-modal models.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "os",
+    "entryURL": "https://github.com/cocktailpeanutlabs/os",
+    "Category": "Utility",
+    "tag": "cocktailpeanutlabs",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "openai.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/openai.pinokio",
+    "Category": "Utility",
+    "tag": "cocktailpeanut, API, openai",
+    "description": "A Pinokio script that provides utilities or examples for interacting with the OpenAI API.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "automatic1111-dev.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/automatic1111-dev.pinokio",
+    "Category": "Image",
+    "tag": "cocktailpeanut, stable-diffusion, automatic1111, UI, dev-branch",
+    "description": "A Pinokio installer for the development branch of AUTOMATIC1111/stable-diffusion-webui, for users who want the latest features.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "bark.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/bark.pinokio",
+    "Category": "Audio",
+    "tag": "cocktailpeanut, TTS, text-to-speech, non-speech-sounds, bark",
+    "description": "A Pinokio installer for Bark, a transformer-based text-to-speech model by Suno that can generate realistic speech, music, and sound effects.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "AudioLDM2.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/AudioLDM2.pinokio",
+    "Category": "Audio",
+    "tag": "cocktailpeanut, text-to-audio, sound-generation, audioldm2",
+    "description": "A Pinokio installer for AudioLDM2, a model for generating high-quality sound effects and audio from text descriptions.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "ms-video2video.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/ms-video2video.pinokio",
+    "Category": "Video",
+    "tag": "cocktailpeanut, video-to-video, video-editing, microsoft",
+    "description": "A Pinokio installer for a Microsoft Research video-to-video translation model.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "xinference.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/xinference.pinokio",
+    "Category": "LLM",
+    "tag": "cocktailpeanut, inference-server, model-serving, local-llm, xinference",
+    "description": "A Pinokio installer for Xorbits Inference (Xinference), a powerful platform for serving various LLMs, vision, and multimodal models locally.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "1",
+    "entryURL": "https://github.com/qq2424/1",
+    "Category": "Utility",
+    "tag": "pinokio-tagged, test",
+    "description": "Info not present or insufficient data available. Appears to be a test repository.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "y",
+    "entryURL": "https://github.com/pinokiofactory/y",
+    "Category": "Utility",
+    "tag": "pinokiofactory",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "paligemma",
+    "entryURL": "https://github.com/cocktailpeanutlabs/paligemma",
+    "Category": "LLM",
+    "tag": "cocktailpeanutlabs, VLM, multimodal, image-understanding, google, paligemma",
+    "description": "A Pinokio installer for PaliGemma, Google's versatile and lightweight vision-language model for image captioning and visual Q&A tasks.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "invokeai",
+    "entryURL": "https://github.com/cocktailpeanutlabs/invokeai",
+    "Category": "Image",
+    "tag": "cocktailpeanutlabs, invokeai, stable-diffusion, UI, image-generation",
+    "description": "A Pinokio installer for InvokeAI, a leading open-source creative engine for Stable Diffusion, offering a polished and professional UI.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "openui",
+    "entryURL": "https://github.com/cocktailpeanutlabs/openui",
+    "Category": "Utility",
+    "tag": "cocktailpeanutlabs, UI-generation, text-to-html, web-development",
+    "description": "A Pinokio installer for OpenUI, a tool that generates user interfaces and frontend code from text descriptions.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "langflow.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/langflow.pinokio",
+    "Category": "LLM",
+    "tag": "cocktailpeanut, langflow, langchain, agent-builder, UI",
+    "description": "A Pinokio installer for Langflow, a UI for LangChain designed for experimenting and prototyping LLM-based applications and agents.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "maestro",
+    "entryURL": "https://github.com/cocktailpeanutlabs/maestro",
+    "Category": "Audio",
+    "tag": "cocktailpeanutlabs, music-generation, text-to-music",
+    "description": "A Pinokio installer for Maestro, a text-to-music generation model.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "magicclothing",
+    "entryURL": "https://github.com/cocktailpeanutlabs/magicclothing",
+    "Category": "Image",
+    "tag": "cocktailpeanutlabs, virtual-try-on, image-editing",
+    "description": "A Pinokio installer for MagicClothing, a model for high-fidelity virtual clothing try-on that transfers a garment to a person's image.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "p_testing",
+    "entryURL": "https://github.com/AmusedDiffuser/p_testing",
+    "Category": "Utility",
+    "tag": "pinokio-tagged, test, experiments",
+    "description": "A repository for experimenting with and testing Pinokio scripting features.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "instantstyle-sdxl-lightning",
+    "entryURL": "https://github.com/cocktailpeanutlabs/instantstyle-sdxl-lightning",
+    "Category": "Image",
+    "tag": "cocktailpeanutlabs, style-transfer, image-generation, fast, sdxl-lightning",
+    "description": "Implements InstantStyle, a fast style transfer method, specifically optimized with the SDXL-Lightning model for near real-time performance.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "opensora",
+    "entryURL": "https://github.com/cocktailpeanutlabs/opensora",
+    "Category": "Video",
+    "tag": "cocktailpeanutlabs, text-to-video, video-generation, sora-replication",
+    "description": "A Pinokio installer for Open-Sora, an open-source initiative to replicate OpenAI's Sora model for high-quality text-to-video generation.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "fooocus.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/fooocus.pinokio",
+    "Category": "Image",
+    "tag": "cocktailpeanut, fooocus, stable-diffusion, image-generation, UI",
+    "description": "A Pinokio installer for Fooocus, a streamlined and user-friendly interface for Stable Diffusion XL, designed for simplicity and quality.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "intex",
+    "entryURL": "https://github.com/cocktailpeanutlabs/intex",
+    "Category": "Utility",
+    "tag": "cocktailpeanutlabs",
+    "description": "Info not present or insufficient data available. The repository is empty.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "torch",
+    "entryURL": "https://github.com/cocktailpeanutlabs/torch",
+    "Category": "Utility",
+    "tag": "cocktailpeanutlabs, pytorch, machine-learning-framework",
+    "description": "A Pinokio script for installing PyTorch, a foundational machine learning framework.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "bakllava.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/bakllava.pinokio",
+    "Category": "LLM",
+    "tag": "cocktailpeanut, VLM, multimodal, real-time, llava",
+    "description": "A one-click installer for Realtime-BakLLaVA, a fast vision language model for real-time image understanding tasks.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "forge",
+    "entryURL": "https://github.com/cocktailpeanutlabs/forge",
+    "Category": "Image",
+    "tag": "cocktailpeanutlabs, stable-diffusion, forge, image-generation, UI",
+    "description": "A Pinokio installer for Stable Diffusion WebUI Forge, an optimized and enhanced fork of the popular AUTOMATIC1111 WebUI.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "whisperspeech",
+    "entryURL": "https://github.com/cocktailpeanutlabs/whisperspeech",
+    "Category": "Audio",
+    "tag": "cocktailpeanutlabs, TTS, text-to-speech, open-source",
+    "description": "A Pinokio installer for WhisperSpeech, an open-source text-to-speech system built on the principles of the Whisper ASR model.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "instructir",
+    "entryURL": "https://github.com/cocktailpeanutlabs/instructir",
+    "Category": "Image",
+    "tag": "cocktailpeanutlabs, image-restoration, instruction-guided, image-editing",
+    "description": "A Pinokio installer for InstructIR, a model for high-quality image restoration that follows human text instructions.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "dragnuwa",
+    "entryURL": "https://github.com/cocktailpeanutlabs/dragnuwa",
+    "Category": "Image",
+    "tag": "cocktailpeanutlabs, image-editing, drag-editing, grounded-generation",
+    "description": "An implementation of Drag-N-NWA, an image editing technique that allows users to drag points on an image to manipulate objects.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "seamless_communication",
+    "entryURL": "https://github.com/cocktailpeanutlabs/seamless_communication",
+    "Category": "Audio",
+    "tag": "cocktailpeanutlabs, translation, speech-to-speech, text-to-speech, S2ST, meta",
+    "description": "A Pinokio installer for Meta's Seamless Communication, a suite of models for state-of-the-art speech and text translation.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "ff.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/ff.pinokio",
+    "Category": "Image",
+    "tag": "cocktailpeanut, face-swapping, video-editing, image-editing, facefusion",
+    "description": "An updated (v2) Pinokio installer for FaceFusion, a powerful tool for face swapping and enhancement in images and videos.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "generative-models",
+    "entryURL": "https://github.com/cocktailpeanutlabs/generative-models",
+    "Category": "Image",
+    "tag": "cocktailpeanutlabs, stable-diffusion, stable-video-diffusion, image-generation, video-generation, stability-ai",
+    "description": "A Pinokio installer for Stability AI's official generative-models repository, containing code for models like Stable Diffusion and Stable Video Diffusion.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "densepose.pinokio",
+    "entryURL": "https://github.com/cocktailpeanutlabs/densepose.pinokio",
+    "Category": "Utility",
+    "tag": "cocktailpeanutlabs, pose-estimation, densepose, video-analysis",
+    "description": "A Pinokio installer for DensePose, a tool that maps all human pixels of an RGB image to a 3D surface-based model of the body.",
+    "InstallerType": "json"
+  },
+  {
+    "Appname": "TTS",
+    "entryURL": "https://github.com/cocktailpeanutlabs/TTS",
+    "Category": "Audio",
+    "tag": "cocktailpeanutlabs, coqui-tts, TTS, text-to-speech, voice-cloning",
+    "description": "A Pinokio installer for Coqui-TTS, a deep learning toolkit for text-to-speech, battle-tested in research and production.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "sam_metaclip.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/sam_metaclip.pinokio",
+    "Category": "Image",
+    "tag": "cocktailpeanut, segmentation, object-detection, sam, clip",
+    "description": "A Pinokio script that likely combines the Segment Anything Model (SAM) with Meta's CLIP for advanced image segmentation and understanding.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "stable-diffusion-webui-directml",
+    "entryURL": "https://github.com/cocktailpeanutlabs/stable-diffusion-webui-directml",
+    "Category": "Image",
+    "tag": "cocktailpeanutlabs, stable-diffusion, UI, amd, directml, windows",
+    "description": "A fork of the Stable Diffusion web UI specifically for running on Windows with AMD GPUs using the DirectML backend.",
+    "InstallerType": "n/a"
+  },
+  {
+    "Appname": "facefusion2.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/facefusion2.pinokio",
+    "Category": "Image",
+    "tag": "cocktailpeanut, face-swapping, video-editing, image-editing, facefusion",
+    "description": "An updated (v2) Pinokio installer for FaceFusion, a powerful tool for face swapping and enhancement in images and videos.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "stablevideo.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/stablevideo.pinokio",
+    "Category": "Video",
+    "tag": "cocktailpeanut, stable-video-diffusion, image-to-video, svd",
+    "description": "A Pinokio installer for Stable Video Diffusion (SVD), a model that generates short video clips from a still image.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "sysinfo.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/sysinfo.pinokio",
+    "Category": "Utility",
+    "tag": "cocktailpeanut, system-info, debugging",
+    "description": "A Pinokio script for getting detailed system information, intended for debugging purposes only.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "sdxl.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/sdxl.pinokio",
+    "Category": "Image",
+    "tag": "cocktailpeanut, image-generation, stable-diffusion-xl, sdxl",
+    "description": "A Pinokio installer for a basic Stable Diffusion XL (SDXL) 1.0 image generation pipeline.",
+    "InstallerType": "js"
+  },
+  {
+    "Appname": "audiocraft.pinokio",
+    "entryURL": "https://github.com/cocktailpeanut/audiocraft.pinokio",
+    "Category": "Audio",
+    "tag": "cocktailpeanut, audiocraft, musicgen, audiogen, music-generation",
+    "description": "A Pinokio installer to try Meta's AudioCraft, a library for audio processing and generation featuring MusicGen and AudioGen.",
+    "InstallerType": "json"
+  }
+
+
+
+]
