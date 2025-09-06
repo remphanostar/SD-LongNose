@@ -1,0 +1,32 @@
+[
+  {
+    "title": "VibeVoice-Pinokio",
+    "description": "An open-source Text-to-Speech (TTS) application designed for generating high-quality voice from text.",
+    "url": "https://github.com/SUP3RMASS1VE/VibeVoice-Pinokio.git",
+    "category": "AUDIO"
+  },
+  {
+    "title": "DiffuEraser",
+    "description": "AI-powered image object removal tool using diffusion models",
+    "url": "https://github.com/pinokiofactory/DiffuEraser.git",
+    "category": "IMAGE"
+  },
+  {
+    "title": "DreamO",
+    "description": "AI dream interpretation and visualization tool",
+    "url": "https://github.com/pinokiofactory/DreamO.git", 
+    "category": "AI"
+  },
+  {
+    "title": "Higgs Audio V2",
+    "description": "Advanced audio processing and generation toolkit",
+    "url": "https://github.com/pinokiofactory/Higgs-Audio-V2-Pinokio.git",
+    "category": "AUDIO"
+  },
+  {
+    "title": "RVC Realtime",
+    "description": "Real-time voice conversion using Retrieval-based Voice Conversion",
+    "url": "https://github.com/pinokiofactory/RVC-realtime.git",
+    "category": "AUDIO"
+  }
+]
