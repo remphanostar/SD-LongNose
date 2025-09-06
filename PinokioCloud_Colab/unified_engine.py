@@ -137,10 +137,19 @@ class UnifiedPinokioEngine:
                     progress_callback(f"Cloning repository: {repo_url}")
                 
                 try:
-                    import git
-                    git.Repo.clone_from(repo_url, app_path)
-                    if progress_callback:
-                        progress_callback(f"Repository cloned successfully")
+                    # Use subprocess for better Colab compatibility
+                    result = subprocess.run([
+                        'git', 'clone', '--depth', '1', repo_url, str(app_path)
+                    ], capture_output=True, text=True, timeout=300)
+                    
+                    if result.returncode == 0:
+                        if progress_callback:
+                            progress_callback(f"Repository cloned successfully")
+                    else:
+                        if progress_callback:
+                            progress_callback(f"Git clone failed: {result.stderr}")
+                        return False
+                        
                 except Exception as e:
                     if progress_callback:
                         progress_callback(f"Failed to clone repository: {str(e)}")
