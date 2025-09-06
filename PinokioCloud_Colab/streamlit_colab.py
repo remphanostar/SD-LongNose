@@ -515,9 +515,9 @@ def main():
         else:
             st.info("No recent activity")
         
-        # Auto-refresh logs every 2 seconds
-        time.sleep(0.1)
-        st.rerun()
+        # Manual refresh button instead of auto-refresh
+        if st.button("🔄 Refresh Logs", key="refresh_logs"):
+            st.rerun()
     
     # Main content area
     if st.session_state.current_page == "Dashboard":
