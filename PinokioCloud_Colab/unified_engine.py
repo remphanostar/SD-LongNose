@@ -162,12 +162,111 @@ class UnifiedPinokioEngine:
         return app_name in self.running_processes
 
     def get_app_urls(self, app_name: str) -> List[str]:
-        """Get URLs for running app"""
+        """Get URLs for running app with enhanced detection - MODULE 2"""
         if app_name not in self.app_ports:
             return []
         
         port = self.app_ports[app_name]
-        return [f"http://localhost:{port}"]
+        urls = []
+        
+        # Check if service is actually running on the port
+        if self._is_port_active(port):
+            urls.append(f"http://localhost:{port}")
+            
+            # Check for common endpoints
+            common_endpoints = ['', '/docs', '/api', '/ui', '/interface']
+            for endpoint in common_endpoints[1:]:  # Skip empty for main URL
+                if self._check_endpoint_exists(port, endpoint):
+                    urls.append(f"http://localhost:{port}{endpoint}")
+        
+        return urls
+    
+    def _is_port_active(self, port: int) -> bool:
+        """Check if a port has an active service - MODULE 2"""
+        try:
+            import socket
+            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+                s.settimeout(1)  # 1 second timeout
+                result = s.connect_ex(('localhost', port))
+                return result == 0
+        except Exception:
+            return False
+    
+    def _check_endpoint_exists(self, port: int, endpoint: str) -> bool:
+        """Check if specific endpoint exists on port - MODULE 2"""
+        try:
+            import requests
+            response = requests.get(f"http://localhost:{port}{endpoint}", timeout=2)
+            return response.status_code == 200
+        except Exception:
+            return False
+    
+    def setup_ngrok_tunnel(self, app_name: str) -> Optional[str]:
+        """Setup ngrok tunnel for app - MODULE 2"""
+        try:
+            if app_name not in self.app_ports:
+                logger.error(f"No port assigned for app '{app_name}'")
+                return None
+            
+            port = self.app_ports[app_name]
+            
+            # Check if service is running
+            if not self._is_port_active(port):
+                logger.warning(f"No service detected on port {port} for app '{app_name}'")
+                return None
+            
+            # Use pyngrok if available
+            try:
+                from pyngrok import ngrok
+                
+                # Create tunnel
+                tunnel = ngrok.connect(port)
+                public_url = tunnel.public_url
+                
+                logger.info(f"Created ngrok tunnel for '{app_name}': {public_url}")
+                
+                # Store tunnel info
+                if not hasattr(self, 'active_tunnels'):
+                    self.active_tunnels = {}
+                self.active_tunnels[app_name] = {
+                    'url': public_url,
+                    'port': port,
+                    'tunnel': tunnel
+                }
+                
+                return public_url
+                
+            except ImportError:
+                logger.error("pyngrok not available - install with: pip install pyngrok")
+                return None
+            except Exception as e:
+                logger.error(f"Failed to create ngrok tunnel: {e}")
+                return None
+                
+        except Exception as e:
+            logger.error(f"Error setting up ngrok tunnel for '{app_name}': {e}")
+            return None
+    
+    def close_ngrok_tunnel(self, app_name: str) -> bool:
+        """Close ngrok tunnel for app - MODULE 2"""
+        try:
+            if not hasattr(self, 'active_tunnels') or app_name not in self.active_tunnels:
+                return True  # No tunnel to close
+            
+            tunnel_info = self.active_tunnels[app_name]
+            tunnel = tunnel_info.get('tunnel')
+            
+            if tunnel:
+                from pyngrok import ngrok
+                ngrok.disconnect(tunnel.public_url)
+                logger.info(f"Closed ngrok tunnel for '{app_name}': {tunnel_info['url']}")
+            
+            del self.active_tunnels[app_name]
+            return True
+            
+        except Exception as e:
+            logger.error(f"Error closing ngrok tunnel for '{app_name}': {e}")
+            return False
     
     async def install_app(self, app_name: str, progress_callback=None) -> bool:
         """Install app with Colab optimization"""
@@ -353,7 +452,7 @@ class UnifiedPinokioEngine:
                 logger.info(f"Executing step {i}: {method}")
                 
                 # Execute based on method
-                success = await self._execute_method(method, params, app_path, cmd)
+                success = await self._execute_method(method, params, app_path, cmd, is_daemon)
                 
                 if not success:
                     error_msg = f'{method} failed at step {i}'
@@ -391,11 +490,11 @@ class UnifiedPinokioEngine:
             logger.error(f"Script execution error: {e}")
             return {'success': False, 'error': str(e)}
 
-    async def _execute_method(self, method: str, params: Dict[str, Any], app_path: Path, cmd: Dict[str, Any]) -> bool:
-        """Execute Pinokio method with complete API support"""
+    async def _execute_method(self, method: str, params: Dict[str, Any], app_path: Path, cmd: Dict[str, Any], is_daemon: bool = False) -> bool:
+        """Execute Pinokio method with complete API support - MODULE 2"""
         try:
             if method == 'shell.run':
-                return await self._execute_shell_command(params, app_path)
+                return await self._execute_shell_command(params, app_path, is_daemon)
                 
             elif method == 'script.start':
                 return await self._execute_subscript(params, app_path)
@@ -638,8 +737,8 @@ class UnifiedPinokioEngine:
             logger.error(f"JSON method failed {method}: {e}")
             return False
 
-    async def _execute_shell_command(self, params: Dict[str, Any], app_path: Path) -> bool:
-        """Execute shell command with proper environment"""
+    async def _execute_shell_command(self, params: Dict[str, Any], app_path: Path, is_daemon: bool = False) -> bool:
+        """Execute shell command with proper environment and process tracking - MODULE 2"""
         try:
             messages = params.get('message', [])
             if isinstance(messages, str):
@@ -647,6 +746,7 @@ class UnifiedPinokioEngine:
             
             venv_name = params.get('venv')
             command_path = params.get('path', '.')
+            on_handlers = params.get('on', [])
             
             # Resolve full command path
             if command_path and command_path != '.':
@@ -654,17 +754,27 @@ class UnifiedPinokioEngine:
             else:
                 full_path = app_path
             
-            for message in messages:
+            for i, message in enumerate(messages):
+                # For daemon processes, only the last command should be treated as daemon
+                is_last_message = (i == len(messages) - 1)
+                should_be_daemon = is_daemon and is_last_message
+                
                 # Execute command (variable substitution already handled by parser)
                 if venv_name:
                     # Execute in virtual environment
-                    success = await self._execute_in_venv(message, venv_name, full_path)
+                    success = await self._execute_in_venv(message, venv_name, full_path, should_be_daemon)
                 else:
                     # Execute directly
-                    success = await self._execute_direct(message, full_path)
+                    success = await self._execute_direct(message, full_path, should_be_daemon)
                 
                 if not success:
                     return False
+                
+                # Handle 'on' handlers for output monitoring
+                if on_handlers and should_be_daemon:
+                    logger.info(f"Process started with 'on' handlers: {len(on_handlers)}")
+                    # In a complete implementation, we'd monitor the output stream
+                    # For now, just log that handlers are configured
             
             return True
             
@@ -673,8 +783,8 @@ class UnifiedPinokioEngine:
             return False
 
 
-    async def _execute_in_venv(self, command: str, venv_name: str, cwd: Path) -> bool:
-        """Execute command in virtual environment"""
+    async def _execute_in_venv(self, command: str, venv_name: str, cwd: Path, is_daemon: bool = False) -> bool:
+        """Execute command in virtual environment with process tracking - MODULE 2"""
         try:
             venv_path = self.venvs_dir / venv_name
             
@@ -699,49 +809,170 @@ class UnifiedPinokioEngine:
                     pip_exe = python_exe.parent / "pip.exe" if platform.system() == "Windows" else python_exe.parent / "pip"
                     command = command.replace('pip ', f'"{pip_exe}" ', 1)
             
-            # Execute the command
-            process = await asyncio.create_subprocess_shell(
-                command,
-                cwd=str(cwd),
-                stdout=asyncio.subprocess.PIPE,
-                stderr=asyncio.subprocess.PIPE
-            )
-            
-            stdout, stderr = await process.communicate()
-            
-            if process.returncode == 0:
-                logger.info(f"Command succeeded: {command[:50]}...")
+            if is_daemon:
+                # For daemon processes, don't wait for completion
+                process = await asyncio.create_subprocess_shell(
+                    command,
+                    cwd=str(cwd),
+                    stdout=asyncio.subprocess.PIPE,
+                    stderr=asyncio.subprocess.PIPE,
+                    start_new_session=True  # Detach from parent
+                )
+                
+                # Store PID for tracking
+                self._last_process_pid = process.pid
+                logger.info(f"Started daemon process PID {process.pid} in venv '{venv_name}': {command[:50]}...")
+                
+                # Don't wait for daemon processes
                 return True
             else:
-                logger.error(f"Command failed: {command[:50]}... - {stderr.decode()}")
-                return False
+                # For regular processes, wait for completion
+                process = await asyncio.create_subprocess_shell(
+                    command,
+                    cwd=str(cwd),
+                    stdout=asyncio.subprocess.PIPE,
+                    stderr=asyncio.subprocess.PIPE
+                )
+                
+                stdout, stderr = await process.communicate()
+                
+                if process.returncode == 0:
+                    logger.info(f"Command succeeded: {command[:50]}...")
+                    if stdout:
+                        self._last_result = stdout.decode().strip()
+                    return True
+                else:
+                    error_msg = stderr.decode().strip() if stderr else "Unknown error"
+                    logger.error(f"Command failed: {command[:50]}... - {error_msg}")
+                    return False
                 
         except Exception as e:
             logger.error(f"Venv execution failed: {e}")
             return False
 
-    async def _execute_direct(self, command: str, cwd: Path) -> bool:
-        """Execute command directly"""
+    async def _execute_direct(self, command: str, cwd: Path, is_daemon: bool = False) -> bool:
+        """Execute command directly with real-time output streaming - MODULE 2"""
         try:
-            process = await asyncio.create_subprocess_shell(
-                command,
-                cwd=str(cwd),
-                stdout=asyncio.subprocess.PIPE,
-                stderr=asyncio.subprocess.PIPE
-            )
+            # Get streaming callback if available
+            output_callback = getattr(self, '_output_callback', None)
             
-            stdout, stderr = await process.communicate()
-            
-            if process.returncode == 0:
-                logger.info(f"Command succeeded: {command[:50]}...")
+            if is_daemon:
+                # For daemon processes, don't wait for completion
+                process = await asyncio.create_subprocess_shell(
+                    command,
+                    cwd=str(cwd),
+                    stdout=asyncio.subprocess.PIPE,
+                    stderr=asyncio.subprocess.PIPE,
+                    start_new_session=True  # Detach from parent
+                )
+                
+                # Store PID for tracking
+                self._last_process_pid = process.pid
+                
+                if output_callback:
+                    output_callback(f"🚀 Started daemon process PID {process.pid}", "success")
+                    output_callback(f"💻 Command: {command}", "command")
+                
+                logger.info(f"Started daemon process PID {process.pid}: {command[:50]}...")
+                
+                # Don't wait for daemon processes
                 return True
             else:
-                logger.error(f"Command failed: {command[:50]}... - {stderr.decode()}")
-                return False
+                # For regular processes, stream output in real-time
+                if output_callback:
+                    output_callback(f"💻 Executing: {command}", "command")
+                
+                process = await asyncio.create_subprocess_shell(
+                    command,
+                    cwd=str(cwd),
+                    stdout=asyncio.subprocess.PIPE,
+                    stderr=asyncio.subprocess.PIPE
+                )
+                
+                # Stream output in real-time
+                stdout_lines = []
+                stderr_lines = []
+                
+                async def read_stdout():
+                    while True:
+                        line = await process.stdout.readline()
+                        if not line:
+                            break
+                        line_text = line.decode('utf-8', errors='replace').rstrip()
+                        stdout_lines.append(line_text)
+                        if output_callback and line_text.strip():
+                            # Determine output type based on content
+                            output_type = self._classify_output_type(line_text, command)
+                            output_callback(line_text, output_type)
+                
+                async def read_stderr():
+                    while True:
+                        line = await process.stderr.readline()
+                        if not line:
+                            break
+                        line_text = line.decode('utf-8', errors='replace').rstrip()
+                        stderr_lines.append(line_text)
+                        if output_callback and line_text.strip():
+                            output_callback(line_text, "error")
+                
+                # Read both streams concurrently
+                await asyncio.gather(read_stdout(), read_stderr())
+                
+                # Wait for process to complete
+                await process.wait()
+                
+                if process.returncode == 0:
+                    if output_callback:
+                        output_callback(f"✅ Command completed successfully", "success")
+                    logger.info(f"Command succeeded: {command[:50]}...")
+                    
+                    # Store result
+                    if stdout_lines:
+                        self._last_result = '\n'.join(stdout_lines)
+                    return True
+                else:
+                    error_msg = '\n'.join(stderr_lines) if stderr_lines else "Unknown error"
+                    if output_callback:
+                        output_callback(f"❌ Command failed with exit code {process.returncode}", "error")
+                    logger.error(f"Command failed: {command[:50]}... - {error_msg}")
+                    return False
                 
         except Exception as e:
+            if output_callback:
+                output_callback(f"💥 Execution error: {str(e)}", "error")
             logger.error(f"Direct execution failed: {e}")
             return False
+    
+    def _classify_output_type(self, line: str, command: str) -> str:
+        """Classify output line type for color coding - MODULE 2"""
+        line_lower = line.lower()
+        
+        # Git operations
+        if 'git' in command.lower() or any(keyword in line_lower for keyword in ['clone', 'fetch', 'pull', 'push']):
+            return "git"
+        
+        # Package installation
+        if any(keyword in line_lower for keyword in ['installing', 'downloading', 'requirement already', 'pip']):
+            return "install"
+        
+        # Python operations
+        if 'python' in command.lower() or line.strip().startswith('>>>'):
+            return "python"
+        
+        # Success indicators
+        if any(keyword in line_lower for keyword in ['success', 'complete', 'done', '✓', 'ok']):
+            return "success"
+        
+        # Warning indicators
+        if any(keyword in line_lower for keyword in ['warning', 'warn', '⚠']):
+            return "warning"
+        
+        # Error indicators
+        if any(keyword in line_lower for keyword in ['error', 'failed', 'exception', 'traceback', '✗']):
+            return "error"
+        
+        # Default
+        return "info"
 
     async def _execute_subscript(self, params: Dict[str, Any], app_path: Path):
         """Execute subscript like torch.js"""
@@ -753,4 +984,304 @@ class UnifiedPinokioEngine:
             if script_path.exists():
                 # Update context with script params
                 self.context.args.update(script_params)
-                await self.execute_script(script_path, app_path)
+                await self.execute_script(script_path, app_path, script_params)
+
+    async def run_app(self, app_name: str, progress_callback=None) -> bool:
+        """Run installed app with complete process management - MODULE 2"""
+        try:
+            if progress_callback:
+                progress_callback(f"🚀 Starting {app_name}")
+            
+            # Check if app is installed
+            if not self.is_app_installed(app_name):
+                if progress_callback:
+                    progress_callback(f"❌ App '{app_name}' is not installed")
+                logger.error(f"Cannot run app '{app_name}': not installed")
+                return False
+            
+            # Check if app is already running
+            if self.is_app_running(app_name):
+                if progress_callback:
+                    progress_callback(f"⚠️ App '{app_name}' is already running")
+                logger.warning(f"App '{app_name}' is already running")
+                return True
+            
+            app_info = self.installed_apps[app_name]
+            app_path = Path(app_info['path'])
+            
+            if progress_callback:
+                progress_callback(f"📂 App directory: {app_path}")
+                progress_callback(f"🔍 Looking for start script...")
+            
+            # Find start script
+            start_script = None
+            for script_name in ['start.js', 'start.json', 'run.js', 'run.json']:
+                script_path = app_path / script_name
+                if script_path.exists():
+                    start_script = script_path
+                    if progress_callback:
+                        progress_callback(f"✅ Found start script: {script_name}")
+                    break
+            
+            if not start_script:
+                if progress_callback:
+                    progress_callback(f"❌ No start script found in {app_path}")
+                logger.error(f"No start script found for {app_name}")
+                return False
+            
+            # Assign port for this app
+            if app_name not in self.app_ports:
+                available_port = self._find_available_port()
+                self.app_ports[app_name] = available_port
+                if progress_callback:
+                    progress_callback(f"🔌 Assigned port: {available_port}")
+            
+            # Update context for app execution
+            self.context.local['app_name'] = app_name
+            self.context.local['app_port'] = self.app_ports[app_name]
+            
+            if progress_callback:
+                progress_callback(f"▶️ Executing start script...")
+            
+            # Execute start script
+            result = await self.execute_script(start_script, app_path)
+            
+            if result.get('success'):
+                # Track running process
+                process_info = {
+                    'app_name': app_name,
+                    'app_path': str(app_path),
+                    'start_script': str(start_script),
+                    'port': self.app_ports[app_name],
+                    'started_at': datetime.datetime.now().isoformat(),
+                    'is_daemon': result.get('is_daemon', False),
+                    'pid': getattr(self, '_last_process_pid', None)  # Capture PID from daemon process
+                }
+                
+                self.running_processes[app_name] = process_info
+                
+                # Clear the temporary PID storage
+                if hasattr(self, '_last_process_pid'):
+                    delattr(self, '_last_process_pid')
+                
+                if progress_callback:
+                    progress_callback(f"✅ App '{app_name}' started successfully!")
+                    if result.get('is_daemon'):
+                        progress_callback(f"🔄 Running in daemon mode")
+                    progress_callback(f"🌐 Access at: http://localhost:{self.app_ports[app_name]}")
+                
+                logger.info(f"App '{app_name}' started successfully")
+                return True
+            else:
+                error = result.get('error', 'Unknown error')
+                if progress_callback:
+                    progress_callback(f"❌ Failed to start app: {error}")
+                logger.error(f"Failed to start app '{app_name}': {error}")
+                return False
+                
+        except Exception as e:
+            if progress_callback:
+                progress_callback(f"❌ Error starting app: {str(e)}")
+            logger.error(f"Error starting app '{app_name}': {e}")
+            return False
+
+    def stop_app(self, app_name: str) -> bool:
+        """Stop running app with clean shutdown - MODULE 2"""
+        try:
+            # Check if app is running
+            if not self.is_app_running(app_name):
+                logger.warning(f"App '{app_name}' is not running")
+                return True  # Already stopped
+            
+            process_info = self.running_processes[app_name]
+            logger.info(f"Stopping app '{app_name}'...")
+            
+            # If we have PID, try to terminate the process
+            if process_info.get('pid'):
+                try:
+                    import signal
+                    os.kill(process_info['pid'], signal.SIGTERM)
+                    logger.info(f"Sent SIGTERM to PID {process_info['pid']}")
+                except (ProcessLookupError, OSError):
+                    logger.warning(f"Process {process_info['pid']} not found")
+            
+            # Look for stop script
+            app_path = Path(process_info['app_path'])
+            stop_script = None
+            
+            for script_name in ['stop.js', 'stop.json']:
+                script_path = app_path / script_name
+                if script_path.exists():
+                    stop_script = script_path
+                    break
+            
+            if stop_script:
+                logger.info(f"Executing stop script: {stop_script.name}")
+                # Execute stop script synchronously for immediate effect
+                try:
+                    import asyncio
+                    loop = asyncio.new_event_loop()
+                    asyncio.set_event_loop(loop)
+                    result = loop.run_until_complete(
+                        self.execute_script(stop_script, app_path)
+                    )
+                    loop.close()
+                    
+                    if not result.get('success'):
+                        logger.warning(f"Stop script failed: {result.get('error')}")
+                except Exception as e:
+                    logger.error(f"Error executing stop script: {e}")
+            
+            # Remove from running processes
+            del self.running_processes[app_name]
+            
+            # Close ngrok tunnel if exists
+            self.close_ngrok_tunnel(app_name)
+            
+            # Clean up port assignment
+            if app_name in self.app_ports:
+                logger.info(f"Freed port {self.app_ports[app_name]} for app '{app_name}'")
+            
+            logger.info(f"App '{app_name}' stopped successfully")
+            return True
+            
+        except Exception as e:
+            logger.error(f"Error stopping app '{app_name}': {e}")
+            return False
+
+    def uninstall_app(self, app_name: str) -> bool:
+        """Uninstall app with complete cleanup - MODULE 2"""
+        try:
+            # Stop app if running
+            if self.is_app_running(app_name):
+                logger.info(f"Stopping running app '{app_name}' before uninstall")
+                self.stop_app(app_name)
+            
+            # Check if app is installed
+            if not self.is_app_installed(app_name):
+                logger.warning(f"App '{app_name}' is not installed")
+                return True  # Already uninstalled
+            
+            app_info = self.installed_apps[app_name]
+            app_path = Path(app_info['path'])
+            
+            logger.info(f"Uninstalling app '{app_name}' from {app_path}")
+            
+            # Look for uninstall script
+            uninstall_script = None
+            for script_name in ['uninstall.js', 'uninstall.json']:
+                script_path = app_path / script_name
+                if script_path.exists():
+                    uninstall_script = script_path
+                    break
+            
+            if uninstall_script:
+                logger.info(f"Executing uninstall script: {uninstall_script.name}")
+                try:
+                    import asyncio
+                    loop = asyncio.new_event_loop()
+                    asyncio.set_event_loop(loop)
+                    result = loop.run_until_complete(
+                        self.execute_script(uninstall_script, app_path)
+                    )
+                    loop.close()
+                    
+                    if not result.get('success'):
+                        logger.warning(f"Uninstall script failed: {result.get('error')}")
+                except Exception as e:
+                    logger.error(f"Error executing uninstall script: {e}")
+            
+            # Remove app directory
+            if app_path.exists():
+                logger.info(f"Removing app directory: {app_path}")
+                shutil.rmtree(app_path)
+            
+            # Remove from installed apps
+            del self.installed_apps[app_name]
+            
+            # Clean up any remaining references
+            if app_name in self.app_ports:
+                del self.app_ports[app_name]
+            
+            # Save updated state
+            self.save_state()
+            
+            logger.info(f"App '{app_name}' uninstalled successfully")
+            return True
+            
+        except Exception as e:
+            logger.error(f"Error uninstalling app '{app_name}': {e}")
+            return False
+
+    def _find_available_port(self) -> int:
+        """Find available port for app - MODULE 2"""
+        used_ports = set(self.app_ports.values())
+        
+        # Try ports from context first
+        for port in self.context.ports:
+            if port not in used_ports:
+                return port
+        
+        # Fallback to scanning range
+        for port in range(8000, 9000):
+            if port not in used_ports:
+                try:
+                    # Test if port is actually available
+                    import socket
+                    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+                        s.bind(('localhost', port))
+                        return port
+                except OSError:
+                    continue
+        
+        # Last resort
+        return 8000
+
+    def get_app_status(self, app_name: str) -> Dict[str, Any]:
+        """Get comprehensive app status - MODULE 2"""
+        status = {
+            'name': app_name,
+            'installed': self.is_app_installed(app_name),
+            'running': self.is_app_running(app_name),
+            'port': self.app_ports.get(app_name),
+            'urls': self.get_app_urls(app_name)
+        }
+        
+        if status['installed']:
+            app_info = self.installed_apps[app_name]
+            status.update({
+                'path': app_info['path'],
+                'repo_url': app_info.get('repo_url'),
+                'installed_at': app_info.get('installed_at')
+            })
+        
+        if status['running']:
+            process_info = self.running_processes[app_name]
+            status.update({
+                'started_at': process_info.get('started_at'),
+                'is_daemon': process_info.get('is_daemon', False),
+                'pid': process_info.get('pid')
+            })
+        
+            return status
+    
+    def set_output_callback(self, callback):
+        """Set output streaming callback for real-time output - MODULE 2"""
+        self._output_callback = callback
+    
+    def clear_output_callback(self):
+        """Clear output streaming callback - MODULE 2"""
+        if hasattr(self, '_output_callback'):
+            delattr(self, '_output_callback')
+
+    def get_system_status(self) -> Dict[str, Any]:
+        """Get comprehensive system status - MODULE 2"""
+        return {
+            'platform': self.context.platform,
+            'gpu': self.context.gpu,
+            'installed_apps': len(self.installed_apps),
+            'running_apps': len(self.running_processes),
+            'available_apps': len(self.apps_data),
+            'used_ports': list(self.app_ports.values()),
+            'base_path': str(self.base_path)
+        }
