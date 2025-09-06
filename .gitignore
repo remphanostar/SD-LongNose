@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.env
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+logs/
+
+# Runtime
+engine_state.json
+pinokio_apps/
+
+# Empty files (cleanup)
+PinokioCloud_Colab.ipynb
+PinokioCloud_Colab_GitHub.ipynb
+PinokioCloud_Colab_GitHub_Fixed.ipynb
+generate_notebook.py
+streamlit_colab.py
+unified_engine.py
