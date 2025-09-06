@@ -23,7 +23,16 @@ generate_notebook.py -> Creates deployment notebook
 
 ## Key Technical Details
 
-### App Database Structure
+### App Database Files
+**AppData.json** (Original): User's original 162KB database file containing raw app data
+**cleaned_pinokio_apps.json** (Active): 206KB processed database used by the system
+
+The cleaned version is a 1:1 replication of app details with:
+- Verified repository URLs and clone endpoints
+- Standardized field names (`clone_url`, `repo_url`, `url`)
+- Consistent app name mappings (`title`, `name`, `Appname`)
+- Quality-checked install methods and categories
+
 ```json
 {
   "app-key": {
