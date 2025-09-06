@@ -44,6 +44,7 @@ class PinokioContext:
     args: Dict[str, Any] = field(default_factory=dict)
     input: Dict[str, Any] = field(default_factory=dict)
     env: Dict[str, str] = field(default_factory=dict)
+    envs: Dict[str, str] = field(default_factory=dict)  # Pinokio.md compatibility
     
     # Script metadata
     current: int = 0
@@ -53,6 +54,12 @@ class PinokioContext:
     
     # Kernel utilities
     kernel: Dict[str, Any] = field(default_factory=dict)
+    
+    # Additional Pinokio.md variables
+    which: Dict[str, Any] = field(default_factory=dict)  # Command existence utility
+    _: Dict[str, Any] = field(default_factory=dict)      # Lodash utility library
+    os: Dict[str, Any] = field(default_factory=dict)     # Node.js os module
+    path: Dict[str, Any] = field(default_factory=dict)   # Node.js path module
     
     def __post_init__(self):
         """Initialize all context variables"""
@@ -129,23 +136,87 @@ class PinokioContext:
         self.port = available_ports[0] if available_ports else 8000
     
     def _setup_environment(self):
-        """Setup environment variables"""
+        """Setup environment variables and utilities"""
         self.env = dict(os.environ)
+        self.envs = dict(os.environ)  # Pinokio.md compatibility
+        
+        # Initialize which utility (command existence checking)
+        self.which = {}
+        common_commands = ['git', 'python', 'python3', 'pip', 'conda', 'node', 'npm']
+        for cmd in common_commands:
+            try:
+                result = subprocess.run(['which', cmd], capture_output=True, text=True, timeout=5)
+                self.which[cmd] = result.stdout.strip() if result.returncode == 0 else False
+            except:
+                self.which[cmd] = False
+        
+        # Initialize lodash-like utilities (simplified)
+        self._ = {
+            'isEmpty': lambda x: not x if x is not None else True,
+            'isString': lambda x: isinstance(x, str),
+            'isArray': lambda x: isinstance(x, list),
+            'isObject': lambda x: isinstance(x, dict),
+            'get': lambda obj, path, default=None: self._lodash_get(obj, path, default)
+        }
+        
+        # Initialize os module utilities (simplified)
+        import platform as plat
+        self.os = {
+            'platform': plat.system().lower(),
+            'arch': plat.machine(),
+            'homedir': os.path.expanduser('~'),
+            'tmpdir': '/tmp',
+            'type': plat.system()
+        }
+        
+        # Initialize path utilities
+        self.path = {
+            'join': lambda *args: os.path.join(*args),
+            'resolve': lambda p: os.path.abspath(p),
+            'dirname': lambda p: os.path.dirname(p),
+            'basename': lambda p: os.path.basename(p),
+            'extname': lambda p: os.path.splitext(p)[1]
+        }
         
         # Add common paths
         if 'google.colab' in sys.modules:
             self.env['COLAB'] = '1'
+            self.envs['COLAB'] = '1'
             self.env['CUDA_VISIBLE_DEVICES'] = '0'
+            self.envs['CUDA_VISIBLE_DEVICES'] = '0'
+    
+    def _lodash_get(self, obj, path, default=None):
+        """Simplified lodash get function"""
+        try:
+            parts = path.split('.') if isinstance(path, str) else [path]
+            current = obj
+            for part in parts:
+                if isinstance(current, dict):
+                    current = current.get(part)
+                elif hasattr(current, part):
+                    current = getattr(current, part)
+                else:
+                    return default
+                if current is None:
+                    return default
+            return current
+        except:
+            return default
     
     def _initialize_kernel(self):
-        """Initialize kernel utilities"""
+        """Initialize kernel utilities with complete Pinokio.md compatibility"""
         self.kernel = {
             'gpu': self.gpu,
             'gpus': self.gpus,
             'platform': self.platform,
             'arch': self.arch,
             'ports': self.ports,
-            'env': self.env
+            'env': self.env,
+            'envs': self.envs,
+            'which': self.which,
+            '_': self._,
+            'os': self.os,
+            'path': self.path
         }
 
 class PinokioScriptParser:
@@ -416,7 +487,7 @@ class PinokioScriptParser:
         if not isinstance(text, str):
             return text
         
-        # Combine context variables
+        # Combine context variables with complete Pinokio.md compatibility
         variables = {
             'platform': self.context.platform,
             'arch': self.context.arch,
@@ -429,11 +500,16 @@ class PinokioScriptParser:
             'local': self.context.local,
             'input': self.context.input,
             'env': self.context.env,
+            'envs': self.context.envs,
             'current': self.context.current,
             'next': self.context.next,
             'self': self.context.self,
             'uri': self.context.uri,
-            'kernel': self.context.kernel
+            'kernel': self.context.kernel,
+            'which': self.context.which,
+            '_': self.context._,
+            'os': self.context.os,
+            'path': self.context.path
         }
         
         if additional_vars:
