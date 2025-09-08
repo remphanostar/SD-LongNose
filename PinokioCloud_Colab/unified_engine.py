@@ -78,12 +78,30 @@ class UnifiedPinokioEngine:
         self._load_state()
     
     def _load_apps_data(self, apps_data_path: str) -> List[Dict[str, Any]]:
-        """Load apps database from JSON file"""
+        """Load apps database from JSON file with proper data structure handling"""
         try:
             apps_path = Path(apps_data_path)
             if apps_path.exists():
                 with open(apps_path, 'r', encoding='utf-8') as f:
-                    return json.load(f)
+                    loaded_data = json.load(f)
+                    
+                    # Handle both dict and list formats
+                    if isinstance(loaded_data, dict):
+                        # Convert dict to list of dicts
+                        apps_list = list(loaded_data.values())
+                        logger.info(f"Loaded {len(apps_list)} apps from dict format")
+                        return apps_list
+                    elif isinstance(loaded_data, list):
+                        # Already a list, verify contents
+                        if loaded_data and isinstance(loaded_data[0], dict):
+                            logger.info(f"Loaded {len(loaded_data)} apps from list format")
+                            return loaded_data
+                        else:
+                            logger.error("Apps list contains non-dict items")
+                            return []
+                    else:
+                        logger.error(f"Unexpected apps data format: {type(loaded_data)}")
+                        return []
             else:
                 logger.warning(f"Apps data file not found: {apps_data_path}")
                 return []
@@ -1855,17 +1873,37 @@ class UnifiedPinokioEngine:
                 progress_callback(f"🌟 Starting GitHub enhancement for {len(self.apps_data)} apps")
                 progress_callback(f"⭐ Fetching live stars for both Pinokio forks AND original repositories")
             
+            # Ensure apps_data is a list of dictionaries
+            if not self.apps_data or not isinstance(self.apps_data, list):
+                logger.error("Apps data is not a valid list")
+                return False
+            
+            # Verify all items are dictionaries
+            if not all(isinstance(app, dict) for app in self.apps_data):
+                logger.error("Apps data contains non-dict items")
+                return False
+            
             # Convert list to dict for processing
             apps_dict = {}
             for i, app in enumerate(self.apps_data):
-                app_key = app.get('name', f'app_{i}')
-                apps_dict[app_key] = app
+                if isinstance(app, dict):
+                    app_key = app.get('name', f'app_{i}')
+                    apps_dict[app_key] = app
+                else:
+                    logger.warning(f"Skipping non-dict app at index {i}: {type(app)}")
             
             # Enhance with GitHub data
             enhanced_apps = await self.github.enhance_app_database(apps_dict, progress_callback)
             
-            # Convert back to list format
-            self.apps_data = list(enhanced_apps.values())
+            # Convert back to list format with validation
+            enhanced_list = []
+            for app_data in enhanced_apps.values():
+                if isinstance(app_data, dict):
+                    enhanced_list.append(app_data)
+                else:
+                    logger.warning(f"Skipping corrupted enhanced app: {type(app_data)}")
+            
+            self.apps_data = enhanced_list
             
             # Save enhanced database
             enhanced_db_path = self.cache_dir / "enhanced_apps_database.json"
@@ -1899,13 +1937,39 @@ class UnifiedPinokioEngine:
                 try:
                     with open(enhanced_db_path, 'r') as f:
                         enhanced_data = json.load(f)
-                    apps_list = list(enhanced_data.values())
+                    
+                    # Convert to list and validate
+                    if isinstance(enhanced_data, dict):
+                        apps_list = list(enhanced_data.values())
+                    elif isinstance(enhanced_data, list):
+                        apps_list = enhanced_data
+                    else:
+                        logger.error(f"Invalid enhanced database format: {type(enhanced_data)}")
+                        apps_list = self.apps_data
+                    
+                    # Validate all items are dictionaries
+                    apps_list = [app for app in apps_list if isinstance(app, dict)]
+                    
                     logger.info(f"Using enhanced apps database: {len(apps_list)} apps")
                 except Exception as e:
                     logger.warning(f"Failed to load enhanced database: {e}")
                     apps_list = self.apps_data
             else:
                 apps_list = self.apps_data
+            
+            # Final validation - ensure apps_list contains only dictionaries
+            if not isinstance(apps_list, list):
+                logger.error(f"apps_list is not a list: {type(apps_list)}")
+                return []
+            
+            validated_apps = []
+            for i, app in enumerate(apps_list):
+                if isinstance(app, dict):
+                    validated_apps.append(app)
+                else:
+                    logger.warning(f"Skipping non-dict app at index {i}: {type(app)} - {app}")
+            
+            apps_list = validated_apps
             
             # Sort based on criteria
             if sort_by == 'total_stars':
@@ -1957,7 +2021,21 @@ class UnifiedPinokioEngine:
         """Enhanced app search with multiple criteria - MODULE 4"""
         try:
             apps_list = self.get_enhanced_apps_with_sorting(sort_by)
-            filtered_apps = apps_list
+            
+            # Additional validation for search function
+            if not isinstance(apps_list, list):
+                logger.error(f"get_enhanced_apps_with_sorting returned {type(apps_list)}, expected list")
+                return []
+            
+            # Ensure all items are dictionaries
+            validated_apps = []
+            for app in apps_list:
+                if isinstance(app, dict):
+                    validated_apps.append(app)
+                else:
+                    logger.warning(f"search_apps_enhanced: Skipping non-dict item {type(app)}")
+            
+            filtered_apps = validated_apps
             
             # Text search
             if search_term:

@@ -27,6 +27,21 @@ else:
 # Import the unified engine
 from unified_engine import UnifiedPinokioEngine
 
+# Data validation helpers - CRITICAL BUG PREVENTION
+def safe_get_app_attribute(app, key, default=None):
+    """Safely get attribute from app with validation"""
+    if isinstance(app, dict):
+        return app.get(key, default)
+    else:
+        return default
+
+def validate_apps_list(apps_data):
+    """Validate and clean apps data list"""
+    if not isinstance(apps_data, list):
+        return []
+    
+    return [app for app in apps_data if isinstance(app, dict)]
+
 # Page configuration with dark theme as default
 st.set_page_config(
     page_title="🚀 PinokioCloud",
@@ -534,12 +549,13 @@ def show_enhanced_statistics(filtered_apps: List[Dict[str, Any]]):
             with col1:
                 st.markdown("**⭐ Star Distribution**")
                 
-                # Group by star ranges
+                # Group by star ranges with safe operations
+                validated_apps = validate_apps_list(filtered_apps)
                 star_ranges = {
-                    '🌟 1000+ stars': len([app for app in filtered_apps if app.get('total_stars', 0) >= 1000]),
-                    '⭐ 100+ stars': len([app for app in filtered_apps if 100 <= app.get('total_stars', 0) < 1000]),
-                    '✨ 10+ stars': len([app for app in filtered_apps if 10 <= app.get('total_stars', 0) < 100]),
-                    '📍 <10 stars': len([app for app in filtered_apps if app.get('total_stars', 0) < 10])
+                    '🌟 1000+ stars': len([app for app in validated_apps if safe_get_app_attribute(app, 'total_stars', 0) >= 1000]),
+                    '⭐ 100+ stars': len([app for app in validated_apps if 100 <= safe_get_app_attribute(app, 'total_stars', 0) < 1000]),
+                    '✨ 10+ stars': len([app for app in validated_apps if 10 <= safe_get_app_attribute(app, 'total_stars', 0) < 100]),
+                    '📍 <10 stars': len([app for app in validated_apps if safe_get_app_attribute(app, 'total_stars', 0) < 10])
                 }
                 
                 for range_name, count in star_ranges.items():
@@ -550,8 +566,9 @@ def show_enhanced_statistics(filtered_apps: List[Dict[str, Any]]):
                 st.markdown("**📂 Category Breakdown**")
                 
                 categories = {}
-                for app in filtered_apps:
-                    cat = app.get('category', 'OTHER')
+                validated_apps = validate_apps_list(filtered_apps)
+                for app in validated_apps:
+                    cat = safe_get_app_attribute(app, 'category', 'OTHER')
                     categories[cat] = categories.get(cat, 0) + 1
                 
                 for category, count in sorted(categories.items()):
@@ -562,10 +579,11 @@ def show_enhanced_statistics(filtered_apps: List[Dict[str, Any]]):
             with col3:
                 st.markdown("**💯 Quality Analysis**")
                 
-                if filtered_apps:
-                    avg_quality = sum(app.get('quality_score', 0) for app in filtered_apps) / len(filtered_apps)
-                    high_quality = len([app for app in filtered_apps if app.get('quality_score', 0) > 80])
-                    good_quality = len([app for app in filtered_apps if 60 <= app.get('quality_score', 0) <= 80])
+                validated_apps = validate_apps_list(filtered_apps)
+                if validated_apps:
+                    avg_quality = sum(safe_get_app_attribute(app, 'quality_score', 0) for app in validated_apps) / len(validated_apps)
+                    high_quality = len([app for app in validated_apps if safe_get_app_attribute(app, 'quality_score', 0) > 80])
+                    good_quality = len([app for app in validated_apps if 60 <= safe_get_app_attribute(app, 'quality_score', 0) <= 80])
                     
                     st.write(f"📈 Average Quality: {avg_quality:.1f}")
                     st.write(f"🏆 High Quality: {high_quality}")
@@ -912,8 +930,29 @@ def dashboard_page():
     col1, col2, col3, col4, col5 = st.columns(5)
     
     try:
-        # Get enhanced apps data
-        enhanced_apps = st.session_state.engine.get_enhanced_apps_with_sorting('total_stars')
+        # Get enhanced apps data with validation
+        try:
+            enhanced_apps = st.session_state.engine.get_enhanced_apps_with_sorting('total_stars')
+            
+            # Validate data structure
+            if not isinstance(enhanced_apps, list):
+                st.error(f"❌ Apps data error: Expected list, got {type(enhanced_apps)}")
+                enhanced_apps = []
+            
+            # Validate all items are dictionaries
+            validated_apps = []
+            for app in enhanced_apps:
+                if isinstance(app, dict):
+                    validated_apps.append(app)
+                else:
+                    st.warning(f"⚠️ Skipping corrupted app data: {type(app)}")
+            
+            enhanced_apps = validated_apps
+            
+        except Exception as e:
+            st.error(f"❌ Error loading apps: {e}")
+            enhanced_apps = []
+        
         installed_apps = st.session_state.engine.list_installed_apps()
         running_apps = [app for app in installed_apps if st.session_state.engine.is_app_running(app)]
         
@@ -927,11 +966,12 @@ def dashboard_page():
             st.metric("🟢 Running", len(running_apps))
         
         with col4:
-            total_stars = sum(app.get('total_stars', 0) for app in enhanced_apps)
+            validated_apps = validate_apps_list(enhanced_apps)
+            total_stars = sum(safe_get_app_attribute(app, 'total_stars', 0) for app in validated_apps)
             st.metric("⭐ Total Stars", f"{total_stars:,}")
         
         with col5:
-            enhanced_count = sum(1 for app in enhanced_apps if app.get('pinokio_stars', 0) > 0)
+            enhanced_count = sum(1 for app in validated_apps if safe_get_app_attribute(app, 'pinokio_stars', 0) > 0)
             st.metric("🌟 GitHub Enhanced", enhanced_count)
     
     except Exception as e:
@@ -1001,9 +1041,10 @@ def dashboard_page():
                 top_apps = enhanced_apps[:5]  # Top 5 by stars
                 
                 st.markdown("**⭐ Top Apps by Stars:**")
-                for app in top_apps:
-                    app_name = app.get('name', 'Unknown')
-                    total_stars = app.get('total_stars', 0)
+                validated_top_apps = validate_apps_list(top_apps)
+                for app in validated_top_apps:
+                    app_name = safe_get_app_attribute(app, 'name', 'Unknown')
+                    total_stars = safe_get_app_attribute(app, 'total_stars', 0)
                     if total_stars > 0:
                         st.write(f"⭐ {app_name}: {total_stars:,} stars")
                     else:
@@ -1193,9 +1234,33 @@ def browse_apps_page():
         col1, col2, col3 = st.columns(3)
         
         with col1:
-            # Category filter
-            available_apps = st.session_state.engine.get_enhanced_apps_with_sorting(selected_sort)
-            categories = list(set([app.get('category', 'OTHER') for app in available_apps if app.get('category')]))
+            # Category filter with data validation
+            try:
+                available_apps = st.session_state.engine.get_enhanced_apps_with_sorting(selected_sort)
+                
+                # Validate data structure before processing
+                if not isinstance(available_apps, list):
+                    st.error(f"❌ Data structure error: Expected list, got {type(available_apps)}")
+                    available_apps = []
+                
+                # Safely extract categories with comprehensive validation
+                categories = set()
+                validated_apps = validate_apps_list(available_apps)
+                
+                for app in validated_apps:
+                    category = safe_get_app_attribute(app, 'category', 'OTHER')
+                    if category:
+                        categories.add(category)
+                
+                categories = list(categories)
+                
+                if len(validated_apps) < len(available_apps):
+                    st.warning(f"⚠️ Filtered out {len(available_apps) - len(validated_apps)} invalid app entries")
+                
+            except Exception as e:
+                st.error(f"❌ Error processing categories: {e}")
+                available_apps = []
+                categories = ['OTHER']
             category_filter = st.selectbox("📂 Category Filter", ['All'] + sorted(categories))
         
         with col2:
@@ -1206,44 +1271,96 @@ def browse_apps_page():
             # Stars filter
             min_stars = st.number_input("⭐ Minimum Total Stars", min_value=0, value=0)
     
-    # Get enhanced apps with filters
+    # Get enhanced apps with filters and comprehensive validation
     try:
         filtered_apps = st.session_state.engine.search_apps_enhanced(
             search_term, category_filter, None, selected_sort
         )
         
-        # Apply additional filters
+        # Validate filtered apps structure
+        if not isinstance(filtered_apps, list):
+            st.error(f"❌ Search returned invalid data: {type(filtered_apps)}")
+            filtered_apps = []
+        
+        # Ensure all items are dictionaries before applying filters
+        validated_filtered_apps = []
+        for app in filtered_apps:
+            if isinstance(app, dict):
+                validated_filtered_apps.append(app)
+            else:
+                st.warning(f"⚠️ Removing invalid app from results: {type(app)}")
+        
+        filtered_apps = validated_filtered_apps
+        
+        # Apply additional filters with safety
         if min_quality > 0:
-            filtered_apps = [app for app in filtered_apps if app.get('quality_score', 0) >= min_quality]
+            try:
+                filtered_apps = [app for app in filtered_apps 
+                               if isinstance(app, dict) and app.get('quality_score', 0) >= min_quality]
+            except Exception as e:
+                st.warning(f"⚠️ Quality filter error: {e}")
         
         if min_stars > 0:
-            filtered_apps = [app for app in filtered_apps if app.get('total_stars', 0) >= min_stars]
+            try:
+                filtered_apps = [app for app in filtered_apps 
+                               if isinstance(app, dict) and app.get('total_stars', 0) >= min_stars]
+            except Exception as e:
+                st.warning(f"⚠️ Stars filter error: {e}")
             
     except Exception as e:
-        st.error(f"Search failed: {e}")
-        filtered_apps = st.session_state.engine.list_available_apps()[:20]
+        st.error(f"❌ Search failed: {e}")
+        try:
+            # Fallback to basic app list
+            fallback_apps = st.session_state.engine.list_available_apps()
+            filtered_apps = [app for app in fallback_apps[:20] if isinstance(app, dict)]
+        except:
+            filtered_apps = []
     
-    # Enhanced statistics
+    # Enhanced statistics with comprehensive validation
     col1, col2, col3, col4 = st.columns(4)
     
     with col1:
-        total_available = len(st.session_state.engine.list_available_apps())
-        st.metric("📱 Total Apps", total_available)
+        try:
+            total_available_apps = st.session_state.engine.list_available_apps()
+            if isinstance(total_available_apps, list):
+                total_available = len(total_available_apps)
+            else:
+                st.warning(f"⚠️ Apps data structure issue: {type(total_available_apps)}")
+                total_available = 0
+            st.metric("📱 Total Apps", total_available)
+        except Exception as e:
+            st.metric("📱 Total Apps", "Error")
     
     with col2:
-        showing_count = len(filtered_apps)
+        showing_count = len(filtered_apps) if isinstance(filtered_apps, list) else 0
         st.metric("👁️ Showing", showing_count)
     
     with col3:
-        if filtered_apps:
-            avg_stars = sum(app.get('total_stars', 0) for app in filtered_apps) / len(filtered_apps)
-            st.metric("⭐ Avg Stars", f"{avg_stars:.1f}")
-        else:
-            st.metric("⭐ Avg Stars", "0")
+        try:
+            if filtered_apps and isinstance(filtered_apps, list):
+                # Safely calculate average stars
+                valid_apps = [app for app in filtered_apps if isinstance(app, dict)]
+                if valid_apps:
+                    total_stars = sum(app.get('total_stars', 0) for app in valid_apps)
+                    avg_stars = total_stars / len(valid_apps)
+                    st.metric("⭐ Avg Stars", f"{avg_stars:.1f}")
+                else:
+                    st.metric("⭐ Avg Stars", "0")
+            else:
+                st.metric("⭐ Avg Stars", "0")
+        except Exception as e:
+            st.metric("⭐ Avg Stars", "Error")
     
     with col4:
-        enhanced_count = sum(1 for app in filtered_apps if app.get('pinokio_stars', 0) > 0)
-        st.metric("🌟 GitHub Enhanced", enhanced_count)
+        try:
+            if filtered_apps and isinstance(filtered_apps, list):
+                enhanced_count = sum(1 for app in filtered_apps 
+                                   if isinstance(app, dict) and app.get('pinokio_stars', 0) > 0)
+                st.metric("🌟 GitHub Enhanced", enhanced_count)
+            else:
+                st.metric("🌟 GitHub Enhanced", 0)
+        except Exception as e:
+            st.metric("🌟 GitHub Enhanced", "Error")
     
     # Revolutionary Split-Screen Layout
     col_controls, col_terminal = st.columns([1.2, 0.8])
@@ -1251,9 +1368,15 @@ def browse_apps_page():
     with col_controls:
         st.markdown("### 🎮 Revolutionary App Cards")
         
-        # Enhanced app cards with GitHub data
-        for app in filtered_apps[:12]:  # Show top 12 apps
-            display_revolutionary_app_card(app)
+        # Enhanced app cards with GitHub data and validation
+        valid_apps = [app for app in filtered_apps[:12] if isinstance(app, dict)]
+        
+        if valid_apps:
+            for app in valid_apps:
+                display_revolutionary_app_card(app)
+        else:
+            st.warning("⚠️ No valid apps to display")
+            st.info("🔧 Try refreshing the apps database or restarting the engine")
     
     with col_terminal:
         # Enhanced Revolutionary Terminal
@@ -1276,7 +1399,12 @@ def browse_apps_page():
 
 def display_revolutionary_app_card(app: Dict[str, Any]):
     """Display revolutionary app card with GitHub stars and enhanced info - MODULE 4"""
-    app_name = app.get('name', app.get('title', 'Unknown'))
+    # Data validation at start of function
+    if not isinstance(app, dict):
+        st.error(f"❌ Invalid app data type: {type(app)}")
+        return
+    
+    app_name = safe_get_app_attribute(app, 'name', safe_get_app_attribute(app, 'title', 'Unknown'))
     
     # Create enhanced app card with glassmorphism styling
     st.markdown(f"""
@@ -1304,11 +1432,11 @@ def display_revolutionary_app_card(app: Dict[str, Any]):
         </div>
         """, unsafe_allow_html=True)
         
-        # Revolutionary star display
-        pinokio_stars = app.get('pinokio_stars', 0)
-        original_stars = app.get('original_stars', 0)
-        total_stars = app.get('total_stars', 0)
-        quality_score = app.get('quality_score', 0)
+        # Revolutionary star display with safe operations
+        pinokio_stars = safe_get_app_attribute(app, 'pinokio_stars', 0)
+        original_stars = safe_get_app_attribute(app, 'original_stars', 0)
+        total_stars = safe_get_app_attribute(app, 'total_stars', 0)
+        quality_score = safe_get_app_attribute(app, 'quality_score', 0)
         
         if total_stars > 0:
             st.markdown(f"""
@@ -1323,9 +1451,9 @@ def display_revolutionary_app_card(app: Dict[str, Any]):
             </div>
             """, unsafe_allow_html=True)
         
-        # Category and tags
-        category = app.get('category', 'OTHER')
-        enhanced_tags = app.get('enhanced_tags', [])
+        # Category and tags with safe operations
+        category = safe_get_app_attribute(app, 'category', 'OTHER')
+        enhanced_tags = safe_get_app_attribute(app, 'enhanced_tags', [])
         
         # Category with icon
         category_icons = {
@@ -1345,8 +1473,8 @@ def display_revolutionary_app_card(app: Dict[str, Any]):
             
             st.markdown(f"**🏷️ Tags:** {tags_html}", unsafe_allow_html=True)
         
-        # Description with better formatting
-        description = app.get('description', 'No description available')
+        # Description with better formatting and safe operations
+        description = safe_get_app_attribute(app, 'description', 'No description available')
         if len(description) > 200:
             st.markdown(f"**📝 Description:** {description[:200]}...")
             with st.expander("Read more"):
@@ -1354,9 +1482,9 @@ def display_revolutionary_app_card(app: Dict[str, Any]):
         else:
             st.markdown(f"**📝 Description:** {description}")
         
-        # Repository information with GitHub data
-        repo_url = app.get('repo_url', app.get('clone_url', ''))
-        original_url = app.get('original_url', '')
+        # Repository information with GitHub data and safe operations
+        repo_url = safe_get_app_attribute(app, 'repo_url', safe_get_app_attribute(app, 'clone_url', ''))
+        original_url = safe_get_app_attribute(app, 'original_url', '')
         
         if repo_url:
             st.markdown(f"**🐙 Pinokio Repo:** [GitHub]({repo_url})")
@@ -1364,16 +1492,17 @@ def display_revolutionary_app_card(app: Dict[str, Any]):
         if original_url:
             st.markdown(f"**🌟 Original Repo:** [GitHub]({original_url})")
         
-        # Last updated info
-        last_updated = app.get('pinokio_last_updated', '')
+        # Last updated info with safe operations
+        last_updated = safe_get_app_attribute(app, 'pinokio_last_updated', '')
         if last_updated:
             try:
                 from datetime import datetime
                 updated_date = datetime.fromisoformat(last_updated.replace('Z', ''))
                 days_ago = (datetime.now() - updated_date.replace(tzinfo=None)).days
                 st.markdown(f"**📅 Last Updated:** {days_ago} days ago")
-            except:
-                pass
+            except Exception as e:
+                # Safe fallback if date parsing fails
+                st.markdown(f"**📅 Last Updated:** Recently")
     
     with col2:
         # Enhanced status and actions
