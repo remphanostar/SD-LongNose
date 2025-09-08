@@ -56,17 +56,7 @@ class UnifiedPinokioEngine:
         # Load apps database
         self.apps_data = self._load_apps_data(apps_data_path)
         
-        # Initialize complete Pinokio context and parser
-        self.context = PinokioContext(cwd=str(self.base_path))
-        self.parser = PinokioScriptParser(self.context)
-        
-        # Initialize cloud environment manager - MINI MODULE 3
-        self.cloud_env = CloudEnvironmentManager(str(self.base_path))
-        
-        # Initialize GitHub integration - MODULE 4 PHASE 1
-        self.github = GitHubIntegration(str(self.cache_dir))
-        
-        # Engine state
+        # Initialize engine state FIRST - CRITICAL BUG FIX
         self.installed_apps = {}
         self.running_processes = {}
         self.app_ports = {}
@@ -74,7 +64,17 @@ class UnifiedPinokioEngine:
         self.cache_dir = self.base_path / "cache" 
         self.venvs_dir = self.base_path / "venvs"
         
-        # Load state
+        # Initialize complete Pinokio context and parser
+        self.context = PinokioContext(cwd=str(self.base_path))
+        self.parser = PinokioScriptParser(self.context)
+        
+        # Initialize cloud environment manager - MINI MODULE 3
+        self.cloud_env = CloudEnvironmentManager(str(self.base_path))
+        
+        # Initialize GitHub integration - MODULE 4 PHASE 1 (after cache_dir is set)
+        self.github = GitHubIntegration(str(self.cache_dir))
+        
+        # Load state LAST (after all attributes are initialized)
         self._load_state()
     
     def _load_apps_data(self, apps_data_path: str) -> List[Dict[str, Any]]:

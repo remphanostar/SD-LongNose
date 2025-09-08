@@ -132,15 +132,32 @@ st.markdown("""
 
 # Initialize session state for Colab environment
 def init_session_state():
-    """Initialize session state variables for Colab"""
+    """Initialize session state variables with comprehensive error handling"""
     if "engine" not in st.session_state:
-        # Initialize with platform-agnostic paths - OPTIMIZED STRUCTURE
-        # Always look for apps database in same directory as scripts
-        apps_db_path = str(Path(__file__).parent / "cleaned_pinokio_apps.json")
-        st.session_state.engine = UnifiedPinokioEngine(
-            base_path=BASE_PATH,
-            apps_data_path=apps_db_path
-        )
+        try:
+            # Initialize with platform-agnostic paths - OPTIMIZED STRUCTURE
+            # Always look for apps database in same directory as scripts
+            apps_db_path = str(Path(__file__).parent / "cleaned_pinokio_apps.json")
+            
+            # Verify apps database exists before initializing engine
+            if not Path(apps_db_path).exists():
+                st.error(f"❌ Apps database not found: {apps_db_path}")
+                st.error("🔧 Ensure repository was cloned correctly")
+                st.stop()
+            
+            # Initialize engine with proper error handling
+            st.session_state.engine = UnifiedPinokioEngine(
+                base_path=BASE_PATH,
+                apps_data_path=apps_db_path
+            )
+            
+            st.success("✅ Revolutionary PinokioCloud engine initialized successfully!")
+            
+        except Exception as e:
+            st.error(f"❌ Critical initialization error: {str(e)}")
+            st.error("🔧 Try restarting runtime and running setup cell again")
+            st.error("📋 If issue persists, check that all dependencies are installed")
+            st.stop()
     
     if "current_page" not in st.session_state:
         st.session_state.current_page = "Dashboard"
