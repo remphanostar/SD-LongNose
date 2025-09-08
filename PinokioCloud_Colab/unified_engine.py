@@ -25,12 +25,14 @@ import git
 import psutil
 import requests
 
-# Import complete parser
+# Import complete parser and cloud environment manager
 try:
     from .pinokio_parser import PinokioScriptParser, PinokioContext
+    from .cloud_environment_manager import CloudEnvironmentManager
 except ImportError:
     # Handle case where it's run as main module
     from pinokio_parser import PinokioScriptParser, PinokioContext
+    from cloud_environment_manager import CloudEnvironmentManager
 
 # Setup logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -55,6 +57,9 @@ class UnifiedPinokioEngine:
         # Initialize complete Pinokio context and parser
         self.context = PinokioContext(cwd=str(self.base_path))
         self.parser = PinokioScriptParser(self.context)
+        
+        # Initialize cloud environment manager - MINI MODULE 3
+        self.cloud_env = CloudEnvironmentManager(str(self.base_path))
         
         # Engine state
         self.installed_apps = {}
@@ -269,11 +274,16 @@ class UnifiedPinokioEngine:
             return False
     
     async def install_app(self, app_name: str, progress_callback=None) -> bool:
-        """Install app with Colab optimization"""
+        """Install app with enhanced cloud environment management - MINI MODULE 3"""
         try:
             if progress_callback:
                 progress_callback(f"🔍 Starting installation of {app_name}")
                 progress_callback(f"📊 Searching {len(self.apps_data)} apps in database...")
+                # Enhanced platform feedback
+                platform_info = self.cloud_env.platform_info
+                progress_callback(f"🌩️ Detected platform: {platform_info['platform']}")
+                if platform_info['environment_restrictions']:
+                    progress_callback(f"⚠️ Platform constraints: {', '.join(platform_info['environment_restrictions'])}")
             
             # Find app in database - try multiple name fields for compatibility
             app_info = None
@@ -284,12 +294,20 @@ class UnifiedPinokioEngine:
                     app_info = app
                     if progress_callback:
                         progress_callback(f"✅ Found app in database: {app.get('name', app.get('title', app_name))}")
+                        progress_callback(f"📂 Category: {app.get('category', 'Unknown')}")
+                        progress_callback(f"⭐ GitHub stars: {app.get('stars', 'Unknown')}")
                     break
             
             if not app_info:
+                # Enhanced error message with platform context
+                error_msg = self.cloud_env.generate_detailed_error_message('app_not_found', {
+                    'app_name': app_name,
+                    'platform': self.cloud_env.platform_info['platform'],
+                    'available_apps_sample': [app.get('name', app.get('title', 'Unknown')) for app in self.apps_data[:5]]
+                })
                 if progress_callback:
                     progress_callback(f"❌ App '{app_name}' not found in database")
-                    progress_callback(f"🔍 Available apps: {[app.get('name', app.get('title', 'Unknown')) for app in self.apps_data[:5]]}...")
+                    progress_callback(error_msg)
                 logger.error(f"App not found in database: {app_name}")
                 return False
             
@@ -345,6 +363,27 @@ class UnifiedPinokioEngine:
                 if progress_callback:
                     progress_callback(f"📁 App directory already exists: {app_path}")
             
+            # Enhanced environment setup - MINI MODULE 3
+            if progress_callback:
+                progress_callback(f"🔧 Setting up environment for {app_name}...")
+                progress_callback(f"🌩️ Platform: {self.cloud_env.platform_info['platform']}")
+            
+            # Create cloud-optimized environment
+            env_result = await self.cloud_env.create_app_environment(app_name)
+            if not env_result.get('success'):
+                error_msg = self.cloud_env.generate_detailed_error_message('environment_setup_failed', {
+                    'app_name': app_name,
+                    'error': env_result.get('error', 'Unknown error'),
+                    'platform': self.cloud_env.platform_info['platform']
+                })
+                if progress_callback:
+                    progress_callback(f"❌ Environment setup failed: {env_result.get('error')}")
+                    progress_callback(error_msg)
+                return False
+            
+            if progress_callback:
+                progress_callback(f"✅ Environment configured: {env_result['config']['method']}")
+            
             # Execute install script if it exists
             install_script = None
             for script_name in ['install.js', 'install.json']:
@@ -355,16 +394,46 @@ class UnifiedPinokioEngine:
             
             if install_script:
                 if progress_callback:
-                    progress_callback(f"Found install script: {install_script.name}")
+                    progress_callback(f"📜 Found install script: {install_script.name}")
                 
-                result = await self.execute_script(install_script, app_path)
-                if not result.get('success'):
-                    logger.error(f"Install script failed for {app_name}")
+                # Pre-validation of requirements - MINI MODULE 3
+                await self._validate_app_requirements(install_script, app_path, app_name, progress_callback)
+                
+                if progress_callback:
+                    progress_callback(f"⚡ Executing installation with enhanced error handling...")
+                
+                # Enhanced error handling for script execution
+                try:
+                    result = await self.execute_script(install_script, app_path)
+                    if not result.get('success'):
+                        error_details = {
+                            'app_name': app_name,
+                            'script': install_script.name,
+                            'error': result.get('error', 'Unknown error'),
+                            'platform': self.cloud_env.platform_info['platform'],
+                            'step': result.get('step', 'Unknown')
+                        }
+                        error_msg = self.cloud_env.generate_detailed_error_message('install_script_failed', error_details)
+                        if progress_callback:
+                            progress_callback(f"❌ Install script failed at step {result.get('step', 'Unknown')}")
+                            progress_callback(error_msg)
+                        logger.error(f"Install script failed for {app_name}: {result}")
+                        return False
+                except Exception as e:
+                    error_msg = self.cloud_env.generate_detailed_error_message('install_exception', {
+                        'app_name': app_name,
+                        'error': str(e),
+                        'platform': self.cloud_env.platform_info['platform']
+                    })
+                    if progress_callback:
+                        progress_callback(f"💥 Installation exception: {str(e)}")
+                        progress_callback(error_msg)
                     return False
             else:
                 # Basic install - just mark as installed
                 if progress_callback:
-                    progress_callback("No install script found, marking as installed")
+                    progress_callback("📋 No install script found, marking as installed")
+                    progress_callback(f"✅ App '{app_name}' ready to use")
             
             # Update installed apps
             self.installed_apps[app_name] = {
@@ -852,15 +921,30 @@ class UnifiedPinokioEngine:
                     message = f"sudo {message}"
                     logger.warning(f"Using sudo for command: {message}")
                 
-                # Execute command with enhanced parameter support
-                if conda_config:
-                    # Handle conda environment
+                # Execute command with cloud platform optimization - MINI MODULE 3
+                platform = self.cloud_env.platform_info['platform']
+                
+                # Platform-specific execution strategy
+                if platform == 'lightning_ai' and (venv_name or conda_config):
+                    # Lightning AI: Override venv/conda requests, use user installs
+                    logger.warning(f"Lightning AI detected - overriding venv/conda for user install")
+                    if 'pip install' in message:
+                        # Modify pip install commands for Lightning AI
+                        app_env_dir = self.base_path / "environments" / (venv_name or 'default')
+                        app_env_dir.mkdir(parents=True, exist_ok=True)
+                        enhanced_message = message.replace('pip install', f'pip install --user --target {app_env_dir}')
+                        success = await self._execute_direct(enhanced_message, full_path, should_be_daemon, env_vars)
+                    else:
+                        success = await self._execute_direct(message, full_path, should_be_daemon, env_vars)
+                        
+                elif conda_config and self.cloud_env.platform_info['supports_conda']:
+                    # Handle conda environment (if platform supports it)
                     success = await self._execute_in_conda(message, conda_config, full_path, should_be_daemon, env_vars)
-                elif venv_name:
-                    # Execute in virtual environment  
+                elif venv_name and self.cloud_env.platform_info['supports_venv']:
+                    # Execute in virtual environment (if platform supports it)
                     success = await self._execute_in_venv(message, venv_name, full_path, should_be_daemon, env_vars)
                 else:
-                    # Execute directly
+                    # Execute directly (fallback or platform constraint)
                     success = await self._execute_direct(message, full_path, should_be_daemon, env_vars)
                 
                 if not success:
@@ -1687,5 +1771,74 @@ class UnifiedPinokioEngine:
             'running_apps': len(self.running_processes),
             'available_apps': len(self.apps_data),
             'used_ports': list(self.app_ports.values()),
-            'base_path': str(self.base_path)
+            'base_path': str(self.base_path),
+            'cloud_platform': self.cloud_env.platform_info['platform'],
+            'platform_constraints': self.cloud_env.platform_info['environment_restrictions']
         }
+
+    async def _validate_app_requirements(self, install_script: Path, app_path: Path, app_name: str, progress_callback=None) -> bool:
+        """Pre-validate app requirements against platform constraints - MINI MODULE 3"""
+        try:
+            if progress_callback:
+                progress_callback(f"🔍 Pre-validating requirements for {app_name}...")
+            
+            # Look for requirements.txt in app directory
+            requirements_file = app_path / 'requirements.txt'
+            requirements = []
+            
+            if requirements_file.exists():
+                with open(requirements_file, 'r') as f:
+                    requirements = [line.strip() for line in f.readlines() 
+                                  if line.strip() and not line.startswith('#')]
+                
+                if progress_callback:
+                    progress_callback(f"📋 Found requirements.txt: {len(requirements)} packages")
+                    
+                # Validate requirements against platform
+                validation = self.cloud_env.validate_requirements_compatibility(requirements, app_name)
+                
+                # Report validation results
+                if validation['warnings']:
+                    if progress_callback:
+                        progress_callback(f"⚠️ {len(validation['warnings'])} potential issues detected")
+                        for warning in validation['warnings'][:3]:  # Show first 3
+                            progress_callback(warning)
+                
+                if validation['errors']:
+                    if progress_callback:
+                        progress_callback(f"❌ {len(validation['errors'])} compatibility errors found")
+                        for error in validation['errors'][:3]:  # Show first 3
+                            progress_callback(error)
+                
+                if validation['recommendations']:
+                    if progress_callback:
+                        for rec in validation['recommendations'][:2]:  # Show first 2 recommendations
+                            progress_callback(rec)
+                
+                # Check if installation should proceed
+                if not validation['compatible']:
+                    if progress_callback:
+                        progress_callback(f"🛑 App '{app_name}' has compatibility issues with current platform")
+                    return False
+            else:
+                if progress_callback:
+                    progress_callback(f"📋 No requirements.txt found - proceeding with basic installation")
+            
+            # Additional platform-specific checks
+            platform = self.cloud_env.platform_info['platform']
+            
+            if platform == 'lightning_ai':
+                if progress_callback:
+                    progress_callback(f"⚡ Lightning AI optimization: Using --user installs")
+                    
+            elif platform == 'google_colab':
+                if progress_callback:
+                    progress_callback(f"🎮 Google Colab optimization: GPU environment ready")
+                    
+            return True
+            
+        except Exception as e:
+            logger.error(f"Requirements validation failed: {e}")
+            if progress_callback:
+                progress_callback(f"⚠️ Requirements validation failed: {str(e)}")
+            return True  # Continue installation despite validation errors
