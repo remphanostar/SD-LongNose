@@ -25,14 +25,16 @@ import git
 import psutil
 import requests
 
-# Import complete parser and cloud environment manager
+# Import complete parser, cloud environment manager, and GitHub integration
 try:
     from .pinokio_parser import PinokioScriptParser, PinokioContext
     from .cloud_environment_manager import CloudEnvironmentManager
+    from .github_integration import GitHubIntegration
 except ImportError:
     # Handle case where it's run as main module
     from pinokio_parser import PinokioScriptParser, PinokioContext
     from cloud_environment_manager import CloudEnvironmentManager
+    from github_integration import GitHubIntegration
 
 # Setup logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -60,6 +62,9 @@ class UnifiedPinokioEngine:
         
         # Initialize cloud environment manager - MINI MODULE 3
         self.cloud_env = CloudEnvironmentManager(str(self.base_path))
+        
+        # Initialize GitHub integration - MODULE 4 PHASE 1
+        self.github = GitHubIntegration(str(self.cache_dir))
         
         # Engine state
         self.installed_apps = {}
@@ -1842,3 +1847,145 @@ class UnifiedPinokioEngine:
             if progress_callback:
                 progress_callback(f"⚠️ Requirements validation failed: {str(e)}")
             return True  # Continue installation despite validation errors
+
+    async def enhance_apps_database_with_github(self, progress_callback=None) -> bool:
+        """Enhance apps database with live GitHub stars and metadata - MODULE 4"""
+        try:
+            if progress_callback:
+                progress_callback(f"🌟 Starting GitHub enhancement for {len(self.apps_data)} apps")
+                progress_callback(f"⭐ Fetching live stars for both Pinokio forks AND original repositories")
+            
+            # Convert list to dict for processing
+            apps_dict = {}
+            for i, app in enumerate(self.apps_data):
+                app_key = app.get('name', f'app_{i}')
+                apps_dict[app_key] = app
+            
+            # Enhance with GitHub data
+            enhanced_apps = await self.github.enhance_app_database(apps_dict, progress_callback)
+            
+            # Convert back to list format
+            self.apps_data = list(enhanced_apps.values())
+            
+            # Save enhanced database
+            enhanced_db_path = self.cache_dir / "enhanced_apps_database.json"
+            with open(enhanced_db_path, 'w') as f:
+                json.dump(enhanced_apps, f, indent=2)
+            
+            if progress_callback:
+                total_stars = sum(app.get('total_stars', 0) for app in self.apps_data)
+                enhanced_count = sum(1 for app in self.apps_data if app.get('pinokio_stars', 0) > 0)
+                progress_callback(f"✅ Enhanced {enhanced_count}/{len(self.apps_data)} apps with GitHub data")
+                progress_callback(f"⭐ Total stars across all apps: {total_stars:,}")
+                progress_callback(f"💾 Saved enhanced database to cache")
+            
+            logger.info(f"Apps database enhanced with GitHub data: {len(self.apps_data)} apps")
+            return True
+            
+        except Exception as e:
+            logger.error(f"GitHub enhancement failed: {e}")
+            if progress_callback:
+                progress_callback(f"❌ GitHub enhancement failed: {str(e)}")
+                progress_callback(f"📋 Continuing with original database")
+            return False
+
+    def get_enhanced_apps_with_sorting(self, sort_by: str = 'total_stars') -> List[Dict[str, Any]]:
+        """Get apps list with enhanced sorting options - MODULE 4"""
+        try:
+            # Load enhanced database if available
+            enhanced_db_path = self.cache_dir / "enhanced_apps_database.json"
+            
+            if enhanced_db_path.exists():
+                try:
+                    with open(enhanced_db_path, 'r') as f:
+                        enhanced_data = json.load(f)
+                    apps_list = list(enhanced_data.values())
+                    logger.info(f"Using enhanced apps database: {len(apps_list)} apps")
+                except Exception as e:
+                    logger.warning(f"Failed to load enhanced database: {e}")
+                    apps_list = self.apps_data
+            else:
+                apps_list = self.apps_data
+            
+            # Sort based on criteria
+            if sort_by == 'total_stars':
+                apps_list.sort(key=lambda x: x.get('total_stars', 0), reverse=True)
+            elif sort_by == 'pinokio_stars':
+                apps_list.sort(key=lambda x: x.get('pinokio_stars', 0), reverse=True)
+            elif sort_by == 'original_stars':
+                apps_list.sort(key=lambda x: x.get('original_stars', 0), reverse=True)
+            elif sort_by == 'quality_score':
+                apps_list.sort(key=lambda x: x.get('quality_score', 0), reverse=True)
+            elif sort_by == 'recently_updated':
+                apps_list.sort(key=lambda x: x.get('pinokio_last_updated', ''), reverse=True)
+            elif sort_by == 'category':
+                apps_list.sort(key=lambda x: (x.get('category', 'ZZZ'), x.get('total_stars', 0)), reverse=False)
+            else:
+                # Default: alphabetical by name
+                apps_list.sort(key=lambda x: x.get('name', '').lower())
+            
+            return apps_list
+            
+        except Exception as e:
+            logger.error(f"Enhanced sorting failed: {e}")
+            return self.apps_data
+
+    def get_apps_by_category_enhanced(self) -> Dict[str, List[Dict[str, Any]]]:
+        """Get apps grouped by category with enhanced metadata - MODULE 4"""
+        try:
+            apps_list = self.get_enhanced_apps_with_sorting('total_stars')
+            
+            categories = {}
+            for app in apps_list:
+                category = app.get('category', 'OTHER')
+                if category not in categories:
+                    categories[category] = []
+                categories[category].append(app)
+            
+            # Sort each category by total stars
+            for category in categories:
+                categories[category].sort(key=lambda x: x.get('total_stars', 0), reverse=True)
+            
+            return categories
+            
+        except Exception as e:
+            logger.error(f"Category grouping failed: {e}")
+            return {'OTHER': self.apps_data}
+
+    def search_apps_enhanced(self, search_term: str, category_filter: str = 'All', 
+                           tag_filters: List[str] = None, sort_by: str = 'total_stars') -> List[Dict[str, Any]]:
+        """Enhanced app search with multiple criteria - MODULE 4"""
+        try:
+            apps_list = self.get_enhanced_apps_with_sorting(sort_by)
+            filtered_apps = apps_list
+            
+            # Text search
+            if search_term:
+                search_lower = search_term.lower()
+                filtered_apps = [
+                    app for app in filtered_apps
+                    if (search_lower in app.get('name', '').lower() or
+                        search_lower in app.get('description', '').lower() or
+                        any(search_lower in tag.lower() for tag in app.get('enhanced_tags', [])))
+                ]
+            
+            # Category filter
+            if category_filter and category_filter != 'All':
+                filtered_apps = [
+                    app for app in filtered_apps
+                    if app.get('category', '') == category_filter
+                ]
+            
+            # Tag filters
+            if tag_filters:
+                for tag_filter in tag_filters:
+                    filtered_apps = [
+                        app for app in filtered_apps
+                        if tag_filter.lower() in [tag.lower() for tag in app.get('enhanced_tags', [])]
+                    ]
+            
+            return filtered_apps
+            
+        except Exception as e:
+            logger.error(f"Enhanced search failed: {e}")
+            return self.apps_data[:20]  # Return first 20 as fallback
