@@ -1594,9 +1594,6 @@ def display_revolutionary_app_card(app: Dict[str, Any]):
     
     st.markdown('</div>', unsafe_allow_html=True)
     
-    # Show enhanced statistics
-    show_enhanced_statistics(filtered_apps)
-    
     # Revolutionary terminal at bottom with full width
     st.markdown("---")
     display_revolutionary_terminal()
