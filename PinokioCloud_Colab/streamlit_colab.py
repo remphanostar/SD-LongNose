@@ -271,29 +271,26 @@ def add_raw_output(app_name: str, line: str, output_type: str = "info"):
         st.session_state.raw_output = st.session_state.raw_output[-500:]
 
 def display_revolutionary_terminal():
-    """Display enhanced revolutionary terminal - MODULE 4 ENHANCED"""
+    """Display clean terminal with proper text formatting - FIXED"""
     if "raw_output" not in st.session_state:
         st.session_state.raw_output = []
     
-    # Enhanced terminal controls
-    col1, col2, col3, col4 = st.columns([2, 1, 1, 1])
+    # Simple terminal controls with unique keys
+    col1, col2, col3 = st.columns([3, 1, 1])
     
     with col1:
-        search_term = st.text_input("🔍 Search Terminal", placeholder="Search output...", key="terminal_search")
+        search_term = st.text_input("🔍 Search Terminal", placeholder="Search output...", key="logs_terminal_search")
     
     with col2:
-        output_filter = st.selectbox("🎨 Filter Type", 
-                                   ['All', 'Commands', 'Git', 'Install', 'Python', 'Errors', 'Success'],
-                                   key="terminal_filter")
-    
-    with col3:
-        if st.button("🧹 Clear", key="clear_terminal"):
+        if st.button("🧹 Clear", key="logs_clear_terminal"):
             st.session_state.raw_output = []
             add_toast("Terminal cleared", "info")
             st.rerun()
     
-    with col4:
-        auto_scroll = st.checkbox("📜 Auto-scroll", value=True, key="auto_scroll")
+    with col3:
+        output_filter = st.selectbox("🎨 Filter", 
+                                   ['All', 'Errors', 'Success', 'Info'],
+                                   key="logs_terminal_filter")
     
     # Filter terminal output
     filtered_output = st.session_state.raw_output
@@ -303,127 +300,47 @@ def display_revolutionary_terminal():
                           if search_term.lower() in entry['line'].lower()]
     
     if output_filter != 'All':
-        filter_map = {
-            'Commands': 'command', 'Git': 'git', 'Install': 'install',
-            'Python': 'python', 'Errors': 'error', 'Success': 'success'
-        }
+        filter_map = {'Errors': 'error', 'Success': 'success', 'Info': 'info'}
         filter_type = filter_map.get(output_filter, 'info')
         filtered_output = [entry for entry in filtered_output if entry['type'] == filter_type]
     
-    # Enhanced terminal display
-    terminal_height = 350
-    
+    # Clean terminal display - NO MORE HTML GARBAGE
     if filtered_output:
-        # Show terminal stats
         st.write(f"📊 Showing {len(filtered_output)} of {len(st.session_state.raw_output)} terminal lines")
         
-        # Enhanced terminal content with syntax highlighting
-        terminal_content = ""
-        for entry in filtered_output[-80:]:  # Show last 80 lines
-            # Enhanced styling based on type
-            type_icons = {
-                'command': '💻', 'git': '🌿', 'install': '📦', 'python': '🐍',
-                'success': '✅', 'error': '❌', 'warning': '⚠️', 'info': 'ℹ️'
-            }
-            icon = type_icons.get(entry['type'], '📝')
+        # Create clean text output - FIXED
+        terminal_lines = []
+        for entry in filtered_output[-100:]:  # Show last 100 lines
+            timestamp = entry.get('timestamp', '')
+            app = entry.get('app', 'SYSTEM')
+            line = entry.get('line', '')
+            entry_type = entry.get('type', 'info')
             
-            # Enhanced color and formatting
-            terminal_content += f"""
-                <div style="
-                    color: {entry['color']};
-                    font-family: 'Courier New', monospace;
-                    font-size: 11px;
-                    margin: 2px 0;
-                    padding: 2px 5px;
-                    border-radius: 3px;
-                    background: rgba(0, 0, 0, 0.3);
-                    white-space: pre-wrap;
-                    border-left: 3px solid {entry['color']};
-                ">
-                    <span style="color: #666; font-size: 9px;">[{entry['timestamp']}]</span>
-                    <span style="color: #888;">{icon}</span>
-                    <strong style="color: #00ff9f;">{entry['app']}:</strong>
-                    <span>{entry['line']}</span>
-                </div>
-            """
+            # Simple icon mapping
+            icon_map = {
+                'error': '❌', 'success': '✅', 'warning': '⚠️', 
+                'info': 'ℹ️', 'git': '🌿', 'install': '📦'
+            }
+            icon = icon_map.get(entry_type, 'ℹ️')
+            
+            terminal_lines.append(f"[{timestamp}] {icon} {app}: {line}")
         
-        # Revolutionary terminal container with enhanced styling
-        st.markdown(f"""
-            <div class="revolutionary-terminal" style="
-                background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(0, 20, 20, 0.9));
-                border: 2px solid #00ff9f;
-                border-radius: 15px;
-                padding: 15px;
-                height: {terminal_height}px;
-                overflow-y: auto;
-                font-family: 'Courier New', monospace;
-                box-shadow: 
-                    0 0 30px rgba(0, 255, 159, 0.4),
-                    inset 0 0 20px rgba(0, 255, 159, 0.1);
-                position: relative;
-            ">
-                <div style="
-                    position: absolute;
-                    top: 5px;
-                    right: 15px;
-                    color: #00ff9f;
-                    font-size: 10px;
-                    opacity: 0.7;
-                ">
-                    LIVE TERMINAL v2.0
-                </div>
-                {terminal_content}
-                <div id="terminal-bottom-enhanced"></div>
-            </div>
-            <script>
-                // Enhanced auto-scroll
-                if ({str(auto_scroll).lower()}) {{
-                    var element = document.getElementById("terminal-bottom-enhanced");
-                    if (element) element.scrollIntoView({{behavior: 'smooth'}});
-                }}
-            </script>
-        """, unsafe_allow_html=True)
+        # Display in proper code block - NO HTML
+        terminal_text = "\n".join(terminal_lines)
+        st.code(terminal_text, language=None)
         
-        # Enhanced controls
-        col1, col2 = st.columns(2)
-        with col1:
-            if st.button("📋 Copy All Output", key="copy_terminal"):
-                terminal_text = "\n".join([f"[{entry['timestamp']}] {entry['app']}: {entry['line']}" 
-                                         for entry in filtered_output])
-                st.code(terminal_text, language="bash")
-                add_toast("Terminal output copied!", "success")
-        
-        with col2:
-            if st.button("💾 Export to File", key="export_terminal"):
-                export_terminal_to_file(filtered_output)
+        # Export functionality
+        if st.button("💾 Export Terminal Log", key="export_terminal_logs"):
+            st.download_button(
+                label="📄 Download Terminal Log",
+                data=terminal_text,
+                file_name=f"pinokio_terminal_{time.strftime('%Y%m%d_%H%M%S')}.txt",
+                mime="text/plain",
+                key="download_terminal_logs"
+            )
     else:
-        # Enhanced empty state
-        st.markdown(f"""
-            <div style="
-                background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(0, 20, 40, 0.8));
-                border: 2px solid #00ff9f;
-                border-radius: 15px;
-                padding: 30px;
-                height: {terminal_height}px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: #00ff9f;
-                font-family: 'Courier New', monospace;
-                text-align: center;
-            ">
-                <div>
-                    <div style="font-size: 64px; margin-bottom: 20px; opacity: 0.7;">🖥️</div>
-                    <div style="font-size: 18px; font-weight: bold;">Revolutionary Terminal Ready</div>
-                    <div style="font-size: 14px; color: #666; margin-top: 10px;">
-                        Start an app operation to see real-time output
-                    </div>
-                    <div style="font-size: 12px; color: #444; margin-top: 5px;">
-                        Every git clone, pip install, and Python execution will appear here
-                    </div>
-                </div>
-            </div>
-        """, unsafe_allow_html=True)
+        st.info("🖥️ Terminal is empty. App activities will appear here in real-time.")
+        st.code("No terminal output yet. Install an app to see logs here.", language=None)
 
 def export_terminal_to_file(output_data: List[Dict[str, Any]]):
     """Export terminal output to downloadable file - MODULE 4"""
@@ -1594,9 +1511,7 @@ def display_revolutionary_app_card(app: Dict[str, Any]):
     
     st.markdown('</div>', unsafe_allow_html=True)
     
-    # Revolutionary terminal at bottom with full width
-    st.markdown("---")
-    display_revolutionary_terminal()
+    # No terminal in Browse Apps - it belongs in Logs page
 
 def logs_page():
     """Live logs and monitoring page"""

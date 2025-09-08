@@ -217,29 +217,17 @@ class CloudEnvironmentManager:
             return {'success': False, 'error': f"Lightning AI environment failed: {e}"}
     
     async def _create_colab_environment(self, app_name: str, requirements: Optional[List[str]]) -> Dict[str, Any]:
-        """Create environment for Google Colab with conflict avoidance"""
+        """Create environment for Google Colab - SIMPLIFIED"""
         try:
-            logger.info(f"Google Colab environment setup for {app_name}")
+            logger.info(f"Google Colab environment setup for {app_name} - using system Python")
             
-            # Check for potential conflicts with pre-installed packages
-            conflicts = []
-            if requirements:
-                preinstalled = self.platform_info.get('preinstalled_packages', [])
-                conflicts = [req for req in requirements if any(req.startswith(pkg) for pkg in preinstalled)]
-                
-                if conflicts:
-                    logger.warning(f"Potential conflicts detected: {conflicts}")
-            
-            # Create isolated venv for apps
-            venv_path = self.base_path / "venvs" / app_name
-            
+            # Use system Python with --user installs - no venv creation
             env_config = {
                 'platform': 'google_colab',
-                'method': 'isolated_venv',
-                'venv_path': str(venv_path),
-                'python_executable': str(venv_path / 'bin' / 'python'),
-                'potential_conflicts': conflicts,
-                'install_strategy': 'venv_isolated',
+                'method': 'system_python_user',
+                'venv_path': None,
+                'python_executable': 'python3',
+                'install_command_prefix': 'python3 -m pip install --user',
                 'gpu_optimized': True,
                 'environment_vars': {
                     'CUDA_VISIBLE_DEVICES': '0',
@@ -247,12 +235,7 @@ class CloudEnvironmentManager:
                 }
             }
             
-            # Create venv if doesn't exist
-            if not venv_path.exists():
-                import venv
-                venv.create(venv_path, with_pip=True, clear=True)
-                logger.info(f"Created Colab venv: {venv_path}")
-            
+            logger.info(f"Colab environment configured for {app_name}")
             return {'success': True, 'config': env_config}
             
         except Exception as e:
@@ -302,12 +285,26 @@ class CloudEnvironmentManager:
             return {'success': False, 'error': f"Conda environment failed: {e}"}
     
     async def _create_venv_environment(self, app_name: str, requirements: Optional[List[str]]) -> Dict[str, Any]:
-        """Create virtual environment with enhanced validation"""
+        """Create virtual environment with enhanced validation - FIXED FOR COLAB"""
         try:
             venv_path = self.base_path / "venvs" / app_name
             
+            # Skip venv creation in cloud environments - use system Python with --user
+            if self.platform_info['is_cloud']:
+                logger.info(f"Cloud environment detected - using system Python with --user installs")
+                env_config = {
+                    'platform': self.platform_info['platform'],
+                    'method': 'system_python_user',
+                    'venv_path': None,
+                    'python_executable': 'python3',
+                    'install_command_prefix': 'python3 -m pip install --user',
+                    'activation_script': None
+                }
+                return {'success': True, 'config': env_config}
+            
+            # Only create venv for local development
             import venv
-            venv.create(venv_path, with_pip=True, clear=True)
+            venv.create(venv_path, with_pip=False, clear=True)  # Don't use ensurepip
             
             env_config = {
                 'platform': self.platform_info['platform'],
