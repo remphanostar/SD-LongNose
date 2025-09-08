@@ -134,12 +134,12 @@ st.markdown("""
 def init_session_state():
     """Initialize session state variables for Colab"""
     if "engine" not in st.session_state:
-        # Initialize with Colab-specific paths
-        # Use absolute path to ensure we're using the right JSON file
-        colab_apps_path = "/content/SD-LongNose/PinokioCloud_Colab/cleaned_pinokio_apps.json" if 'google.colab' in sys.modules else str(Path(__file__).parent / "cleaned_pinokio_apps.json")
+        # Initialize with platform-agnostic paths - OPTIMIZED STRUCTURE
+        # Always look for apps database in same directory as scripts
+        apps_db_path = str(Path(__file__).parent / "cleaned_pinokio_apps.json")
         st.session_state.engine = UnifiedPinokioEngine(
             base_path=BASE_PATH,
-            apps_data_path=colab_apps_path
+            apps_data_path=apps_db_path
         )
     
     if "current_page" not in st.session_state:
@@ -1522,11 +1522,11 @@ def settings_page():
     
     if st.button("🔄 Restart Engine"):
         try:
-            # Use same absolute path logic as initialization
-            colab_apps_path = "/content/SD-LongNose/PinokioCloud_Colab/cleaned_pinokio_apps.json" if 'google.colab' in sys.modules else str(Path(__file__).parent / "cleaned_pinokio_apps.json")
+            # Use same platform-agnostic path logic as initialization
+            apps_db_path = str(Path(__file__).parent / "cleaned_pinokio_apps.json")
             st.session_state.engine = UnifiedPinokioEngine(
                 base_path=BASE_PATH,
-                apps_data_path=colab_apps_path
+                apps_data_path=apps_db_path
             )
             add_toast("Engine restarted", "success")
             st.rerun()
