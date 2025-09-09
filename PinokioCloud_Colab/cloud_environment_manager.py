@@ -289,33 +289,16 @@ class CloudEnvironmentManager:
         try:
             venv_path = self.base_path / "venvs" / app_name
             
-            # Skip venv creation in cloud environments - use system Python with --user
-            if self.platform_info['is_cloud']:
-                logger.info(f"Cloud environment detected - using system Python with --user installs")
-                env_config = {
-                    'platform': self.platform_info['platform'],
-                    'method': 'system_python_user',
-                    'venv_path': None,
-                    'python_executable': 'python3',
-                    'install_command_prefix': 'python3 -m pip install --user',
-                    'activation_script': None
-                }
-                return {'success': True, 'config': env_config}
-            
-            # Only create venv for local development
-            import venv
-            venv.create(venv_path, with_pip=False, clear=True)  # Don't use ensurepip
-            
+            # Always use system Python with --user for all environments - SIMPLIFIED
+            logger.info(f"Using system Python with --user installs for {app_name}")
             env_config = {
                 'platform': self.platform_info['platform'],
-                'method': 'virtual_environment',
-                'venv_path': str(venv_path),
-                'python_executable': str(venv_path / 'bin' / 'python'),
-                'install_command_prefix': f'"{venv_path / "bin" / "python"}" -m pip install',
-                'activation_script': str(venv_path / 'bin' / 'activate')
+                'method': 'system_python_user',
+                'venv_path': None,
+                'python_executable': 'python3',
+                'install_command_prefix': 'python3 -m pip install --user --break-system-packages',
+                'activation_script': None
             }
-            
-            logger.info(f"Virtual environment created: {venv_path}")
             return {'success': True, 'config': env_config}
             
         except Exception as e:
