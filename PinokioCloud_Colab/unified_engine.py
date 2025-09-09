@@ -427,6 +427,9 @@ class UnifiedPinokioEngine:
                 
                 # Enhanced error handling for script execution
                 try:
+                    if progress_callback:
+                        progress_callback(f"🔧 Executing Pinokio install script: {install_script.name}")
+                    
                     result = await self.execute_script(install_script, app_path)
                     if not result.get('success'):
                         error_details = {
@@ -434,14 +437,34 @@ class UnifiedPinokioEngine:
                             'script': install_script.name,
                             'error': result.get('error', 'Unknown error'),
                             'platform': self.cloud_env.platform_info['platform'],
-                            'step': result.get('step', 'Unknown')
+                            'step': result.get('step', 'Unknown'),
+                            'method': result.get('method', 'Unknown')
                         }
                         error_msg = self.cloud_env.generate_detailed_error_message('install_script_failed', error_details)
                         if progress_callback:
-                            progress_callback(f"❌ Install script failed at step {result.get('step', 'Unknown')}")
+                            progress_callback(f"❌ Install script failed at step {result.get('step', 'Unknown')}: {result.get('method', 'Unknown')}")
                             progress_callback(error_msg)
                         logger.error(f"Install script failed for {app_name}: {result}")
                         return False
+                    else:
+                        # Script execution succeeded - NOW mark as installed
+                        if progress_callback:
+                            progress_callback(f"✅ Pinokio install script completed successfully")
+                        
+                        # Update installed apps ONLY after successful script execution
+                        self.installed_apps[app_name] = {
+                            'path': str(app_path),
+                            'repo_url': repo_url,
+                            'installed_at': datetime.datetime.now().isoformat()
+                        }
+                        
+                        self.save_state()
+                        
+                        if progress_callback:
+                            progress_callback(f"✅ Successfully installed {app_name}")
+                        
+                        return True
+                        
                 except Exception as e:
                     error_msg = self.cloud_env.generate_detailed_error_message('install_exception', {
                         'app_name': app_name,
@@ -453,24 +476,23 @@ class UnifiedPinokioEngine:
                         progress_callback(error_msg)
                     return False
             else:
-                # Basic install - just mark as installed
+                # Basic install - just mark as installed (no script to run)
                 if progress_callback:
                     progress_callback("📋 No install script found, marking as installed")
-                    progress_callback(f"✅ App '{app_name}' ready to use")
-            
-            # Update installed apps
-            self.installed_apps[app_name] = {
-                'path': str(app_path),
-                'repo_url': repo_url,
-                'installed_at': datetime.datetime.now().isoformat()
-            }
-            
-            self.save_state()
-            
-            if progress_callback:
-                progress_callback(f"Successfully installed {app_name}")
-            
-            return True
+                
+                # Update installed apps for basic install
+                self.installed_apps[app_name] = {
+                    'path': str(app_path),
+                    'repo_url': repo_url,
+                    'installed_at': datetime.datetime.now().isoformat()
+                }
+                
+                self.save_state()
+                
+                if progress_callback:
+                    progress_callback(f"✅ Successfully installed {app_name} (no install script)")
+                
+                return True
             
         except Exception as e:
             logger.error(f"Installation failed for {app_name}: {e}")
@@ -552,9 +574,18 @@ class UnifiedPinokioEngine:
                 params = self.parser._substitute_in_object(params)
                 
                 logger.info(f"Executing step {i}: {method}")
+                if hasattr(self, '_output_callback'):
+                    self._output_callback(f"🔧 STEP {i}: Executing {method}", "info")
+                    self._output_callback(f"📋 Parameters: {params}", "info")
                 
                 # Execute based on method
                 success = await self._execute_method(method, params, app_path, cmd, is_daemon)
+                
+                if hasattr(self, '_output_callback'):
+                    if success:
+                        self._output_callback(f"✅ STEP {i} COMPLETED: {method}", "success")
+                    else:
+                        self._output_callback(f"❌ STEP {i} FAILED: {method}", "error")
                 
                 if not success:
                     error_msg = f'{method} failed at step {i}'
