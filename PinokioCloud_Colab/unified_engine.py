@@ -554,6 +554,10 @@ class UnifiedPinokioEngine:
                         logger.warning(f"Required environment variable missing: {env_var}")
                         # For now, continue execution (in production would prompt user)
             
+            # Track actual execution success - NO MORE FAKE SUCCESS
+            any_commands_executed = False
+            all_commands_succeeded = True
+            
             for i, cmd in enumerate(commands):
                 # Update current step context
                 self.context.current = i
@@ -579,6 +583,11 @@ class UnifiedPinokioEngine:
                 
                 # Execute based on method
                 success = await self._execute_method(method, params, app_path, cmd, is_daemon)
+                
+                # Track execution results
+                any_commands_executed = True
+                if not success:
+                    all_commands_succeeded = False
                 
                 if hasattr(self, '_output_callback'):
                     if success:
@@ -630,7 +639,16 @@ class UnifiedPinokioEngine:
                             self.context.current = j - 1  # Will be incremented in next iteration
                             break
             
-            result = {'success': True, 'is_daemon': is_daemon}
+            # Return REAL success based on actual command execution
+            if any_commands_executed:
+                result = {'success': all_commands_succeeded, 'is_daemon': is_daemon}
+                if hasattr(self, '_output_callback'):
+                    if all_commands_succeeded:
+                        self._output_callback(f"✅ ALL SCRIPT STEPS COMPLETED SUCCESSFULLY", "success")
+                    else:
+                        self._output_callback(f"❌ SOME SCRIPT STEPS FAILED", "error")
+            else:
+                result = {'success': True, 'is_daemon': is_daemon, 'message': 'No commands executed'}
             
             # Add warnings if any
             if self.parser.get_warnings():
@@ -646,7 +664,14 @@ class UnifiedPinokioEngine:
         """Execute Pinokio method with complete API support - MODULE 2"""
         try:
             if method == 'shell.run':
-                return await self._execute_shell_command(params, app_path, is_daemon)
+                if hasattr(self, '_output_callback'):
+                    self._output_callback(f"🔧 SHELL.RUN: {params.get('message', '')}", "info")
+                    if params.get('venv'):
+                        self._output_callback(f"🐍 VENV SPECIFIED: {params.get('venv')}", "info")
+                result = await self._execute_shell_command(params, app_path, is_daemon)
+                if hasattr(self, '_output_callback'):
+                    self._output_callback(f"📊 SHELL.RUN RESULT: {result}", "info")
+                return result
                 
             elif method == 'script.start':
                 return await self._execute_subscript(params, app_path)
