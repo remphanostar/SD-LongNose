@@ -1109,19 +1109,21 @@ class UnifiedPinokioEngine:
                 activate_script = venv_path / "bin" / "activate"
                 python_exe = venv_path / "bin" / "python"
             
-            # Prepare command with venv activation
-            if command.startswith('python ') or command.startswith('pip '):
-                # Replace python/pip with venv python
-                if command.startswith('python '):
-                    command = command.replace('python ', f'"{python_exe}" ', 1)
-                elif command.startswith('pip '):
-                    pip_exe = python_exe.parent / "pip.exe" if platform.system() == "Windows" else python_exe.parent / "pip"
-                    command = command.replace('pip ', f'"{pip_exe}" ', 1)
+            # Prepare command with PROPER venv activation - PINOKIO.MD COMPLIANT
+            if platform.system() == "Windows":
+                # Windows activation
+                venv_command = f'"{activate_script}" && {command}'
+            else:
+                # Linux/Mac activation  
+                venv_command = f'source "{activate_script}" && {command}'
+            
+            if hasattr(self, '_output_callback'):
+                self._output_callback(f"🐍 VENV COMMAND: {venv_command}", "info")
             
             if is_daemon:
                 # For daemon processes, don't wait for completion
                 process = await asyncio.create_subprocess_shell(
-                    command,
+                    venv_command,
                     cwd=str(cwd),
                     stdout=asyncio.subprocess.PIPE,
                     stderr=asyncio.subprocess.PIPE,
@@ -1130,29 +1132,71 @@ class UnifiedPinokioEngine:
                 
                 # Store PID for tracking
                 self._last_process_pid = process.pid
-                logger.info(f"Started daemon process PID {process.pid} in venv '{venv_name}': {command[:50]}...")
+                
+                if output_callback:
+                    output_callback(f"🚀 Started daemon process PID {process.pid} in venv", "success")
+                    output_callback(f"💻 Venv Command: {venv_command}", "command")
+                
+                logger.info(f"Started daemon process PID {process.pid} in venv '{venv_name}': {venv_command[:50]}...")
                 
                 # Don't wait for daemon processes
                 return True
             else:
                 # For regular processes, wait for completion
                 process = await asyncio.create_subprocess_shell(
-                    command,
+                    venv_command,
                     cwd=str(cwd),
                     stdout=asyncio.subprocess.PIPE,
                     stderr=asyncio.subprocess.PIPE
                 )
                 
-                stdout, stderr = await process.communicate()
+                # Stream output in real-time - SAME AS _execute_direct
+                output_callback = getattr(self, '_output_callback', None)
+                all_output_lines = []
+                
+                # Read stdout stream
+                async def read_stdout():
+                    while True:
+                        line = await process.stdout.readline()
+                        if not line:
+                            break
+                        line_text = line.decode('utf-8', errors='replace').rstrip()
+                        if line_text.strip():
+                            all_output_lines.append(line_text)
+                            if output_callback:
+                                output_type = self._classify_output_type(line_text, command)
+                                output_callback(line_text, output_type)
+                
+                # Read stderr stream  
+                async def read_stderr():
+                    while True:
+                        line = await process.stderr.readline()
+                        if not line:
+                            break
+                        line_text = line.decode('utf-8', errors='replace').rstrip()
+                        if line_text.strip():
+                            all_output_lines.append(f"STDERR: {line_text}")
+                            if output_callback:
+                                output_callback(line_text, "error")
+                
+                # Read both streams concurrently
+                await asyncio.gather(read_stdout(), read_stderr())
+                
+                # Wait for process to complete
+                await process.wait()
                 
                 if process.returncode == 0:
-                    logger.info(f"Command succeeded: {command[:50]}...")
-                    if stdout:
-                        self._last_result = stdout.decode().strip()
+                    if output_callback:
+                        output_callback(f"✅ Venv command completed successfully (exit code: 0)", "success")
+                    logger.info(f"Venv command succeeded: {command[:50]}...")
+                    
+                    if all_output_lines:
+                        self._last_result = '\n'.join(all_output_lines)
                     return True
                 else:
-                    error_msg = stderr.decode().strip() if stderr else "Unknown error"
-                    logger.error(f"Command failed: {command[:50]}... - {error_msg}")
+                    if output_callback:
+                        output_callback(f"❌ Venv command failed with exit code {process.returncode}", "error")
+                    logger.error(f"Venv command failed: {command[:50]}... (exit code: {process.returncode})")
                     return False
                 
         except Exception as e:
