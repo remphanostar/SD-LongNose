@@ -560,10 +560,10 @@ class UnifiedPinokioEngine:
                     error_msg = f'{method} failed at step {i}'
                     detailed_error = f"Step {i} failed: {method} with params: {params}"
                     logger.error(detailed_error)
-                    if self.output_callback:
-                        self.output_callback(f"❌ STEP {i} FAILED: {method}", "error")
-                        self.output_callback(f"📋 Method: {method}", "error")
-                        self.output_callback(f"📋 Params: {params}", "error")
+                    if hasattr(self, '_output_callback'):
+                        self._output_callback(f"❌ STEP {i} FAILED: {method}", "error")
+                        self._output_callback(f"📋 Method: {method}", "error")
+                        self._output_callback(f"📋 Params: {params}", "error")
                     return {'success': False, 'error': error_msg, 'step': i, 'method': method, 'params': params}
                 
                 # Handle returns clause - Complete Pinokio.md compliance
@@ -953,13 +953,13 @@ class UnifiedPinokioEngine:
                             # uv not available, replace with regular pip
                             message = message.replace('uv pip install', 'pip install')
                             logger.info(f"Replaced uv with pip: {message}")
-                            if self.output_callback:
-                                self.output_callback(f"🔄 Converting uv command to pip: {message}", "info")
+                            if hasattr(self, '_output_callback'):
+                                self._output_callback(f"🔄 Converting uv command to pip: {message}", "info")
                     except:
                         message = message.replace('uv pip install', 'pip install')
                         logger.info(f"Replaced uv with pip: {message}")
-                        if self.output_callback:
-                            self.output_callback(f"🔄 Converting uv command to pip: {message}", "info")
+                        if hasattr(self, '_output_callback'):
+                            self._output_callback(f"🔄 Converting uv command to pip: {message}", "info")
                 
                 # Apply sudo if requested
                 if use_sudo:
@@ -1239,9 +1239,9 @@ class UnifiedPinokioEngine:
             script_uri = params.get('uri', '')
             script_params = params.get('params', {})
             
-            if self.output_callback:
-                self.output_callback(f"🔧 Executing subscript: {script_uri}", "info")
-                self.output_callback(f"📋 Script params: {script_params}", "info")
+            if hasattr(self, '_output_callback'):
+                self._output_callback(f"🔧 Executing subscript: {script_uri}", "info")
+                self._output_callback(f"📋 Script params: {script_params}", "info")
             
             if script_uri:
                 script_path = app_path / script_uri
@@ -1249,37 +1249,37 @@ class UnifiedPinokioEngine:
                     # Update context with script params
                     self.context.args.update(script_params)
                     
-                    if self.output_callback:
-                        self.output_callback(f"📜 Running script: {script_path}", "info")
+                    if hasattr(self, '_output_callback'):
+                        self._output_callback(f"📜 Running script: {script_path}", "info")
                     
                     result = await self.execute_script(script_path, app_path, script_params)
                     success = result.get('success', False)
                     
                     if not success:
                         error = result.get('error', 'Unknown error')
-                        if self.output_callback:
-                            self.output_callback(f"❌ Subscript failed: {script_uri}", "error")
-                            self.output_callback(f"📋 Error: {error}", "error")
+                        if hasattr(self, '_output_callback'):
+                            self._output_callback(f"❌ Subscript failed: {script_uri}", "error")
+                            self._output_callback(f"📋 Error: {error}", "error")
                     
                     return success
                 else:
                     error_msg = f"Subscript not found: {script_path}"
                     logger.error(error_msg)
-                    if self.output_callback:
-                        self.output_callback(f"❌ {error_msg}", "error")
+                    if hasattr(self, '_output_callback'):
+                        self._output_callback(f"❌ {error_msg}", "error")
                     return False
             else:
                 error_msg = "No script URI provided for script.start"
                 logger.error(error_msg)
-                if self.output_callback:
-                    self.output_callback(f"❌ {error_msg}", "error")
+                if hasattr(self, '_output_callback'):
+                    self._output_callback(f"❌ {error_msg}", "error")
                 return False
                 
         except Exception as e:
             error_msg = f"Subscript execution failed: {e}"
             logger.error(error_msg)
-            if self.output_callback:
-                self.output_callback(f"❌ {error_msg}", "error")
+            if hasattr(self, '_output_callback'):
+                self._output_callback(f"❌ {error_msg}", "error")
             return False
 
     async def run_app(self, app_name: str, progress_callback=None) -> bool:
