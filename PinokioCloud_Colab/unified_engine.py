@@ -1171,60 +1171,61 @@ class UnifiedPinokioEngine:
                 # For regular processes, stream output in real-time
                 if output_callback:
                     output_callback(f"💻 Executing: {command}", "command")
+                    output_callback(f"📂 Working directory: {cwd}", "info")
                 
+                # Enhanced process creation with better output capture
                 process = await asyncio.create_subprocess_shell(
                     command,
                     cwd=str(cwd),
                     stdout=asyncio.subprocess.PIPE,
-                    stderr=asyncio.subprocess.PIPE
+                    stderr=asyncio.subprocess.STDOUT,  # Merge stderr into stdout for better output
+                    env=exec_env,
+                    shell=True
                 )
                 
-                # Stream output in real-time
-                stdout_lines = []
-                stderr_lines = []
+                # Stream output in real-time - ENHANCED FOR REAL PIP OUTPUT
+                all_output_lines = []
                 
-                async def read_stdout():
-                    while True:
-                        line = await process.stdout.readline()
-                        if not line:
-                            break
-                        line_text = line.decode('utf-8', errors='replace').rstrip()
-                        stdout_lines.append(line_text)
-                        if output_callback and line_text.strip():
+                # Read merged stdout/stderr stream
+                while True:
+                    line = await process.stdout.readline()
+                    if not line:
+                        break
+                    
+                    line_text = line.decode('utf-8', errors='replace').rstrip()
+                    if line_text.strip():  # Only process non-empty lines
+                        all_output_lines.append(line_text)
+                        
+                        if output_callback:
                             # Determine output type based on content
                             output_type = self._classify_output_type(line_text, command)
                             output_callback(line_text, output_type)
-                
-                async def read_stderr():
-                    while True:
-                        line = await process.stderr.readline()
-                        if not line:
-                            break
-                        line_text = line.decode('utf-8', errors='replace').rstrip()
-                        stderr_lines.append(line_text)
-                        if output_callback and line_text.strip():
-                            output_callback(line_text, "error")
-                
-                # Read both streams concurrently
-                await asyncio.gather(read_stdout(), read_stderr())
+                            
+                        # Also log important lines
+                        if any(keyword in line_text.lower() for keyword in ['installing', 'downloading', 'collecting', 'error', 'failed']):
+                            logger.info(f"Command output: {line_text}")
                 
                 # Wait for process to complete
                 await process.wait()
                 
                 if process.returncode == 0:
                     if output_callback:
-                        output_callback(f"✅ Command completed successfully", "success")
+                        output_callback(f"✅ Command completed successfully (exit code: 0)", "success")
                     logger.info(f"Command succeeded: {command[:50]}...")
                     
                     # Store result
-                    if stdout_lines:
-                        self._last_result = '\n'.join(stdout_lines)
+                    if all_output_lines:
+                        self._last_result = '\n'.join(all_output_lines)
                     return True
                 else:
-                    error_msg = '\n'.join(stderr_lines) if stderr_lines else "Unknown error"
                     if output_callback:
                         output_callback(f"❌ Command failed with exit code {process.returncode}", "error")
-                    logger.error(f"Command failed: {command[:50]}... - {error_msg}")
+                        if all_output_lines:
+                            # Show last few lines of output for debugging
+                            for line in all_output_lines[-5:]:
+                                output_callback(f"📋 Output: {line}", "error")
+                    
+                    logger.error(f"Command failed: {command[:50]}... (exit code: {process.returncode})")
                     return False
                 
         except Exception as e:
@@ -1363,14 +1364,37 @@ class UnifiedPinokioEngine:
                 if progress_callback:
                     progress_callback(f"🔌 Assigned port: {available_port}")
             
+            # Check for Gradio and prepare tunnel BEFORE launch
+            needs_public_tunnel = await self._check_if_app_needs_public_tunnel(app_path, start_script)
+            ngrok_url = None
+            
+            if needs_public_tunnel:
+                if progress_callback:
+                    progress_callback(f"🌐 App uses Gradio - creating public tunnel first...")
+                
+                # Create ngrok tunnel BEFORE app launch
+                ngrok_url = await self._create_ngrok_tunnel_for_app(app_name, self.app_ports[app_name])
+                if ngrok_url:
+                    if progress_callback:
+                        progress_callback(f"🌐 Public tunnel ready: {ngrok_url}")
+                    
+                    # Set environment variable for Gradio share URL
+                    self.context.env['GRADIO_SHARE_URL'] = ngrok_url
+                    self.context.env['PUBLIC_URL'] = ngrok_url
+                else:
+                    if progress_callback:
+                        progress_callback(f"⚠️ Failed to create public tunnel - app will run locally only")
+            
             # Update context for app execution
             self.context.local['app_name'] = app_name
             self.context.local['app_port'] = self.app_ports[app_name]
+            if ngrok_url:
+                self.context.local['public_url'] = ngrok_url
             
             if progress_callback:
                 progress_callback(f"▶️ Executing start script...")
             
-            # Execute start script
+            # Execute start script with proper environment
             result = await self.execute_script(start_script, app_path)
             
             if result.get('success'):
@@ -2157,3 +2181,65 @@ class UnifiedPinokioEngine:
         except Exception as e:
             logger.error(f"Enhanced search failed: {e}")
             return self.apps_data[:20]  # Return first 20 as fallback
+    
+    async def _check_if_app_needs_public_tunnel(self, app_path: Path, start_script: Path) -> bool:
+        """Check if app uses Gradio or needs public tunnel"""
+        try:
+            # Check start script for Gradio usage
+            with open(start_script, 'r', encoding='utf-8') as f:
+                script_content = f.read().lower()
+            
+            # Look for Gradio indicators
+            gradio_indicators = [
+                'gradio', 'gr.interface', 'gr.blocks', 'share=true', 
+                'demo.launch', '.launch(', 'interface.launch'
+            ]
+            
+            for indicator in gradio_indicators:
+                if indicator in script_content:
+                    if hasattr(self, '_output_callback'):
+                        self._output_callback(f"🎯 Detected Gradio usage: {indicator}", "info")
+                    return True
+            
+            # Check for requirements files with gradio
+            requirements_files = ['requirements.txt', 'pyproject.toml', 'requirements.yml']
+            for req_file in requirements_files:
+                req_path = app_path / req_file
+                if req_path.exists():
+                    with open(req_path, 'r', encoding='utf-8') as f:
+                        req_content = f.read().lower()
+                    if 'gradio' in req_content:
+                        if hasattr(self, '_output_callback'):
+                            self._output_callback(f"🎯 Detected Gradio in {req_file}", "info")
+                        return True
+            
+            return False
+            
+        except Exception as e:
+            logger.debug(f"Failed to check Gradio usage: {e}")
+            return False
+    
+    async def _create_ngrok_tunnel_for_app(self, app_name: str, port: int) -> Optional[str]:
+        """Create ngrok tunnel for app BEFORE launch"""
+        try:
+            import pyngrok
+            from pyngrok import ngrok
+            
+            if hasattr(self, '_output_callback'):
+                self._output_callback(f"🌐 Creating ngrok tunnel for port {port}...", "info")
+            
+            # Create tunnel
+            tunnel = ngrok.connect(port)
+            public_url = tunnel.public_url
+            
+            if hasattr(self, '_output_callback'):
+                self._output_callback(f"✅ Public tunnel created: {public_url}", "success")
+            
+            logger.info(f"Created ngrok tunnel for {app_name}: {public_url}")
+            return public_url
+            
+        except Exception as e:
+            logger.error(f"Failed to create ngrok tunnel: {e}")
+            if hasattr(self, '_output_callback'):
+                self._output_callback(f"❌ Tunnel creation failed: {e}", "error")
+            return None
