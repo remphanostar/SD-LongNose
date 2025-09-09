@@ -285,20 +285,61 @@ class CloudEnvironmentManager:
             return {'success': False, 'error': f"Conda environment failed: {e}"}
     
     async def _create_venv_environment(self, app_name: str, requirements: Optional[List[str]]) -> Dict[str, Any]:
-        """Create virtual environment with enhanced validation - FIXED FOR COLAB"""
+        """Create virtual environment PROPERLY according to Pinokio.md"""
         try:
             venv_path = self.base_path / "venvs" / app_name
             
-            # Always use system Python with --user for all environments - SIMPLIFIED
-            logger.info(f"Using system Python with --user installs for {app_name}")
+            # Create virtual environment using subprocess - PINOKIO.MD COMPLIANT
+            logger.info(f"Creating virtual environment for {app_name} at {venv_path}")
+            
+            import subprocess
+            
+            # Use subprocess to create venv without ensurepip issues
+            result = subprocess.run([
+                'python3', '-m', 'venv', str(venv_path), '--without-pip'
+            ], capture_output=True, text=True)
+            
+            if result.returncode != 0:
+                logger.error(f"Venv creation failed: {result.stderr}")
+                return {'success': False, 'error': f"Venv creation failed: {result.stderr}"}
+            
+            # Install pip manually in the venv
+            python_exe = venv_path / 'bin' / 'python3'
+            get_pip_result = subprocess.run([
+                str(python_exe), '-m', 'ensurepip', '--default-pip'
+            ], capture_output=True, text=True)
+            
+            # If ensurepip fails, try alternative approach
+            if get_pip_result.returncode != 0:
+                logger.warning("ensurepip failed, trying wget approach")
+                import urllib.request
+                get_pip_url = "https://bootstrap.pypa.io/get-pip.py"
+                get_pip_path = venv_path / "get-pip.py"
+                
+                try:
+                    urllib.request.urlretrieve(get_pip_url, get_pip_path)
+                    pip_install_result = subprocess.run([
+                        str(python_exe), str(get_pip_path)
+                    ], capture_output=True, text=True)
+                    
+                    if pip_install_result.returncode != 0:
+                        return {'success': False, 'error': f"Pip installation failed: {pip_install_result.stderr}"}
+                        
+                    # Clean up
+                    get_pip_path.unlink()
+                except Exception as e:
+                    return {'success': False, 'error': f"Failed to install pip: {e}"}
+            
             env_config = {
                 'platform': self.platform_info['platform'],
-                'method': 'system_python_user',
-                'venv_path': None,
-                'python_executable': 'python3',
-                'install_command_prefix': 'python3 -m pip install --user --break-system-packages',
-                'activation_script': None
+                'method': 'virtual_environment',
+                'venv_path': str(venv_path),
+                'python_executable': str(python_exe),
+                'pip_executable': str(venv_path / 'bin' / 'pip'),
+                'activation_script': str(venv_path / 'bin' / 'activate')
             }
+            
+            logger.info(f"Virtual environment created successfully: {venv_path}")
             return {'success': True, 'config': env_config}
             
         except Exception as e:

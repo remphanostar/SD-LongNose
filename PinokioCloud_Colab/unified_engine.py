@@ -419,8 +419,7 @@ class UnifiedPinokioEngine:
                 if progress_callback:
                     progress_callback(f"📜 Found install script: {install_script.name}")
                 
-                # Pre-validation of requirements - MINI MODULE 3
-                await self._validate_app_requirements(install_script, app_path, app_name, progress_callback)
+                # Skip requirements validation - Pinokio apps handle their own dependencies
                 
                 if progress_callback:
                     progress_callback(f"⚡ Executing installation with enhanced error handling...")
@@ -1000,27 +999,19 @@ class UnifiedPinokioEngine:
                 # Execute command with cloud platform optimization - MINI MODULE 3
                 platform = self.cloud_env.platform_info['platform']
                 
-                # Platform-specific execution strategy
-                if platform == 'lightning_ai' and (venv_name or conda_config):
-                    # Lightning AI: Override venv/conda requests, use user installs
-                    logger.warning(f"Lightning AI detected - overriding venv/conda for user install")
-                    if 'pip install' in message:
-                        # Modify pip install commands for Lightning AI
-                        app_env_dir = self.base_path / "environments" / (venv_name or 'default')
-                        app_env_dir.mkdir(parents=True, exist_ok=True)
-                        enhanced_message = message.replace('pip install', f'pip install --user --target {app_env_dir}')
-                        success = await self._execute_direct(enhanced_message, full_path, should_be_daemon, env_vars)
-                    else:
-                        success = await self._execute_direct(message, full_path, should_be_daemon, env_vars)
-                        
-                elif conda_config and self.cloud_env.platform_info['supports_conda']:
-                    # Handle conda environment (if platform supports it)
-                    success = await self._execute_in_conda(message, conda_config, full_path, should_be_daemon, env_vars)
-                elif venv_name and self.cloud_env.platform_info['supports_venv']:
-                    # Execute in virtual environment (if platform supports it)
+                # PINOKIO.MD COMPLIANT EXECUTION - ALWAYS HONOR VENV PARAMETER
+                if venv_name:
+                    # ALWAYS use venv when specified - this is mandatory in Pinokio
+                    if hasattr(self, '_output_callback'):
+                        self._output_callback(f"🐍 Using virtual environment: {venv_name}", "info")
                     success = await self._execute_in_venv(message, venv_name, full_path, should_be_daemon, env_vars)
+                elif conda_config:
+                    # Use conda environment when specified
+                    if hasattr(self, '_output_callback'):
+                        self._output_callback(f"🐍 Using conda environment: {conda_config}", "info")
+                    success = await self._execute_in_conda(message, conda_config, full_path, should_be_daemon, env_vars)
                 else:
-                    # Execute directly (fallback or platform constraint)
+                    # Direct execution only when no venv/conda specified
                     success = await self._execute_direct(message, full_path, should_be_daemon, env_vars)
                 
                 if not success:
@@ -1069,13 +1060,21 @@ class UnifiedPinokioEngine:
             return False
 
     async def _execute_in_venv(self, command: str, venv_name: str, cwd: Path, is_daemon: bool = False, env_vars: Dict = None) -> bool:
-        """Execute command in virtual environment with enhanced parameter support - MODULE 2a"""
+        """Execute command in virtual environment - PINOKIO.MD COMPLIANT"""
         try:
             venv_path = self.venvs_dir / venv_name
             
-            # Create venv if it doesn't exist
+            # Create venv if it doesn't exist - FIXED APPROACH
             if not venv_path.exists():
-                venv.create(venv_path, with_pip=True)
+                if hasattr(self, '_output_callback'):
+                    self._output_callback(f"🔧 Creating virtual environment: {venv_name}", "info")
+                
+                # Use cloud environment manager for proper venv creation
+                env_result = await self.cloud_env._create_venv_environment(venv_name, None)
+                if not env_result.get('success'):
+                    if hasattr(self, '_output_callback'):
+                        self._output_callback(f"❌ Venv creation failed: {env_result.get('error')}", "error")
+                    return False
             
             # Get activation script path
             if platform.system() == "Windows":
@@ -1915,70 +1914,10 @@ class UnifiedPinokioEngine:
 
     async def _validate_app_requirements(self, install_script: Path, app_path: Path, app_name: str, progress_callback=None) -> bool:
         """Pre-validate app requirements against platform constraints - MINI MODULE 3"""
-        try:
-            if progress_callback:
-                progress_callback(f"🔍 Pre-validating requirements for {app_name}...")
-            
-            # Look for requirements.txt in app directory
-            requirements_file = app_path / 'requirements.txt'
-            requirements = []
-            
-            if requirements_file.exists():
-                with open(requirements_file, 'r') as f:
-                    requirements = [line.strip() for line in f.readlines() 
-                                  if line.strip() and not line.startswith('#')]
-                
-                if progress_callback:
-                    progress_callback(f"📋 Found requirements.txt: {len(requirements)} packages")
-                    
-                # Validate requirements against platform
-                validation = self.cloud_env.validate_requirements_compatibility(requirements, app_name)
-                
-                # Report validation results
-                if validation['warnings']:
-                    if progress_callback:
-                        progress_callback(f"⚠️ {len(validation['warnings'])} potential issues detected")
-                        for warning in validation['warnings'][:3]:  # Show first 3
-                            progress_callback(warning)
-                
-                if validation['errors']:
-                    if progress_callback:
-                        progress_callback(f"❌ {len(validation['errors'])} compatibility errors found")
-                        for error in validation['errors'][:3]:  # Show first 3
-                            progress_callback(error)
-                
-                if validation['recommendations']:
-                    if progress_callback:
-                        for rec in validation['recommendations'][:2]:  # Show first 2 recommendations
-                            progress_callback(rec)
-                
-                # Check if installation should proceed
-                if not validation['compatible']:
-                    if progress_callback:
-                        progress_callback(f"🛑 App '{app_name}' has compatibility issues with current platform")
-                    return False
-            else:
-                if progress_callback:
-                    progress_callback(f"📋 No requirements.txt found - proceeding with basic installation")
-            
-            # Additional platform-specific checks
-            platform = self.cloud_env.platform_info['platform']
-            
-            if platform == 'lightning_ai':
-                if progress_callback:
-                    progress_callback(f"⚡ Lightning AI optimization: Using --user installs")
-                    
-            elif platform == 'google_colab':
-                if progress_callback:
-                    progress_callback(f"🎮 Google Colab optimization: GPU environment ready")
-                    
-            return True
-            
-        except Exception as e:
-            logger.error(f"Requirements validation failed: {e}")
-            if progress_callback:
-                progress_callback(f"⚠️ Requirements validation failed: {str(e)}")
-            return True  # Continue installation despite validation errors
+        # Pinokio apps handle their own dependencies through install scripts
+        return True
+
+    # REMOVED: _validate_app_requirements method - Pinokio apps handle their own dependencies
 
     async def enhance_apps_database_with_github(self, progress_callback=None) -> bool:
         """Enhance apps database with live GitHub stars and metadata - MODULE 4"""
