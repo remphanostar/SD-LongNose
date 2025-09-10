@@ -34,7 +34,7 @@
 - **Platform Scope**: Affects development complexity and feature scope
 - **Engine Architecture**: Affects code organization and maintainability
 
-## Phase 1: Foundation & Core Engine (Days 1-7)
+## Phase 1: Multi-Cloud Detection & Repository Cloning (Days 1-5)
 **Status**: Ready to Begin (Pending User Decisions)
 **Priority**: CRITICAL
 
@@ -45,42 +45,21 @@
 - [ ] Build adaptive path mapping system
 - [ ] Test detection accuracy across all platforms
 
-### Day 2: Advanced Jupyter Launcher
+### Day 2: Repository Cloning System
 **Dependencies**: Cloud platform detection, repository structure decision
-- [ ] Build multi-cloud launcher.ipynb
-- [ ] Implement cloud-specific optimization paths
+- [ ] Build repository cloning system
+- [ ] Implement cloud-specific path mapping
 - [ ] Add session management and recovery mechanisms
 - [ ] Build comprehensive error handling and logging
 
-### Day 3: Core Engine Architecture
+### Day 3-5: Foundation Architecture
 **Dependencies**: Repository structure, engine architecture decision
 - [ ] Create base Pinokio engine structure
-- [ ] Implement process management with PID tracking
+- [ ] Implement cloud-specific optimizations
 - [ ] Create variable substitution engine
 - [ ] Build event handler system
 
-### Day 4: Advanced UI Foundation
-**Dependencies**: Core engine architecture
-- [ ] Create next-generation Streamlit UI
-- [ ] Build responsive layout system
-- [ ] Create WebSocket integration
-- [ ] Implement accessibility features
-
-### Day 5: Storage and File System
-**Dependencies**: Core engine, UI foundation
-- [ ] Implement virtual drive system
-- [ ] Build intelligent deduplication
-- [ ] Implement symbolic/hard linking system
-- [ ] Create automatic cleanup and garbage collection
-
-### Day 6-7: Core API Implementation
-**Dependencies**: Storage system, file operations
-- [ ] Complete shell.run implementation
-- [ ] Implement fs.* operations
-- [ ] Create script.* methods
-- [ ] Build json.* operations
-
-## Phase 2: Environment & Package Management (Days 8-14)
+## Phase 2: Environment Management Engine (Days 6-8)
 **Status**: Dependent on Phase 1 completion
 **Priority**: HIGH
 
@@ -102,126 +81,113 @@
 - [ ] Build dependency pre-compilation system
 - [ ] Implement storage-efficient package sharing
 
-## Phase 3: Application Lifecycle Management (Days 15-21)
+## Phase 3: Pinokio App Analysis Engine (Days 9-11)
 **Status**: Dependent on Phase 2 completion
 **Priority**: HIGH
 
-### Day 15-17: Installation Workflow Engine
-- [ ] Implement pre-installation analysis system
-- [ ] Create repository cloning with resume capability
-- [ ] Build environment creation automation
-- [ ] Design dependency installation with progress tracking
+### Day 9-11: App Analysis System
+- [ ] Implement app characteristic detection
+- [ ] Create installer method detection (install.js, install.json, requirements.txt)
+- [ ] Build web UI detection (Gradio, Streamlit, Flask, FastAPI)
+- [ ] Design dependency system analysis (pip, conda, npm, system packages)
+- [ ] Create tunnel requirements determination
+- [ ] Build complete app profiling system
 
-### Day 18-19: Process Management System
-- [ ] Implement daemon process handling with PID tracking
-- [ ] Build background service management
-- [ ] Create process monitoring and health checks
-- [ ] Design graceful shutdown procedures
-
-### Day 20-21: Application State Management
-- [ ] Create comprehensive application state tracking
-- [ ] Implement SQLite database for app metadata
-- [ ] Build state recovery mechanisms
-- [ ] Design rollback capabilities for failed installations
-
-## Phase 4: Cloud Platform Specialization (Days 22-28)
+## Phase 4: Dependency Detection & Installation Engine (Days 12-14)
 **Status**: Dependent on Phase 3 completion
-**Priority**: MEDIUM
-
-### Day 22-24: Google Colab Optimization
-- [ ] Implement Drive mounting automation
-- [ ] Build session management with keepalive mechanisms
-- [ ] Create GPU memory management and automatic cleanup
-- [ ] Design storage efficiency with compressed model storage
-
-### Day 25-26: Vast.ai Professional Setup
-- [ ] Implement certificate management for direct HTTPS access
-- [ ] Create Docker environment detection and adaptation
-- [ ] Build billing optimization with auto-shutdown triggers
-- [ ] Add SSH integration for advanced terminal access
-
-### Day 27-28: Lightning.ai Team Integration
-- [ ] Implement team collaboration workspace detection
-- [ ] Build studio-based project organization
-- [ ] Create resource sharing across team members
-- [ ] Add built-in Git integration support
-
-## Phase 5: Advanced Features & Optimization (Days 29-35)
-**Status**: Dependent on Phase 4 completion
-**Priority**: MEDIUM
-
-### Day 29-31: Web UI Discovery & Tunnel Management
-- [ ] Implement server detection patterns for 15+ frameworks
-- [ ] Build multi-provider tunnel system
-- [ ] Create tunnel health monitoring and failover
-- [ ] Implement public URL sharing and QR code generation
-
-### Day 32-33: Resource Monitoring & Performance Optimization
-- [ ] Implement comprehensive resource tracking
-- [ ] Create performance optimization recommendations
-- [ ] Build automatic resource cleanup mechanisms
-- [ ] Design predictive resource scaling
-
-### Day 34-35: Error Handling & Recovery Systems
-- [ ] Implement error pattern recognition
-- [ ] Build intelligent error recovery procedures
-- [ ] Create automatic retry mechanisms with backoff
-- [ ] Implement rollback capabilities for failed operations
-
-## Phase 6: Comprehensive Testing & Validation (Days 36-42)
-**Status**: Dependent on Phase 5 completion
-**Priority**: CRITICAL
-
-### Day 36-38: Primary Test Applications Suite
-- [ ] Test VibeVoice-Pinokio (Advanced TTS System)
-- [ ] Test RVC-realtime (Real-time Voice Conversion)
-- [ ] Test moore-animateanyone (Character Animation)
-- [ ] Test clarity-refiners-ui (Image Enhancement)
-
-### Day 39-40: Secondary Test Applications
-- [ ] Test bria-rmbg (Background Removal)
-- [ ] Test facefusion-pinokio (Face Manipulation)
-- [ ] Test Stable Diffusion WebUI (Image Generation)
-- [ ] Test ComfyUI (Node-based AI Workflow)
-
-### Day 41-42: Stress Testing & Edge Case Validation
-- [ ] Test simultaneous installation of multiple applications
-- [ ] Validate system recovery from network interruptions
-- [ ] Test memory exhaustion scenarios and recovery
-- [ ] Verify system behavior under GPU memory pressure
-
-## Phase 7: Performance Optimization & Production Readiness (Days 43-49)
-**Status**: Dependent on Phase 6 completion
 **Priority**: HIGH
 
-### Day 43-45: System-Wide Performance Optimization
-- [ ] Implement comprehensive performance profiling
-- [ ] Create memory usage optimization
-- [ ] Establish CPU utilization optimization
-- [ ] Design GPU utilization optimization
+### Day 12-14: Dependency Management System
+- [ ] Implement comprehensive dependency file detection
+- [ ] Create multi-package manager support (pip, conda, npm, system)
+- [ ] Build dependency conflict resolution
+- [ ] Design installation verification and testing
+- [ ] Create cross-platform dependency compatibility
 
-### Day 46-47: Application-Specific Optimizations
-- [ ] Design model loading optimization
-- [ ] Implement processing pipeline optimization
-- [ ] Create output optimization
-- [ ] Establish resource sharing optimization
+## Phase 5: Application Installation Engine (Days 15-17)
+**Status**: Dependent on Phase 4 completion
+**Priority**: HIGH
 
-### Day 48-49: Production Deployment & Maintenance
-- [ ] Establish comprehensive logging and monitoring systems
-- [ ] Implement health checking and automatic recovery
-- [ ] Create backup and disaster recovery procedures
-- [ ] Design security enhancements
+### Day 15-17: Installation Workflow Engine
+- [ ] Implement Pinokio app installation using detected methods
+- [ ] Create script parsing and execution (.js and .json)
+- [ ] Build user input handling and form management
+- [ ] Design installation state tracking and management
+- [ ] Create complete installation coordination
 
-## Phase 8: Streamlit UI Polish & Production Readiness (Day 50)
+## Phase 6: Application Running Engine (Days 18-20)
+**Status**: Dependent on Phase 5 completion
+**Priority**: HIGH
+
+### Day 18-20: Process Management System
+- [ ] Implement process management and tracking
+- [ ] Create daemon process handling
+- [ ] Build health monitoring and automatic restart
+- [ ] Design virtual drive and storage management
+- [ ] Create application lifecycle management
+
+## Phase 7: Web UI Discovery and Multi-Tunnel Management (Days 21-23)
+**Status**: Dependent on Phase 6 completion
+**Priority**: MEDIUM
+
+### Day 21-23: Tunnel Management System
+- [ ] Implement comprehensive server detection
+- [ ] Create multi-provider tunnel orchestration (ngrok, Cloudflare)
+- [ ] Build Gradio integration with automatic share parameter injection
+- [ ] Design advanced URL sharing with QR codes
+- [ ] Create health monitoring and automatic reconnection
+
+## Phase 8: Cloud Platform Specialization (Days 24-26)
 **Status**: Dependent on Phase 7 completion
-**Priority**: LOW
+**Priority**: MEDIUM
 
-### Final UI Polish
-- [ ] Dark cyberpunk theme refinement
-- [ ] WebSocket integration for real-time updates
-- [ ] Advanced terminal streaming with ANSI support
-- [ ] Responsive design and mobile optimization
-- [ ] User experience enhancements and accessibility
+### Day 24-26: Cloud Platform Optimization
+- [ ] Implement Google Colab optimizations (Drive mounting, session management, GPU handling)
+- [ ] Create Vast.ai professional features (certificates, Docker adaptation, billing optimization)
+- [ ] Build Lightning.ai team integration (workspaces, collaboration, resource sharing)
+- [ ] Design cross-platform compatibility and performance optimization
+
+## Phase 9: Advanced Features and Optimization (Days 27-29)
+**Status**: Dependent on Phase 8 completion
+**Priority**: MEDIUM
+
+### Day 27-29: Advanced Features System
+- [ ] Implement multi-layer caching system with intelligent prefetching
+- [ ] Create performance monitoring and resource optimization
+- [ ] Build error recovery and self-healing capabilities
+- [ ] Design advanced logging and analytics systems
+
+## Phase 10: Comprehensive Testing and Validation (Days 30-32)
+**Status**: Dependent on Phase 9 completion
+**Priority**: CRITICAL
+
+### Day 30-32: Comprehensive Testing System
+- [ ] Test real-world application testing across all categories (video, text, image, audio)
+- [ ] Create multi-cloud testing matrix with different instance types
+- [ ] Implement performance benchmarking and optimization
+- [ ] Design error condition testing and recovery validation
+
+## Phase 11: Streamlit UI Development (Days 33-35)
+**Status**: Dependent on Phase 10 completion
+**Priority**: HIGH
+
+### Day 33-35: Streamlit UI Implementation
+- [ ] Implement dark cyberpunk theme refinement
+- [ ] Create WebSocket integration for real-time updates
+- [ ] Build advanced terminal streaming with ANSI support
+- [ ] Design responsive design and mobile optimization
+- [ ] Implement user experience enhancements and accessibility
+
+## Phase 12: Final Polish and Production Readiness (Days 36-38)
+**Status**: Dependent on Phase 11 completion
+**Priority**: HIGH
+
+### Day 36-38: Production Readiness
+- [ ] Implement comprehensive error handling and user-friendly messages
+- [ ] Create final performance optimizations and cleanup
+- [ ] Build user documentation and help file generation
+- [ ] Design backup and recovery systems
+- [ ] Validate production readiness
 
 ## Success Metrics by Phase
 

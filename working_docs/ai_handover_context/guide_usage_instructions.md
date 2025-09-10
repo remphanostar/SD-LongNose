@@ -58,75 +58,113 @@ This document provides comprehensive instructions for using all development guid
 3. Make strategic decisions based on conflict analysis
 4. Update all plans based on decisions made
 
-### Phase 1: Foundation & Core Engine
+### Phase 1: Multi-Cloud Detection & Repository Cloning
 **Primary Guides**: Pinokio-master-devplan.md (Phase 1), Install-plan.md, dev-rules.md
-**Purpose**: Establish foundation and implement core engine
+**Purpose**: Detect cloud platform and clone repository
 **Usage**:
 1. Follow Pinokio-master-devplan.md Phase 1 specifications
 2. Use Install-plan.md for cloud platform analysis and setup
 3. Reference dev-rules.md for all implementation decisions
-4. Implement cloud platform detection and core engine architecture
+4. Implement cloud platform detection and repository cloning
 
-### Phase 2: Environment & Package Management
+### Phase 2: Environment Management Engine
 **Primary Guides**: Venv-conda-plan.md, AppReqs-Dependency-Plan.md, dev-rules.md
-**Purpose**: Implement virtual environment and dependency management
+**Purpose**: Implement virtual environment and file system management
 **Usage**:
 1. Follow Venv-conda-plan.md for detailed implementation steps
 2. Use AppReqs-Dependency-Plan.md for dependency management patterns
 3. Reference dev-rules.md for implementation standards
-4. Implement virtual environment isolation and package management
+4. Implement virtual environment isolation and file operations
 
-### Phase 3: Application Lifecycle Management
-**Primary Guides**: Pinokio-master-devplan.md (Phase 3), Install-plan.md, dev-rules.md
-**Purpose**: Implement application installation and management
+### Phase 3: Pinokio App Analysis Engine
+**Primary Guides**: Pinokio-master-devplan.md (Phase 3), dev-rules.md
+**Purpose**: Analyze Pinokio apps to determine characteristics
 **Usage**:
 1. Follow Pinokio-master-devplan.md Phase 3 specifications
+2. Reference dev-rules.md for implementation standards
+3. Implement app characteristic detection and profiling
+4. Analyze installer types, web UIs, and dependencies
+
+### Phase 4: Dependency Detection & Installation Engine
+**Primary Guides**: AppReqs-Dependency-Plan.md, dev-rules.md
+**Purpose**: Detect and install all types of dependencies
+**Usage**:
+1. Use AppReqs-Dependency-Plan.md for dependency management patterns
+2. Reference dev-rules.md for implementation standards
+3. Implement multi-package manager support
+4. Handle dependency conflict resolution
+
+### Phase 5: Application Installation Engine
+**Primary Guides**: Pinokio-master-devplan.md (Phase 5), Install-plan.md, dev-rules.md
+**Purpose**: Install Pinokio applications using detected methods
+**Usage**:
+1. Follow Pinokio-master-devplan.md Phase 5 specifications
 2. Use Install-plan.md for installation strategy
 3. Reference dev-rules.md for implementation standards
-4. Implement application installation and lifecycle management
+4. Implement application installation and state management
 
-### Phase 4: Cloud Platform Specialization
-**Primary Guides**: Pinokio-master-devplan.md (Phase 4), Install-plan.md, dev-rules.md
+### Phase 6: Application Running Engine
+**Primary Guides**: Pinokio-master-devplan.md (Phase 6), dev-rules.md
+**Purpose**: Manage running applications and processes
+**Usage**:
+1. Follow Pinokio-master-devplan.md Phase 6 specifications
+2. Reference dev-rules.md for implementation standards
+3. Implement process management and health monitoring
+4. Handle daemon processes and virtual drives
+
+### Phase 7: Web UI Discovery and Multi-Tunnel Management
+**Primary Guides**: Pinokio-master-devplan.md (Phase 7), dev-rules.md
+**Purpose**: Discover web UIs and create public tunnels
+**Usage**:
+1. Follow Pinokio-master-devplan.md Phase 7 specifications
+2. Reference dev-rules.md for implementation standards
+3. Implement server detection and tunnel management
+4. Handle ngrok, Cloudflare, and Gradio integration
+
+### Phase 8: Cloud Platform Specialization
+**Primary Guides**: Pinokio-master-devplan.md (Phase 8), Install-plan.md, dev-rules.md
 **Purpose**: Implement cloud-specific optimizations
 **Usage**:
-1. Follow Pinokio-master-devplan.md Phase 4 specifications
+1. Follow Pinokio-master-devplan.md Phase 8 specifications
 2. Use Install-plan.md for cloud platform analysis
 3. Reference dev-rules.md for implementation standards
 4. Implement cloud-specific optimizations and features
 
-### Phase 5: Advanced Features & Optimization
-**Primary Guides**: Pinokio-master-devplan.md (Phase 5), Storage-devplan.md, dev-rules.md
+### Phase 9: Advanced Features and Optimization
+**Primary Guides**: Pinokio-master-devplan.md (Phase 9), dev-rules.md
 **Purpose**: Implement advanced features and optimizations
 **Usage**:
-1. Follow Pinokio-master-devplan.md Phase 5 specifications
-2. Use Storage-devplan.md for advanced UI features
-3. Reference dev-rules.md for implementation standards
-4. Implement advanced features and performance optimizations
+1. Follow Pinokio-master-devplan.md Phase 9 specifications
+2. Reference dev-rules.md for implementation standards
+3. Implement caching, performance monitoring, and error recovery
+4. Add comprehensive logging and analytics
 
-### Phase 6: Testing & Validation
+### Phase 10: Comprehensive Testing and Validation
 **Primary Guides**: Running-dev-plan.md, dev-rules.md
 **Purpose**: Comprehensive testing and validation
 **Usage**:
 1. Follow Running-dev-plan.md testing framework
 2. Use dev-rules.md for testing standards
-3. Implement comprehensive testing with 8 test applications
+3. Implement comprehensive testing with real Pinokio apps
 4. Validate all functionality and performance requirements
 
-### Phase 7: Performance Optimization
-**Primary Guides**: Pinokio-master-devplan.md (Phase 7), dev-rules.md
-**Purpose**: Performance optimization and production readiness
+### Phase 11: Streamlit UI Development
+**Primary Guides**: Pinokio-master-devplan.md (Phase 11), Storage-devplan.md, dev-rules.md
+**Purpose**: Develop Streamlit web interface
 **Usage**:
-1. Follow Pinokio-master-devplan.md Phase 7 specifications
-2. Use dev-rules.md for optimization standards
-3. Implement performance optimizations and production readiness
-4. Validate performance requirements and production readiness
+1. Follow Pinokio-master-devplan.md Phase 11 specifications
+2. Use Storage-devplan.md for UI implementation details
+3. Reference dev-rules.md for implementation standards
+4. Implement Streamlit UI with terminal, gallery, and monitoring
 
-### Phase 8: UI Polish
-**Primary Guides**: Pinokio-master-devplan.md (Phase 8), Storage-devplan.md, dev-rules.md
-**Purpose**: Final UI polish and user experience optimization
+### Phase 12: Final Polish and Production Readiness
+**Primary Guides**: Pinokio-master-devplan.md (Phase 12), dev-rules.md
+**Purpose**: Final polish and production readiness
 **Usage**:
-1. Follow Pinokio-master-devplan.md Phase 8 specifications
-2. Use Storage-devplan.md for UI polish details
+1. Follow Pinokio-master-devplan.md Phase 12 specifications
+2. Reference dev-rules.md for implementation standards
+3. Implement error handling, performance optimization, and documentation
+4. Validate production readiness and user experience
 3. Reference dev-rules.md for UI standards
 4. Implement final UI polish and user experience optimization
 
