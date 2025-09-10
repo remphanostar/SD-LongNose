@@ -18,7 +18,7 @@
 - **dev-rules.md**: Core development principles and constraints for PinokioCloud implementation
 - **OriginalPinokioDocumentation.md**: Original Pinokio documentation reference
 
-### AI Handover Context Directory (/workspace/ai_handover_context/)
+### AI Handover Context Directory (/workspace/working_docs/ai_handover_context/)
 - **project_overview.md**: Complete project description, goals, and current status
 - **file_purpose_guide.md**: This file - purpose and key functions of every file
 - **function_inventory.md**: Every function's purpose, parameters, and dependencies
@@ -28,6 +28,24 @@
 - **guide_usage_instructions.md**: How to use all guides and development plans
 - **testing_procedures.md**: How to test and validate implementations
 - **deployment_instructions.md**: How to deploy and run the system
+
+### GitHub Repository Directory (/workspace/github_repo/)
+- **cloud_detection/**: Phase 1 implementation - Multi-Cloud Detection & Repository Cloning
+  - **cloud_detector.py**: Multi-cloud platform detection system
+  - **platform_configs.py**: Platform-specific configurations and optimizations
+  - **resource_assessor.py**: System resource assessment and analysis
+  - **path_mapper.py**: Intelligent path mapping between cloud platforms
+  - **repo_cloner.py**: Repository cloning with progress tracking
+  - **phase1_launcher.py**: Phase 1 orchestrator and workflow
+  - **test_phase1.py**: Phase 1 component testing
+- **environment_management/**: Phase 2 implementation - Environment Management Engine
+  - **venv_manager.py**: Virtual environment management system
+  - **file_system.py**: File system operations with atomic operations
+  - **shell_runner.py**: Shell command execution with real-time output
+  - **variable_system.py**: Variable management and substitution system
+  - **json_handler.py**: JSON operations and validation
+  - **phase2_launcher.py**: Phase 2 orchestrator and workflow
+  - **test_phase2.py**: Phase 2 component testing
 
 ### Virtual Environment Directory (/workspace/venv/)
 - **bin/**: Python executables, Jupyter, Streamlit, ngrok, and other tools
