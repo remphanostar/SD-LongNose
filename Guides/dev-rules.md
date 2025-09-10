@@ -1,29 +1,28 @@
 ---
-description:  Porject rules
+description: Project rules
 globs:
 alwaysApply: true
 ---
 # PinokioCloud Development Rules
 
 ## Project Overview
-PinokioCloud is a cloud-native Pinokio alternative for Google Colab environments with Streamlit UI. 
-The goal is to implement Pinokio functionality as specified in Pinokio.md with minimal deviations.
+PinokioCloud is a cloud-native Pinokio alternative for multi-cloud GPU environments (Google Colab, Vast.ai, Lightning.ai, Paperspace, RunPod) with Streamlit UI. The goal is to implement complete Pinokio functionality as specified in Pinokio.md with zero deviations, creating a production-ready system that rivals desktop Pinokio in capabilities while leveraging cloud advantages.
 
 ## Core Development Principles
 
 ### 1. Pinokio.md Compliance
 - Follow Pinokio.md specifications exactly unless technically impossible
 - Implement ALL Pinokio API methods: shell.run, fs.*, script.*, input, json.*, etc.
-- Support complete variable substitution system: {{platform}}, {{gpu}}, {{args.*}}, {{local.*}}
+- Support complete variable substitution system: {{platform}}, {{gpu}}, {{args.*}}, {{local.*}}, {{env.*}}
 - Honor daemon: true flag for background processes
 - Implement proper error handling as specified
 
-### 2. File Structure Rules
-- Keep existing notebook structure unchanged (PinokioCloud_Colab_Generated.ipynb)
-- All core logic in unified_engine.py
-- UI logic in streamlit_colab.py  
-- Do NOT modify the Colab clone > install > launch workflow
-- Maintain absolute paths for Colab compatibility (/content/...)
+### 2. Repository Structure Rules
+- GitHub repository holds all scripts and files
+- Notebook file clones repository in Cell 1 into dynamic folder based on cloud GPU service
+- Scripts are used by both notebook and Streamlit UI
+- Maintain absolute paths for cloud compatibility (/content/, /workspace/, /teamspace/)
+- Use new naming nomenclature that explains script's job and phase in 'search > venv > requirements > install > storage > run > launch > UI' workflow
 
 ### 3. Implementation Standards
 
@@ -33,64 +32,158 @@ The goal is to implement Pinokio functionality as specified in Pinokio.md with m
 - Implement proper process tracking with PIDs
 - Support both .js and .json Pinokio scripts
 - Handle virtual environments exactly like desktop Pinokio
+- NO PLACEHOLDERS OR INCOMPLETE IMPLEMENTATIONS - every function must be production-ready
 
 #### Variable System
 - Support full {{variable}} syntax with nested paths
-- Implement all Pinokio memory variables (platform, gpu, cwd, port, args, local, env)
+- Implement all Pinokio memory variables (platform, gpu, cwd, port, args, local, env, cloud)
 - Handle variable substitution in all string parameters
 - Support conditional logic with 'when' clauses
+- Add cloud-specific variables ({{cloud.base_path}}, {{cloud.platform}})
 
 #### Process Management  
 - Track all spawned processes
 - Implement proper daemon management
 - Support 'on' handlers for output monitoring
 - Handle graceful shutdown and cleanup
+- Show raw Python and pip output with no obfuscation or simplified catchalls
 
 #### Error Handling
 - Provide user-friendly error messages
 - Log technical details for debugging
 - Implement retry mechanisms where appropriate
 - Never fail silently
+- Show complete unobfuscated error output for debugging
 
 ### 4. Code Quality Standards
 - Use type hints for all function parameters
 - Add comprehensive docstrings
-- Implement proper logging with structured messages
+- Implement comprehensive structured logging (terminal, Streamlit, log files)
 - Handle exceptions gracefully with specific error types
 - Test edge cases (missing files, network issues, permission errors)
+- NO PLACEHOLDERS - every line of code must be production-ready
 
-### 5. Colab Compatibility Rules
-- Always check for 'google.colab' in sys.modules
-- Use /content/ paths for Colab environment
-- Handle missing system utilities (git, python versions)
-- Support both Colab and local development
-- Respect Colab resource limitations
+### 5. Multi-Cloud Compatibility Rules
+- Detect cloud platform automatically (Google Colab, Vast.ai, Lightning.ai, Paperspace, RunPod)
+- Use appropriate paths for each cloud environment
+- Handle missing system utilities gracefully
+- Support all cloud platforms with initial testing on Colab
+- Respect cloud resource limitations
 
-### 6. UI Integration Rules
-- Update Streamlit UI to reflect engine capabilities
-- Maintain existing dark cyberpunk theme
-- Provide real-time feedback through progress_callback
-- Show process status accurately in UI
-- Handle async operations in Streamlit properly
+### 6. Terminal Integration Rules
+- Show literally everything happening during installation and app launches
+- Display pure Python and pip output with no broad catches or obfuscation
+- Provide complete debugging visibility for error fixing
+- Ensure peace of mind that things are working, not running on placeholders
+- Implement comprehensive logging in terminal, Streamlit, and stored log files
 
 ### 7. Testing Requirements
-- Test with real apps from cleaned_pinokio_apps.json
+- Test with real apps from cleaned_pinokio_apps.json (284 applications)
 - Validate both .js and .json script execution
 - Test virtual environment isolation
 - Verify daemon processes work correctly
 - Test error conditions and recovery
+- Internal testing after each phase completion
+- Full testing session after each stage
+
+## 8-Phase Development Structure
+
+### Phase 1: Multi-Cloud Detection (Days 1-5)
+- Intelligent cloud detection system for all supported platforms
+- Environment-specific path mapping and configuration
+- Resource assessment frameworks (GPU, storage, network, security)
+- Platform-specific optimization profiles
+- Foundation architecture setup with proper abstractions
+
+### Phase 2: Complete Pinokio Engine Implementation (Days 6-12)
+- Complete shell.run with all subprocess management, signal handling, virtual environments
+- Complete fs operations with atomic operations, checksums, rollback capabilities
+- Complete script management with daemon handling, PID tracking, health monitoring
+- Complete variable substitution with all memory variables and complex expressions
+- Complete json operations with JSONPath support and atomic updates
+- Complete input method with form handling and validation
+
+### Phase 3: Advanced Application Lifecycle Management (Days 13-18)
+- Intelligent installation system with pre-analysis and verification
+- Virtual environment isolation exactly matching desktop Pinokio behavior
+- Dependency resolution with conflict detection and resolution
+- State management with file-based approach (not SQLite)
+- Virtual drive system with deduplication and symbolic linking
+
+### Phase 4: Web UI Discovery and Multi-Tunnel Management (Days 19-23)
+- Comprehensive server detection for 15+ web frameworks
+- Multi-provider tunnel orchestration (ngrok primary, Cloudflare backup)
+- Gradio integration with automatic share parameter injection
+- Advanced URL sharing with QR codes, analytics, and temporary links
+- Health monitoring and automatic reconnection systems
+
+### Phase 5: Cloud Platform Specialization (Days 24-26)
+- Google Colab optimizations (Drive mounting, session management, GPU handling)
+- Vast.ai professional features (certificates, Docker adaptation, billing optimization)
+- Lightning.ai team integration (workspaces, collaboration, resource sharing)
+- Cross-platform compatibility and performance optimization
+
+### Phase 6: Advanced Features and Optimization (Days 27-28)
+- Multi-layer caching system with intelligent prefetching
+- Performance monitoring and resource optimization
+- Error recovery and self-healing capabilities
+- Advanced logging and analytics systems
+
+### Phase 7: Comprehensive Testing and Validation (Days 29-30)
+- Real-world application testing across all categories (video, text, image, audio)
+- Multi-cloud testing matrix with different instance types
+- Performance benchmarking and optimization
+- Error condition testing and recovery validation
+
+### Phase 8: Streamlit UI Polish and Production Readiness (Day 31)
+- Dark cyberpunk theme refinement
+- WebSocket integration for real-time updates
+- Advanced terminal streaming with ANSI support
+- Responsive design and mobile optimization
+- User experience enhancements and accessibility
+
+## Testing Strategy
+
+### Internal Testing After Each Phase
+- Test recently completed stage and how it works with all previous steps
+- Search > Test searching capabilities and accuracy
+- venv > Test multiple apps installed in multiple environments
+- requirements > Test that requirements installed in venvs are contained and not interfering
+- install > Install 4 Pinokio apps (1 video, 1 text, 1 image, 1 audio) with varied installation methods
+- storage > Test storage and extra features, configuration for individual apps
+- run > Test running and initiation of each app, ensure it starts and launches correctly
+- launch > Test final web UI link generation (Gradio or ngrok/Cloudflare)
+
+### Final Testing
+- Full project testing with complete workflow
+- User testing of Streamlit UI
+- Deep testing of apps and actual project usage
+- Iteration and tightening of loose bolts
+
+## Scoring System
+- **+20 points**: Successful phase completion
+- **+10 points**: Pass phase while keeping rules in mind and updating running documents
+- **-10 points**: Fail to follow rules or create placeholders
+- **-100 points**: Hit a placeholder or fake function during testing
+- **0 points**: Termination or restart decision required
+
+## Documentation Update Intervals
+- **Changelog**: Update after every 5 functions created or edited
+- **AI Handover Context**: Update throughout development (continuous)
+- **Conflict Resolution**: Update before each development phase begins
 
 ## Forbidden Actions
-- Do NOT change the notebook deployment structure
-- Do NOT modify the ngrok token setup
-- Do NOT alter the GitHub clone workflow  
+- Do NOT create placeholder functions or incomplete implementations
+- Do NOT modify the GitHub clone workflow
 - Do NOT break backward compatibility with existing apps
 - Do NOT deviate from Pinokio.md without justification
+- Do NOT obfuscate or simplify Python/pip output
+- Do NOT create fake functions or corner-cutting functions
 
-## Development Priority Order
-1. Complete missing engine methods (run_app, stop_app, uninstall_app)
-2. Implement core Pinokio API (shell.run, fs.*, script.*)
-3. Add complete variable substitution system
-4. Implement daemon process management
-5. Add advanced features (virtual drives, error recovery)
-6. Optimize performance and polish UI
+## Development Approach
+- Focus on core engine functionality first
+- UI development comes in final phase
+- Internal testing and emulation of Streamlit UI during development
+- Use Jupyter notebook for testing when needed
+- Create basic Streamlit app for testing aspects if required
+- Comprehensive logging and debugging throughout
