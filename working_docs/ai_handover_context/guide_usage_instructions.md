@@ -7,7 +7,7 @@ This document provides comprehensive instructions for using all development guid
 
 ### Master Planning Documents
 **Primary Reference**: Pinokio-master-devplan.md
-- **Purpose**: Overall project strategy and 8-phase development structure
+- **Purpose**: Overall project strategy and 12-phase development structure
 - **Usage**: Start here for complete project understanding
 - **Relationships**: All other guides should align with this master plan
 
@@ -19,7 +19,7 @@ This document provides comprehensive instructions for using all development guid
 ### Phase-Specific Implementation Guides
 **Environment Management**: Venv-conda-plan.md
 - **Purpose**: Detailed virtual environment and dependency management
-- **Usage**: Reference for Phase 2 (Environment & Package Management)
+- **Usage**: Reference for Phase 2 (Environment Management Engine)
 - **Relationships**: Supports master plan Phase 2, aligns with dev-rules.md
 
 **Dependency Management**: AppReqs-Dependency-Plan.md
@@ -29,12 +29,12 @@ This document provides comprehensive instructions for using all development guid
 
 **Installation Strategy**: Install-plan.md
 - **Purpose**: Installation strategy and cloud platform analysis
-- **Usage**: Reference for Phase 1 (Foundation) and Phase 3 (Application Lifecycle)
+- **Usage**: Reference for Phase 1 (Multi-Cloud Detection & Repository Cloning) and Phase 5 (Application Installation Engine)
 - **Relationships**: Supports master plan Phases 1 and 3, aligns with dev-rules.md
 
 **Storage and UI**: Storage-devplan.md
 - **Purpose**: Advanced UI and notebook implementation
-- **Usage**: Reference for Phase 2 (UI Foundation) and Phase 4 (Advanced Features)
+- **Usage**: Reference for Phase 11 (Streamlit UI Development) and Phase 9 (Advanced Features and Optimization)
 - **Relationships**: Supports master plan Phases 2 and 4, aligns with dev-rules.md
 
 **Development Strategy**: Running-dev-plan.md
@@ -44,7 +44,7 @@ This document provides comprehensive instructions for using all development guid
 
 **Notebook Integration**: Notebook-streamlit-plan.md
 - **Purpose**: Advanced UI and notebook implementation (duplicate of Storage-devplan.md)
-- **Usage**: Reference for notebook-specific implementations
+- **Usage**: Reference for Phase 11 (Streamlit UI Development) notebook-specific implementations
 - **Relationships**: Supports master plan Phase 2, aligns with dev-rules.md
 
 ## Usage Instructions by Development Phase

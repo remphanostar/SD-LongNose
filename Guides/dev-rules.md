@@ -86,61 +86,90 @@ PinokioCloud is a cloud-native Pinokio alternative for multi-cloud GPU environme
 - Internal testing after each phase completion
 - Full testing session after each stage
 
-## 8-Phase Development Structure
+## 12-Phase Development Structure
 
-### Phase 1: Multi-Cloud Detection (Days 1-5)
+### Phase 1: Multi-Cloud Detection & Repository Cloning (Days 1-5)
 - Intelligent cloud detection system for all supported platforms
 - Environment-specific path mapping and configuration
 - Resource assessment frameworks (GPU, storage, network, security)
 - Platform-specific optimization profiles
 - Foundation architecture setup with proper abstractions
+- GitHub repository cloning into correct cloud folder
 
-### Phase 2: Complete Pinokio Engine Implementation (Days 6-12)
-- Complete shell.run with all subprocess management, signal handling, virtual environments
-- Complete fs operations with atomic operations, checksums, rollback capabilities
-- Complete script management with daemon handling, PID tracking, health monitoring
-- Complete variable substitution with all memory variables and complex expressions
-- Complete json operations with JSONPath support and atomic updates
-- Complete input method with form handling and validation
+### Phase 2: Environment Management Engine (Days 6-8)
+- Virtual environment creation and management
+- File system operations (copy, move, delete, read, write)
+- Shell command execution with output capture
+- Variable substitution system for all {{variable}} syntax
+- JSON file operations and configuration management
 
-### Phase 3: Advanced Application Lifecycle Management (Days 13-18)
-- Intelligent installation system with pre-analysis and verification
-- Virtual environment isolation exactly matching desktop Pinokio behavior
-- Dependency resolution with conflict detection and resolution
-- State management with file-based approach (not SQLite)
-- Virtual drive system with deduplication and symbolic linking
+### Phase 3: Pinokio App Analysis Engine (Days 9-11)
+- App characteristic detection (installer type, web UI, dependencies)
+- Installer method detection (install.js, install.json, requirements.txt, environment.yml)
+- Web UI detection (Gradio, Streamlit, Flask, FastAPI)
+- Dependency system analysis (pip, conda, npm, system packages)
+- Tunnel requirements determination (ngrok, gradio share, no tunneling)
+- Complete app profiling for installation and running
 
-### Phase 4: Web UI Discovery and Multi-Tunnel Management (Days 19-23)
+### Phase 4: Dependency Detection & Installation Engine (Days 12-14)
+- Comprehensive dependency file detection
+- Multi-package manager support (pip, conda, npm, system)
+- Dependency conflict resolution
+- Installation verification and testing
+- Cross-platform dependency compatibility
+
+### Phase 5: Application Installation Engine (Days 15-17)
+- Pinokio app installation using detected methods
+- Script parsing and execution (.js and .json)
+- User input handling and form management
+- Installation state tracking and management
+- Complete installation coordination
+
+### Phase 6: Application Running Engine (Days 18-20)
+- Process management and tracking
+- Daemon process handling
+- Health monitoring and automatic restart
+- Virtual drive and storage management
+- Application lifecycle management
+
+### Phase 7: Web UI Discovery and Multi-Tunnel Management (Days 21-23)
 - Comprehensive server detection for 15+ web frameworks
 - Multi-provider tunnel orchestration (ngrok primary, Cloudflare backup)
 - Gradio integration with automatic share parameter injection
 - Advanced URL sharing with QR codes, analytics, and temporary links
 - Health monitoring and automatic reconnection systems
 
-### Phase 5: Cloud Platform Specialization (Days 24-26)
+### Phase 8: Cloud Platform Specialization (Days 24-26)
 - Google Colab optimizations (Drive mounting, session management, GPU handling)
 - Vast.ai professional features (certificates, Docker adaptation, billing optimization)
 - Lightning.ai team integration (workspaces, collaboration, resource sharing)
 - Cross-platform compatibility and performance optimization
 
-### Phase 6: Advanced Features and Optimization (Days 27-28)
+### Phase 9: Advanced Features and Optimization (Days 27-29)
 - Multi-layer caching system with intelligent prefetching
 - Performance monitoring and resource optimization
 - Error recovery and self-healing capabilities
 - Advanced logging and analytics systems
 
-### Phase 7: Comprehensive Testing and Validation (Days 29-30)
+### Phase 10: Comprehensive Testing and Validation (Days 30-32)
 - Real-world application testing across all categories (video, text, image, audio)
 - Multi-cloud testing matrix with different instance types
 - Performance benchmarking and optimization
 - Error condition testing and recovery validation
 
-### Phase 8: Streamlit UI Polish and Production Readiness (Day 31)
-- Dark cyberpunk theme refinement
+### Phase 11: Streamlit UI Development (Days 33-35)
+- Dark cyberpunk theme implementation
 - WebSocket integration for real-time updates
 - Advanced terminal streaming with ANSI support
 - Responsive design and mobile optimization
 - User experience enhancements and accessibility
+
+### Phase 12: Final Polish and Production Readiness (Days 36-38)
+- Comprehensive error handling and user-friendly messages
+- Final performance optimizations and cleanup
+- User documentation and help file generation
+- Backup and recovery systems
+- Production readiness validation
 
 ## Testing Strategy
 

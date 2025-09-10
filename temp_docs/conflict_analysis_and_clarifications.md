@@ -20,12 +20,12 @@ After comprehensive analysis of all development guides and plans, I have identif
 
 #### 1.2 Development Phase Priority Contradiction
 **Conflict**: Master dev plan vs. Rules.md priority order
-- **Master Plan**: 8-phase structure with Phase 1 (Multi-Cloud Detection) as foundation
+- **Master Plan**: 12-phase structure with Phase 1 (Multi-Cloud Detection & Repository Cloning) as foundation
 - **Rules.md**: Lists "Complete missing engine methods" as Priority 1
 - **Impact**: Development sequence and resource allocation
-- **Question**: Which priority order should we follow - the 8-phase master plan or the rules.md priority list?
+- **Question**: Which priority order should we follow - the 12-phase master plan or the rules.md priority list?
 
-**✅ RESOLVED**: Master Plan 8-phase structure. Rules.md updated to reflect this approach.
+**✅ RESOLVED**: Master Plan 12-phase structure. Rules.md updated to reflect this approach.
 
 #### 1.3 Platform Support Scope Disagreement
 **Conflict**: Master plan vs. Individual plans
@@ -93,9 +93,9 @@ After comprehensive analysis of all development guides and plans, I have identif
 
 **✅ RESOLVED**: GitHub repo holds scripts and files, cloned in Cell 1 by notebook into dynamic folder based on cloud GPU service. Scripts used by both notebook and Streamlit UI.
 
-2. **Development Approach**: Should we follow the 8-phase master plan structure or the priority-based approach from rules.md?
+2. **Development Approach**: Should we follow the 12-phase master plan structure or the priority-based approach from rules.md?
 
-**✅ RESOLVED**: 8-phase plan. Rules.md updated to replace priority stuff with 8-phase plan.
+**✅ RESOLVED**: 12-phase plan. Rules.md updated to replace priority stuff with 12-phase plan.
 
 3. **Platform Scope**: Should we implement full multi-cloud support or focus on Colab-first development?
 
@@ -145,7 +145,7 @@ After comprehensive analysis of all development guides and plans, I have identif
 
 13. **Phase Implementation**: Should we follow the detailed day-by-day breakdown from individual plans or the high-level phase approach from the master plan?
 
-**✅ RESOLVED**: High-level phase approach from the master plan.
+**✅ RESOLVED**: High-level phase approach from the 12-phase master plan.
 
 14. **Feature Prioritization**: Which features should be implemented first - core engine functionality or advanced UI features?
 

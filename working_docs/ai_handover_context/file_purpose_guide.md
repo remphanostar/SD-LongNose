@@ -8,7 +8,7 @@
 - **notebook_vs_desktop_differences.md**: Analysis of differences between notebook and desktop Pinokio implementations
 
 ### Guides Directory (/workspace/Guides/)
-- **Pinokio-master-devplan.md**: Master development plan with 8-phase structure and comprehensive implementation strategy
+- **Pinokio-master-devplan.md**: Master development plan with 12-phase structure and comprehensive implementation strategy
 - **Venv-conda-plan.md**: Detailed virtual environment and dependency management plan with second-by-second implementation
 - **AppReqs-Dependency-Plan.md**: Comprehensive dependency management guide covering all Pinokio installation patterns
 - **Install-plan.md**: Installation strategy and cloud platform analysis with TODO lists for each platform

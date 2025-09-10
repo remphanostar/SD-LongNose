@@ -14,7 +14,7 @@
 
 ### Pending User Decisions
 - 🔄 Repository structure choice (master plan vs existing notebook)
-- 🔄 Development approach (8-phase vs priority-based)
+- 🔄 Development approach (12-phase vs priority-based)
 - 🔄 Platform scope (multi-cloud vs Colab-first)
 - 🔄 Engine architecture (comprehensive vs unified)
 
@@ -24,7 +24,7 @@
 
 ### Required User Decisions
 1. **Repository Structure**: Choose between master plan's `cloud-pinokio/` structure or existing notebook approach
-2. **Development Approach**: Choose between 8-phase master plan or rules.md priority-based approach
+2. **Development Approach**: Choose between 12-phase master plan or rules.md priority-based approach
 3. **Platform Scope**: Choose between full multi-cloud support or Colab-first development
 4. **Engine Architecture**: Choose between comprehensive engine structure or unified engine approach
 
