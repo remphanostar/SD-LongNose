@@ -546,4 +546,10 @@ This phase polishes everything, fixes any remaining issues, and prepares the sys
 - **-10 points**: Any placeholder or incomplete function found
 - **-100 points**: Placeholder function discovered during testing
 
+### **Documentation Tracking Rule:**
+- **Read this document** after every 5 functions created or edited to stay on track
+- **Verify phase alignment** with current development progress
+- **Check completion tests** to ensure no shortcuts are taken
+- **Maintain focus** on current phase objectives
+
 **This ensures every single function is production-ready and no shortcuts are taken!**

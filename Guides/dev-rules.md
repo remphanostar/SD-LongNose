@@ -200,6 +200,7 @@ PinokioCloud is a cloud-native Pinokio alternative for multi-cloud GPU environme
 - **Changelog**: Update after every 5 functions created or edited
 - **AI Handover Context**: Update throughout development (continuous)
 - **Conflict Resolution**: Update before each development phase begins
+- **Phase Specifications**: Read complete_phase_specifications.md after every 5 functions created or edited to stay on track
 
 ## Forbidden Actions
 - Do NOT create placeholder functions or incomplete implementations
