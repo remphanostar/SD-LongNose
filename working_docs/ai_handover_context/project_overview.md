@@ -1,5 +1,11 @@
 # PinokioCloud Project Overview
 
+## 🚨 **NEW AI AGENT: READ `COMPLETE_AI_HANDOVER_GUIDE.md` FIRST!**
+
+**This document gives you complete guidance on everything. Read it before doing anything else.**
+
+---
+
 ## Project Description
 PinokioCloud is a cloud-native Pinokio alternative designed for multi-cloud GPU environments including Google Colab, Vast.ai, Lightning.ai, Paperspace, and RunPod. The project aims to implement complete Pinokio functionality as specified in Pinokio.md with zero deviations, creating a production-ready system that rivals desktop Pinokio in capabilities while leveraging cloud advantages.
 
