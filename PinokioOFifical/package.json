@@ -1,0 +1,130 @@
+{
+  "name": "Pinokio",
+  "private": true,
+  "version": "3.41.0",
+  "homepage": "https://pinokio.co",
+  "description": "pinokio",
+  "main": "main.js",
+  "email": "cocktailpeanuts@proton.me",
+  "author": "https://twitter.com/cocktailpeanut",
+  "scripts": {
+    "start": "electron .",
+    "pack": "./node_modules/.bin/electron-builder --dir",
+    "eject": "hdiutil info | grep '/dev/disk' | awk '{print $1}' | xargs -I {} hdiutil detach {}",
+    "l": "docker run --rm -ti -v $PWD:/project -w /project -e SNAPCRAFT_BUILD_ENVIRONMENT=host -e SNAP_DESTRUCTIVE_MODE=true electronuserland/builder bash -lc 'rm -rf node_modules && npm install && npm run monkeypatch && ./node_modules/.bin/electron-builder install-app-deps && ./node_modules/.bin/electron-builder -l'",
+    "mw": "rm -rf node_modules && npm install && npm run monkeypatch && ./node_modules/.bin/electron-builder install-app-deps && ./node_modules/.bin/electron-builder -mw && npm run zip",
+    "build2": "npm run l && npm run mw",
+    "dist": "npm run monkeypatch && ./node_modules/.bin/electron-builder install-app-deps && export SNAPCRAFT_BUILD_ENVIRONMENT=host && export SNAP_DESTRUCTIVE_MODE='true' && ./node_modules/.bin/electron-builder -l && npm run zip",
+    "dist2": "npm run monkeypatch && export USE_SYSTEM_FPM=true && ./node_modules/.bin/electron-builder install-app-deps && export SNAPCRAFT_BUILD_ENVIRONMENT=host && export SNAP_DESTRUCTIVE_MODE='true' && ./node_modules/.bin/electron-builder -mwl && npm run zip",
+    "zip": "node script/zip",
+    "monkeypatch": "cp temp/yarn.js node_modules/app-builder-lib/out/util/yarn.js && cp temp/rebuild.js node_modules/@electron/rebuild/lib/src/rebuild.js",
+    "postinstall2": "npm run monkeypatch && ./node_modules/.bin/electron-builder install-app-deps",
+    "fix": "brew install fpm"
+  },
+  "build": {
+    "appId": "computer.pinokio",
+    "afterPack": "chmod.js",
+    "afterSign": "electron-builder-notarize",
+    "directories": {
+      "output": "dist-${platform}"
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "pinokiocomputer",
+        "repo": "pinokio"
+      }
+    ],
+    "asarUnpack": [
+      "node_modules/go-get-folder-size/**/*",
+      "node_modules/7zip-bin/**/*",
+      "node_modules/sweetalert2/**/*",
+      "node_modules/@homebridge/**/*"
+    ],
+    "nsis": {
+      "include": "build/installer.nsh"
+    },
+    "extraResources": [
+      "./script/**",
+      {
+        "from": "assets/icon_small.png",
+        "to": "assets/icon_small.png"
+      }
+    ],
+    "protocols": [
+      {
+        "name": "pinokio",
+        "schemes": [
+          "pinokio"
+        ]
+      }
+    ],
+    "mac": {
+      "category": "utility",
+      "target": [
+        {
+          "target": "default",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ],
+      "hardenedRuntime": true
+    },
+    "linux": {
+      "maintainer": "Cocktail Peanut <cocktailpeanuts@proton.me>",
+      "target": [
+        {
+          "target": "deb",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        },
+        {
+          "target": "rpm",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        },
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ]
+    },
+    "win": {
+      "artifactName": "Pinokio.${ext}",
+      "signtoolOptions": {
+        "sign": "./build/sign.js"
+      },
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    }
+  },
+  "license": "MIT",
+  "dependencies": {
+    "electron-progressbar": "^2.2.1",
+    "electron-store": "^8.1.0",
+    "electron-updater": "^6.6.2",
+    "electron-window-state": "^5.0.3",
+    "pinokiod": "^3.41.0"
+  },
+  "devDependencies": {
+    "@electron/rebuild": "3.2.10",
+    "electron": "^23.1.2",
+    "electron-builder": "^26.0.18",
+    "electron-builder-notarize": "^1.5.2"
+  }
+}

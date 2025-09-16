@@ -1,0 +1,103 @@
+2025-09-01 14:58:32,839 - INFO - Discovered 18 notebooks:
+2025-09-01 14:58:32,839 - INFO -   - Pinokio_Colab_Final(1)(1).ipynb
+2025-09-01 14:58:32,839 - INFO -   - archive\Pinokio_Cloud_GPU.ipynb
+2025-09-01 14:58:32,839 - INFO -   - archive\Pinokio_Colab_Final.ipynb
+2025-09-01 14:58:32,840 - INFO -   - archive\Pinokio_Colab_Fixed.ipynb
+2025-09-01 14:58:32,840 - INFO -   - archive\Pinokio_Colab_Ready.ipynb
+2025-09-01 14:58:32,840 - INFO -   - github_upload\Pinokio_Colab_Final.ipynb
+2025-09-01 14:58:32,840 - INFO -   - windows_testing_env\SD-LongNose\Pinokio_Cloud_GPU.ipynb
+2025-09-01 14:58:32,841 - INFO -   - windows_testing_env\SD-LongNose\Pinokio_Colab_Final.ipynb
+2025-09-01 14:58:32,841 - INFO -   - windows_testing_env\SD-LongNose\Pinokio_Colab_Fixed.ipynb
+2025-09-01 14:58:32,841 - INFO -   - windows_testing_env\SD-LongNose\Pinokio_Colab_Ready.ipynb
+2025-09-01 14:58:32,841 - INFO -   - windows_testing_env\test_outputs\test_result_20250901_135828.ipynb
+2025-09-01 14:58:32,842 - INFO -   - windows_testing_env\test_outputs\test_result_20250901_135841.ipynb
+2025-09-01 14:58:32,842 - INFO -   - windows_testing_env\test_outputs\test_result_20250901_141048.ipynb
+2025-09-01 14:58:32,842 - INFO -   - github_upload\Pinokio_Colab_Final.ipynb
+2025-09-01 14:58:32,842 - INFO -   - archive\Pinokio_Cloud_GPU.ipynb
+2025-09-01 14:58:32,843 - INFO -   - archive\Pinokio_Colab_Final.ipynb
+2025-09-01 14:58:32,843 - INFO -   - archive\Pinokio_Colab_Fixed.ipynb
+2025-09-01 14:58:32,843 - INFO -   - archive\Pinokio_Colab_Ready.ipynb
+2025-09-01 14:58:33,706 - INFO - Ngrok already installed
+2025-09-01 14:58:33,707 - INFO - Authenticating ngrok...
+2025-09-01 14:58:33,783 - INFO - Ngrok authentication successful
+2025-09-01 14:58:33,783 - INFO - 
+============================================================
+2025-09-01 14:58:33,784 - INFO - Testing notebook: archive\Pinokio_Colab_Final.ipynb
+2025-09-01 14:58:33,784 - INFO - ============================================================
+2025-09-01 14:58:33,809 - INFO - Notebook analysis: {
+  "path": "A:\\Tools n Programs\\PinokioNotebook\\archive\\Pinokio_Colab_Final.ipynb",
+  "name": "Pinokio_Colab_Final.ipynb",
+  "cell_count": 14,
+  "code_cells": 6,
+  "markdown_cells": 8,
+  "has_pinokio_imports": true,
+  "has_ngrok_setup": true,
+  "has_ui_launch": true,
+  "estimated_runtime": "long"
+}
+2025-09-01 14:58:33,855 - ERROR - Failed to execute notebook: module 'mock_gpu_env' has no attribute 'setup_mock_environment'
+2025-09-01 14:58:33,855 - INFO - 
+============================================================
+2025-09-01 14:58:33,856 - INFO - Testing notebook: github_upload\Pinokio_Colab_Final.ipynb
+2025-09-01 14:58:33,856 - INFO - ============================================================
+2025-09-01 14:58:33,858 - INFO - Notebook analysis: {
+  "path": "A:\\Tools n Programs\\PinokioNotebook\\github_upload\\Pinokio_Colab_Final.ipynb",
+  "name": "Pinokio_Colab_Final.ipynb",
+  "cell_count": 9,
+  "code_cells": 6,
+  "markdown_cells": 3,
+  "has_pinokio_imports": true,
+  "has_ngrok_setup": true,
+  "has_ui_launch": true,
+  "estimated_runtime": "long"
+}
+2025-09-01 14:58:33,861 - ERROR - Failed to execute notebook: module 'mock_gpu_env' has no attribute 'setup_mock_environment'
+2025-09-01 14:58:33,861 - INFO - 
+============================================================
+2025-09-01 14:58:33,861 - INFO - Testing notebook: windows_testing_env\SD-LongNose\Pinokio_Colab_Final.ipynb
+2025-09-01 14:58:33,862 - INFO - ============================================================
+2025-09-01 14:58:33,863 - INFO - Notebook analysis: {
+  "path": "A:\\Tools n Programs\\PinokioNotebook\\windows_testing_env\\SD-LongNose\\Pinokio_Colab_Final.ipynb",
+  "name": "Pinokio_Colab_Final.ipynb",
+  "cell_count": 14,
+  "code_cells": 6,
+  "markdown_cells": 8,
+  "has_pinokio_imports": true,
+  "has_ngrok_setup": true,
+  "has_ui_launch": true,
+  "estimated_runtime": "long"
+}
+2025-09-01 14:58:33,867 - ERROR - Failed to execute notebook: module 'mock_gpu_env' has no attribute 'setup_mock_environment'
+2025-09-01 14:58:33,867 - INFO - 
+============================================================
+2025-09-01 14:58:33,867 - INFO - Testing notebook: github_upload\Pinokio_Colab_Final.ipynb
+2025-09-01 14:58:33,867 - INFO - ============================================================
+2025-09-01 14:58:33,869 - INFO - Notebook analysis: {
+  "path": "A:\\Tools n Programs\\PinokioNotebook\\github_upload\\Pinokio_Colab_Final.ipynb",
+  "name": "Pinokio_Colab_Final.ipynb",
+  "cell_count": 9,
+  "code_cells": 6,
+  "markdown_cells": 3,
+  "has_pinokio_imports": true,
+  "has_ngrok_setup": true,
+  "has_ui_launch": true,
+  "estimated_runtime": "long"
+}
+2025-09-01 14:58:33,874 - ERROR - Failed to execute notebook: module 'mock_gpu_env' has no attribute 'setup_mock_environment'
+2025-09-01 14:58:33,874 - INFO - 
+============================================================
+2025-09-01 14:58:33,875 - INFO - Testing notebook: archive\Pinokio_Colab_Final.ipynb
+2025-09-01 14:58:33,875 - INFO - ============================================================
+2025-09-01 14:58:33,877 - INFO - Notebook analysis: {
+  "path": "A:\\Tools n Programs\\PinokioNotebook\\archive\\Pinokio_Colab_Final.ipynb",
+  "name": "Pinokio_Colab_Final.ipynb",
+  "cell_count": 14,
+  "code_cells": 6,
+  "markdown_cells": 8,
+  "has_pinokio_imports": true,
+  "has_ngrok_setup": true,
+  "has_ui_launch": true,
+  "estimated_runtime": "long"
+}
+2025-09-01 14:58:33,893 - ERROR - Failed to execute notebook: module 'mock_gpu_env' has no attribute 'setup_mock_environment'
+2025-09-01 14:58:33,898 - INFO - Cleaning up processes...

@@ -1,0 +1,6 @@
+2025-09-01 15:02:37,245 - enhanced_tester - INFO - Enhanced Notebook Tester Started - Log: A:\Tools n Programs\PinokioNotebook\windows_testing_env\test_outputs\enhanced_test_20250901_150237.log
+2025-09-01 15:02:37,270 - enhanced_tester - INFO - Mock GPU environment activated
+2025-09-01 15:02:37,270 - enhanced_tester - INFO - Downloading and installing ngrok...
+2025-09-01 15:02:37,271 - enhanced_tester - INFO - Downloading ngrok to A:\Tools n Programs\PinokioNotebook\windows_testing_env\temp\ngrok.zip
+2025-09-01 15:02:40,608 - enhanced_tester - INFO - Extracting ngrok...
+2025-09-01 15:02:40,731 - enhanced_tester - ERROR - Failed to install ngrok: [Errno 22] Invalid argument: 'A:\\Tools n Programs\\PinokioNotebook\\windows_testing_env\\temp\\ngrok.zip'

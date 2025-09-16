@@ -1,0 +1,55 @@
+# Pinokio Cloud GPU - GitHub Upload Exclusions
+
+# Windows Testing Environment (DO NOT UPLOAD)
+windows_testing_env/
+**/windows_testing_env/**
+
+# Python Cache and Logs
+__pycache__/
+*.py[cod]
+*$py.class
+*.log
+
+# Virtual Environments  
+.venv/
+venv/
+env/
+
+# IDE and Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS Generated Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints
+
+# Testing and Development Files
+test_outputs/
+mock_*.py
+test_*.py
+papermill_*.py
+organize_files.py
+
+# Local Configuration and State
+pinokio_state.json
+pinokio_cloud.log
+latest.json
+
+# Temporary Files
+*.tmp
+*.temp
+*.bak
+
+# Archive Directory (Optional - can be uploaded for history)
+# archive/

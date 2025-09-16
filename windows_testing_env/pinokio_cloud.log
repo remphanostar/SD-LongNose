@@ -1,0 +1,10 @@
+2025-09-01 13:48:17,135 - PinokioCloudGPU - INFO - _update_state:230 - State updated: setting_up
+2025-09-01 13:48:17,315 - PinokioCloudGPU - INFO - _update_state:230 - State updated: setup_complete
+2025-09-01 13:48:29,344 - PinokioCloudGPU - WARNING - _load_state:202 - Failed to load state: 'str' object has no attribute 'value', using fresh state
+2025-09-01 13:48:29,345 - PinokioCloudGPU - INFO - _update_state:230 - State updated: setting_up
+2025-09-01 13:48:29,457 - PinokioCloudGPU - INFO - _update_state:230 - State updated: setup_complete
+2025-09-01 14:11:10,304 - PinokioCloudGPU - WARNING - _load_state:202 - Failed to load state: 'str' object has no attribute 'value', using fresh state
+2025-09-01 14:11:10,305 - PinokioCloudGPU - INFO - _update_state:230 - State updated: setting_up
+2025-09-01 14:11:10,311 - PinokioCloudGPU - INFO - setup:249 - Mounting Google Drive for Colab...
+2025-09-01 14:11:10,314 - PinokioCloudGPU - WARNING - setup:251 - Google Drive mount failed, continuing anyway
+2025-09-01 14:11:10,450 - PinokioCloudGPU - INFO - _update_state:230 - State updated: setup_complete

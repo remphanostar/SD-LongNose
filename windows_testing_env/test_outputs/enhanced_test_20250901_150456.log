@@ -1,0 +1,4 @@
+2025-09-01 15:04:56,272 - enhanced_tester - INFO - Enhanced Notebook Tester Started - Log: A:\Tools n Programs\PinokioNotebook\windows_testing_env\test_outputs\enhanced_test_20250901_150456.log
+2025-09-01 15:04:56,293 - enhanced_tester - INFO - Mock GPU environment activated
+2025-09-01 15:04:56,294 - enhanced_tester - WARNING - ⚠️ Ngrok installation skipped - will use manual tunnel later
+2025-09-01 15:04:56,294 - enhanced_tester - INFO - Focusing on getting Pinokio running first...

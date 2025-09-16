@@ -1,0 +1,9 @@
+# Pinokio Cloud GPU - Minimal Dependencies
+# These are the only packages needed for the simplified version
+
+requests>=2.25.0
+pathlib2>=2.3.0; python_version < '3.4'
+
+# Optional: For enhanced features
+# numpy>=1.21.0
+# pillow>=8.0.0

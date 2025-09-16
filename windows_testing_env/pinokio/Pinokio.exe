@@ -1,0 +1,5 @@
+@echo off
+echo Mock Pinokio server starting...
+timeout /t 2 >nul
+echo Pinokio server ready on port 42000
+pause
